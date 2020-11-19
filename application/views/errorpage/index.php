@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('log/dashboard'); ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Home</a></li>
             <li class="breadcrumb-item active"><?= $subjudul; ?></li>
           </ol>
         </div>
@@ -26,7 +26,7 @@
         <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
         <p>
           <?= $konten; ?>
-          <?= $kontenBreak; ?> <a href="<?= base_url('log/dashboard'); ?>">Kembali ke dashboard.</a>
+          <?= $kontenBreak; ?> <a href="<?= base_url('dashboard'); ?>">Kembali ke dashboard.</a>
         </p>
       </div>
       <!-- /.error-content -->

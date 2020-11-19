@@ -116,7 +116,7 @@ class User extends CI_Controller
 
 			$this->m_user->tambahDataUsers($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('log/user');
+			redirect('user');
 		}
 	}
 
@@ -181,7 +181,7 @@ class User extends CI_Controller
 
 			$this->m_user->ubahDataUsers($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('log/user');
+			redirect('user');
 		}
 	}
 
@@ -236,7 +236,7 @@ class User extends CI_Controller
 
 			$this->m_user->ubahDataUsers($data, $id);
 			$this->session->set_flashdata('message', 'Password Diubah');
-			redirect('log/user');
+			redirect('user');
 		}
 	}
 
@@ -244,6 +244,6 @@ class User extends CI_Controller
 	{
 		$this->m_user->hapusDataUsers($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('log/user');
+		redirect('user');
 	}
 }

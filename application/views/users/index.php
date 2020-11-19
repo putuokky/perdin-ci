@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('log/dashboard'); ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Home</a></li>
             <li class="breadcrumb-item active"><?= $judul; ?></li>
           </ol>
         </div>
@@ -36,7 +36,7 @@
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
                 </div> -->
               <?php endif; ?>
-              <a href="<?= base_url('log/user/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="<?= base_url('user/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -71,9 +71,9 @@
                   foreach ($users as $us) : ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="<?= base_url('log/user/ubah/' . $us['id']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
-                        <a href="<?= base_url('log/user/hapus/' . $us['id']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
-                        <a href="<?= base_url('log/user/changepassw/' . $us['id']); ?>" class="btn btn-sm btn-info"><i class="fas fa-key"></i> Ganti Password</a>
+                      <td><a href="<?= base_url('user/ubah/' . $us['id']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
+                        <a href="<?= base_url('user/hapus/' . $us['id']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
+                        <a href="<?= base_url('user/changepassw/' . $us['id']); ?>" class="btn btn-sm btn-info"><i class="fas fa-key"></i> Ganti Password</a>
                       </td>
                       <td><?= $us['name']; ?></td>
                       <td><?= $us['usrname']; ?></td>

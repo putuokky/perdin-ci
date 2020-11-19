@@ -52,21 +52,3 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'login';
 $route['404_override'] = 'errorpage';
 $route['translate_uri_dashes'] = FALSE;
-
-$route['log/dashboard(/:any)?'] = 'dashboard$1';
-$route['log/dashboard/(:any)/(:num)'] = 'dashboard/$1/$2';
-
-$route['log/menu(/:any)?'] = 'menu$1';
-$route['log/menu/(:any)/(:num)'] = 'menu/$1/$2';
-
-$route['log/submenu(/:any)?'] = 'submenu$1';
-$route['log/submenu/(:any)/(:num)'] = 'submenu/$1/$2';
-
-$route['log/roleuser(/:any)?'] = 'roleuser$1';
-$route['log/roleuser/(:any)/(:num)'] = 'roleuser/$1/$2';
-
-$route['log/user(/:any)?'] = 'user$1';
-$route['log/user/(:any)/(:num)'] = 'user/$1/$2';
-
-$route['log/config(/:any)?'] = 'config$1';
-$route['log/config/(:any)/(:num)'] = 'config/$1/$2';
