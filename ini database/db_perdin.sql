@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Nov 2020 pada 05.02
+-- Waktu pembuatan: 19 Nov 2020 pada 06.34
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -38,9 +38,9 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
-(1, 'brand', 'SIKUDACHI'),
-(2, 'main_header', 'SIKUDACHI (Sistem Informasi Kushin ryu Denpasar terChinta)'),
-(4, 'version', '1.07.20'),
+(1, 'brand', 'PERDIN'),
+(2, 'main_header', 'APA NEEE'),
+(4, 'version', '1.11.20'),
 (5, 'nama_pengembang', 'mahesora.id'),
 (6, 'link_pengembang', 'http://www.mahesora.id/');
 
