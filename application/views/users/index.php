@@ -47,6 +47,7 @@
                     <th>Opsi</th>
                     <th>Nama</th>
                     <th>Username</th>
+                    <th>Bagian</th>
                     <th>Role User</th>
                     <th>Status</th>
                     <th>Date Created</th>
@@ -58,6 +59,7 @@
                     <th>Opsi</th>
                     <th>Nama</th>
                     <th>Username</th>
+                    <th>Bagian</th>
                     <th>Role User</th>
                     <th>Status</th>
                     <th>Date Created</th>
@@ -75,6 +77,11 @@
                       </td>
                       <td><?= $us['name']; ?></td>
                       <td><?= $us['usrname']; ?></td>
+                      <td><?php if ($us['nama_bagian']) {
+                            echo $us['nama_bagian'];
+                          } else {
+                            echo '-';
+                          } ?></td>
                       <td><?= $us['role']; ?></td>
                       <td><?php
                           if ($us['is_active'] == 1) { ?>

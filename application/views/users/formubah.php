@@ -43,6 +43,11 @@
                   <small class="form-text text-danger"><?= form_error('user'); ?></small>
                 </div>
                 <div class="form-group">
+                  <label for="namabagian">Bagian</label>
+                  <input type="text" class="form-control col-md-6" id="namabagian" name="namabagian" placeholder="Enter Bagian" value="<?= $user['nama_bagian']; ?>">
+                  <small class="form-text text-danger"><?= form_error('namabagian'); ?></small>
+                </div>
+                <div class="form-group">
                   <label for="roleusr">Role User</label>
                   <select class="form-control col-md-4 select2bs4" name="roleusr">
                     <option value="0">-</option>

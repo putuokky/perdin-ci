@@ -87,6 +87,7 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('user', 'Username', 'required');
 		$this->form_validation->set_rules('passwrd', 'Password', 'required');
+		$this->form_validation->set_rules('namabagian', 'Bagian', 'required');
 		$this->form_validation->set_rules('roleusr', 'Role User', 'required');
 
 		if ($this->form_validation->run() == false) {
@@ -99,6 +100,7 @@ class User extends CI_Controller
 			$nama = $this->input->post('nama');
 			$user = $this->input->post('user');
 			$passwrd = password_hash($this->input->post('passwrd'), PASSWORD_DEFAULT);
+			$namabagian = $this->input->post('namabagian');
 			$roleusr = $this->input->post('roleusr');
 			$status = $this->input->post('status');
 
@@ -106,6 +108,7 @@ class User extends CI_Controller
 				'name' => $nama,
 				'usrname' => $user,
 				'password' => $passwrd,
+				'nama_bagian' => $namabagian,
 				'role_id' => $roleusr,
 				'is_active' => $status,
 				'date_user' => time()
@@ -153,6 +156,7 @@ class User extends CI_Controller
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('roleusr', 'Role User', 'required');
+		$this->form_validation->set_rules('namabagian', 'Bagian', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
@@ -163,11 +167,13 @@ class User extends CI_Controller
 		} else {
 			$id = $this->input->post('id');  // tidak perlu ini diubah
 			$nama = $this->input->post('nama');
+			$namabagian = $this->input->post('namabagian');
 			$roleusr = $this->input->post('roleusr');
 			$status = $this->input->post('status');
 
 			$data = [
 				'name' => $nama,
+				'nama_bagian' => $namabagian,
 				'role_id' => $roleusr,
 				'is_active' => $status,
 				'date_user' => time()
