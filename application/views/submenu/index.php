@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('log/dashboard'); ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Home</a></li>
             <li class="breadcrumb-item active"><?= $judul; ?></li>
           </ol>
         </div>
@@ -36,7 +36,7 @@
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
                 </div> -->
               <?php endif; ?>
-              <a href="<?= base_url('log/submenu/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="<?= base_url('submenu/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -71,8 +71,8 @@
                   foreach ($submenu as $sm) : ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="<?= base_url('log/submenu/ubah/' . $sm['id_user_sub_menu']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
-                        <a href="<?= base_url('log/submenu/hapus/' . $sm['id_user_sub_menu']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
+                      <td><a href="<?= base_url('submenu/ubah/' . $sm['id_user_sub_menu']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
+                        <a href="<?= base_url('submenu/hapus/' . $sm['id_user_sub_menu']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
                       <td><?= $sm['submenu']; ?></td>
                       <td><?= $sm['menu']; ?></td>

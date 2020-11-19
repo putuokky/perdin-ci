@@ -96,7 +96,7 @@ class Menu extends CI_Controller
 
 			$this->m_menu->tambahDataMenu($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('log/menu');
+			redirect('menu');
 		}
 	}
 
@@ -152,7 +152,7 @@ class Menu extends CI_Controller
 
 			$this->m_menu->ubahDataMenu($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('log/menu');
+			redirect('menu');
 		}
 	}
 
@@ -160,6 +160,6 @@ class Menu extends CI_Controller
 	{
 		$this->m_menu->hapusDataMenu($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('log/menu');
+		redirect('menu');
 	}
 }

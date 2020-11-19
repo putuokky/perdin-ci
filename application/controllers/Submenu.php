@@ -107,7 +107,7 @@ class Submenu extends CI_Controller
 
 			$this->m_submenu->tambahDataSubMenu($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('log/submenu');
+			redirect('submenu');
 		}
 	}
 
@@ -172,7 +172,7 @@ class Submenu extends CI_Controller
 
 			$this->m_submenu->ubahDataSubMenu($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('log/submenu');
+			redirect('submenu');
 		}
 	}
 
@@ -180,6 +180,6 @@ class Submenu extends CI_Controller
 	{
 		$this->m_submenu->hapusDataSubMenu($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('log/submenu');
+		redirect('submenu');
 	}
 }

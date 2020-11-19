@@ -93,7 +93,7 @@ class Config extends CI_Controller
 
 			$this->m_config->tambahDataConfig($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('log/config');
+			redirect('config');
 		}
 	}
 
@@ -144,7 +144,7 @@ class Config extends CI_Controller
 
 			$this->m_config->ubahDataConfig($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('log/config');
+			redirect('config');
 		}
 	}
 
@@ -152,6 +152,6 @@ class Config extends CI_Controller
 	{
 		$this->m_config->hapusDataConfig($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('log/config');
+		redirect('config');
 	}
 }
