@@ -2,7 +2,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> <?= $version; ?>
     </div>
-    <strong>Copyright &copy; <?= date('Y'); ?> - <a href="<?= base_url('log/dashboard'); ?>"><?= $brand; ?></a>.</strong> Development by <a href="<?= $link_pengembang; ?>" target="_blank"><?= $nama_pengembang; ?></a>
+    <strong>Copyright &copy; <?= date('Y'); ?> - <a href="<?= base_url('dashboard'); ?>"><?= $brand; ?></a>.</strong> Development by <a href="<?= $link_pengembang; ?>" target="_blank"><?= $nama_pengembang; ?></a>
 
   </footer>
 
@@ -170,14 +170,14 @@
       const roleId = $(this).data('role');
 
       $.ajax({
-        url: "<?= base_url('log/roleuser/changeaccess'); ?>",
+        url: "<?= base_url('roleuser/changeaccess'); ?>",
         type: 'post',
         data: {
           menuId: menuId,
           roleId: roleId
         },
         success: function() {
-          document.location.href = "<?= base_url('log/roleuser/akses/'); ?>" + roleId;
+          document.location.href = "<?= base_url('roleuser/akses/'); ?>" + roleId;
         }
       });
     });

@@ -23,7 +23,8 @@
 <body class="hold-transition login-page">
   <div class="login-box pb-5">
     <div class="login-logo">
-      <a href="<?= base_url('assets'); ?>/index2.html"><b><?= $brand; ?></b></a>
+      <a href="<?= base_url(); ?>"><b><?= $brand; ?></b></a>
+      <h3>PEMERINTAH KOTA DENPASAR</h3>
     </div>
     <!-- /.login-logo -->
     <div class="card">

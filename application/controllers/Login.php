@@ -53,7 +53,7 @@ class Login extends CI_Controller
 					$this->session->set_userdata($data);
 
 					if ($userlogin['role_id']) {
-						redirect('log/dashboard');
+						redirect('dashboard');
 					}
 				} else {
 					$this->session->set_flashdata('message', 'Wrong password!');
