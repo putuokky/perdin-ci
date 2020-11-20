@@ -8,10 +8,10 @@ class Inperdin extends CI_Controller
 		parent::__construct();
 		$this->load->model('model_user', 'm_user');
 		$this->load->model('model_config', 'm_config');
-		$this->load->model('model_menu', 'm_menu');
-		$this->load->model('model_submenu', 'm_submenu');
 		$this->load->model('model_inperdin', 'm_inperdin');
 		$this->load->model('Model_klasijabatan', 'm_klasijabatan');
+		$this->load->model('Model_sumberdana', 'm_sumberdana');
+		$this->load->model('Model_kategoriperdin', 'm_kategoriperdin');
 	}
 
 	public function index()
@@ -78,6 +78,10 @@ class Inperdin extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
+		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
+		$data['thnawal'] = 2015;
+		$data['thnskrg'] = date('Y');
 
 		$this->form_validation->set_rules('submenu', 'SubMenu', 'required');
 		$this->form_validation->set_rules('url', 'URL', 'required|valid_url');

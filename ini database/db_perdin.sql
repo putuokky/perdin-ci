@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Nov 2020 pada 08.04
+-- Waktu pembuatan: 20 Nov 2020 pada 05.47
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -39,10 +39,10 @@ CREATE TABLE `config` (
 
 INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
 (1, 'brand', 'SIPERDIN'),
-(2, 'main_header', 'SISTEM INFORMASI PERJALANAN DINAS PEMERINTAHAN KOTA DENPASAR'),
+(2, 'main_header', 'SISTEM INFORMASI PERJALANAN DINAS PEMERINTAH KOTA DENPASAR'),
 (4, 'version', '1.11.20'),
-(5, 'nama_pengembang', 'mahesora.id'),
-(6, 'link_pengembang', 'http://www.mahesora.id/');
+(5, 'nama_pengembang', 'balecreator.id'),
+(6, 'link_pengembang', '#');
 
 -- --------------------------------------------------------
 
@@ -61,14 +61,19 @@ CREATE TABLE `input_perdin` (
   `tujuan` varchar(100) NOT NULL,
   `tgl_berangkat` date NOT NULL,
   `tgl_selesai` date NOT NULL,
-  `lama` varchar(100) NOT NULL,
-  `no_surat_tgs` varchar(100) NOT NULL,
-  `nama_personil` varchar(100) NOT NULL,
-  `uang_harian` float NOT NULL,
-  `penginapan` float NOT NULL,
-  `uang_representatif` float NOT NULL,
-  `lain_lain` float NOT NULL,
-  `jumlah` float NOT NULL
+  `lama` int(100) NOT NULL,
+  `no_surat_tgs` text NOT NULL,
+  `nama_personil` text NOT NULL,
+  `maskapai` int(11) DEFAULT NULL,
+  `rute` text DEFAULT NULL,
+  `tnggal` date DEFAULT NULL,
+  `no_tiket` varchar(100) DEFAULT NULL,
+  `harga` int(11) DEFAULT NULL,
+  `uang_harian` int(11) NOT NULL,
+  `uang_transport` int(11) DEFAULT NULL,
+  `penginapan` int(11) NOT NULL,
+  `uang_representatif` int(11) NOT NULL,
+  `lain_lain` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -279,7 +284,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (12, 3, 2),
 (14, 2, 9),
 (15, 1, 9),
-(16, 3, 8);
+(16, 3, 8),
+(17, 1, 10),
+(19, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -301,7 +308,8 @@ CREATE TABLE `user_menu` (
 INSERT INTO `user_menu` (`id`, `menu`, `is_active_menu`, `urutan_user_menu`) VALUES
 (3, 'Master', 1, 6),
 (6, 'Home', 1, 1),
-(8, 'Settings', 1, 4);
+(8, 'Settings', 1, 4),
+(10, 'Interface', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -344,13 +352,15 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id_user_sub_menu`, `menu_id`, `submenu`, `url`, `icon`, `is_active`, `urutan_user_sub_menu`) VALUES
-(2, 3, 'User', 'log/user', 'nav-icon fas fa-user', 1, 1),
-(8, 3, 'Role User', 'log/roleuser', 'nav-icon fas fa-users-cog', 1, 2),
-(9, 3, 'Menu Management', 'log/menu', 'nav-icon fas fa-folder', 1, 3),
-(10, 3, 'SubMenu Management', 'log/submenu', 'nav-icon fas fa-folder-open', 1, 4),
-(11, 3, 'Configuration', 'log/config', 'nav-icon fas fa-cogs', 1, 5),
-(13, 6, 'Dashboard', 'log/dashboard', 'nav-icon fas fa-tachometer-alt', 1, 1),
-(14, 8, 'User', 'log/user', 'nav-icon fas fa-user', 1, 1);
+(2, 3, 'User', 'user', 'nav-icon fas fa-user', 1, 1),
+(8, 3, 'Role User', 'roleuser', 'nav-icon fas fa-users-cog', 1, 2),
+(9, 3, 'Menu Management', 'menu', 'nav-icon fas fa-folder', 1, 3),
+(10, 3, 'SubMenu Management', 'submenu', 'nav-icon fas fa-folder-open', 1, 4),
+(11, 3, 'Configuration', 'config', 'nav-icon fas fa-cogs', 1, 5),
+(13, 6, 'Dashboard', 'dashboard', 'nav-icon fas fa-tachometer-alt', 1, 1),
+(14, 8, 'User', 'user', 'nav-icon fas fa-user', 1, 1),
+(17, 10, 'Input Perdin', 'inperdin', 'nav-icon fas fa-user', 1, 1),
+(18, 10, 'Dana', 'dana', 'nav-icon fas fa-tachometer-alt', 1, 3);
 
 --
 -- Indexes for dumped tables
@@ -448,7 +458,7 @@ ALTER TABLE `input_perdin`
 -- AUTO_INCREMENT untuk tabel `ms_dana`
 --
 ALTER TABLE `ms_dana`
-  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_kategori_perdin`
@@ -478,13 +488,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`
@@ -496,7 +506,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

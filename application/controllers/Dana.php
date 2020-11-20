@@ -8,8 +8,6 @@ class Dana extends CI_Controller
 		parent::__construct();
 		$this->load->model('model_user', 'm_user');
 		$this->load->model('model_config', 'm_config');
-		$this->load->model('model_menu', 'm_menu');
-		$this->load->model('model_submenu', 'm_submenu');
 		$this->load->model('model_dana', 'm_dana');
 		$this->load->model('Model_klasijabatan', 'm_klasijabatan');
 		$this->load->model('Model_sumberdana', 'm_sumberdana');

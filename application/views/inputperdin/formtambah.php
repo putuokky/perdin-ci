@@ -42,34 +42,45 @@
                   <small class="form-text text-danger"><?= form_error('klasijbtn'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="tahun">Tahun</label>
-                  <select class="form-control col-md-6 select2bs4" name="tahun">
+                  <label for="tahun">Tahun Anggaran</label>
+                  <select class="form-control col-md-2 select2bs4" name="tahun">
                     <option value="0">-</option>
-                    <?php foreach ($tahun as $kljb) : ?>
-                      <option value="<?= $kljb['kode_kj']; ?>"><?= $kljb['jabatan']; ?></option>
-                    <?php endforeach ?>
+                    <?php
+                    for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
+                      <option value="<?= $i; ?>"><?= $i; ?></option>
+                    <?php } ?>
                   </select>
                   <small class="form-text text-danger"><?= form_error('tahun'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="anggaran">Anggaran</label>
-                  <select class="form-control col-md-6 select2bs4" name="anggaran">
+                  <label for="anggaran">Tahapaan Anggaran</label>
+                  <select class="form-control col-md-2 select2bs4" name="anggaran">
                     <option value="0">-</option>
-                    <?php foreach ($anggaran as $kljb) : ?>
-                      <option value="<?= $kljb['kode_kj']; ?>"><?= $kljb['jabatan']; ?></option>
+                    <?php foreach ($sumberdana as $sd) : ?>
+                      <option value="<?= $sd['id_sumberdana']; ?>"><?= $sd['nama_sumberdana']; ?></option>
                     <?php endforeach ?>
                   </select>
                   <small class="form-text text-danger"><?= form_error('anggaran'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="menu">SubMenu</label>
-                  <input type="text" class="form-control" id="submenu" name="submenu" placeholder="Enter SubMenu">
-                  <small class="form-text text-danger"><?= form_error('submenu'); ?></small>
+                  <label for="katperdin">Kategori Perdin</label>
+                  <select class="form-control col-md-4 select2bs4" name="katperdin">
+                    <option value="0">-</option>
+                    <?php foreach ($katperdin as $katp) : ?>
+                      <option value="<?= $katp['id_kat_perdin']; ?>"><?= $katp['nama_kat_perdin']; ?></option>
+                    <?php endforeach ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('katperdin'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="url">URL</label>
-                  <input type="text" class="form-control col-md-4" id="url" name="url" placeholder="Enter URL">
-                  <small class="form-text text-danger"><?= form_error('url'); ?></small>
+                  <label for="nospd">No SP2D</label>
+                  <input type="text" class="form-control col-md-6" id="nospd" name="nospd" placeholder="Enter No SP2D">
+                  <small class="form-text text-danger"><?= form_error('nospd'); ?></small>
+                </div>
+                <div class="form-group">
+                  <label for="namaacara">Nama Kegiatan</label>
+                  <input type="text" class="form-control col-md-4" id="namaacara" name="namaacara" placeholder="Enter Nama Kegiatan">
+                  <small class="form-text text-danger"><?= form_error('namaacara'); ?></small>
                 </div>
                 <div class="form-group">
                   <label for="icon">Icon</label>
@@ -80,15 +91,6 @@
                   <label for="urutan">Urutan</label>
                   <input type="text" class="form-control col-md-2" id="urutan" name="urutan" placeholder="Enter Urutan">
                   <small class="form-text text-danger"><?= form_error('urutan'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Status</label>
-                  <div class="input-group">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" value="1" id="status" name="status" checked>
-                      <label class="form-check-label" for="status">Aktif</label>
-                    </div>
-                  </div>
                 </div>
               </div>
               <!-- /.card-body -->
