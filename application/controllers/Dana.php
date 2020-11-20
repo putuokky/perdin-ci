@@ -120,8 +120,8 @@ class Dana extends CI_Controller
 
 	public function ubah($id)
 	{
-		$data['judul'] = 'SubMenu Management';
-		$data['subjudul'] = 'Form Ubah SubMenu Management';
+		$data['judul'] = 'Dana';
+		$data['subjudul'] = 'Form Ubah Dana';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -145,48 +145,51 @@ class Dana extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['submenu'] = $this->m_submenu->getSubMenuById($id);
-		$data['menu'] = $this->m_menu->getAllMenu();
+		$data['dana'] = $this->m_dana->getDanaById($id);
+		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
+		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
+		$data['thnawal'] = 2015;
+		$data['thnskrg'] = date('Y');
 
-		$this->form_validation->set_rules('submenu', 'SubMenu', 'required');
-		$this->form_validation->set_rules('url', 'URL', 'required');
-		$this->form_validation->set_rules('icon', 'Icon', 'required');
-		$this->form_validation->set_rules('urutan', 'Urutan', 'required');
+		$this->form_validation->set_rules('klasijbtn', 'Klasifikasi Jabatan', 'required');
+		$this->form_validation->set_rules('anggaran', 'Tahapan Anggaran', 'required');
+		$this->form_validation->set_rules('tahun', 'Tahun', 'required');
+		$this->form_validation->set_rules('katperdin', 'Kategori Perdin', 'required');
+		$this->form_validation->set_rules('frmdana', 'Dana', 'required|numeric');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('submenu/formubah', $data);
+			$this->load->view('dana/formubah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
 			$id = $this->input->post('id'); // tidak perlu ini diubah
-			$menu = $this->input->post('menu');
-			$submenu = $this->input->post('submenu');
-			$url = $this->input->post('url');
-			$icon = $this->input->post('icon');
-			$urutan = $this->input->post('urutan');
-			$status = $this->input->post('status');
+			$klasijbtn = $this->input->post('klasijbtn');
+			$anggaran = $this->input->post('anggaran');
+			$tahun = $this->input->post('tahun');
+			$katperdin = $this->input->post('katperdin');
+			$frmdana = $this->input->post('frmdana');
 
 			$data = [
-				'menu_id' => $menu,
-				'submenu' => $submenu,
-				'url' => $url,
-				'icon' => $icon,
-				'is_active' => $status,
-				'urutan_user_sub_menu' => $urutan
+				'klasifikasi_jabatan' => $klasijbtn,
+				'sumberdana' => $anggaran,
+				'tahun_anggaran' => $tahun,
+				'kategori_perdin' => $katperdin,
+				'dana' => $frmdana
 			];
 
-			$this->m_submenu->ubahDataSubMenu($data, $id);
+			$this->m_dana->ubahDataDana($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('submenu');
+			redirect('dana');
 		}
 	}
 
 	public function hapus($id)
 	{
-		$this->m_submenu->hapusDataSubMenu($id);
+		$this->m_dana->hapusDataDana($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('submenu');
+		redirect('dana');
 	}
 }

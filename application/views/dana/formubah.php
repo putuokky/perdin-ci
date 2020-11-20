@@ -31,38 +31,75 @@
             <!-- form start -->
             <form role="form" method="POST" action="">
               <div class="card-body">
-                <input type="hidden" class="form-control" id="id" name="id" value="<?= $menu['id']; ?>">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?= $dana['id_dana']; ?>">
                 <div class="form-group">
-                  <label for="menu">Menu</label>
-                  <input type="text" class="form-control" id="menu" name="menu" placeholder="Enter Menu" value="<?= $menu['menu']; ?>">
-                  <small class="form-text text-danger"><?= form_error('menu'); ?></small>
+                  <label for="klasijbtn">Klasifikasi Jabatan</label>
+                  <select class="form-control col-md-6 select2bs4" name="klasijbtn">
+                    <option value="0">-</option>
+                    <?php foreach ($klasijbtn as $kljb) : ?>
+                      <?php if ($dana['klasifikasi_jabatan'] == $kljb['kode_kj']) : ?>
+                        <option value="<?= $kljb['kode_kj']; ?>" selected><?= $kljb['jabatan']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $kljb['kode_kj']; ?>"><?= $kljb['jabatan']; ?></option>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('klasijbtn'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="urutan">Urutan</label>
-                  <input type="text" class="form-control col-md-2" id="urutan" name="urutan" placeholder="Enter Urutan" value="<?= $menu['urutan_user_menu']; ?>">
-                  <small class="form-text text-danger"><?= form_error('urutan'); ?></small>
+                  <label for="anggaran">Tahapaan Anggaran</label>
+                  <select class="form-control col-md-2 select2bs4" name="anggaran">
+                    <option value="0">-</option>
+                    <?php foreach ($sumberdana as $sd) : ?>
+                      <?php if ($dana['sumberdana'] == $sd['id_sumberdana']) : ?>
+                        <option value="<?= $sd['id_sumberdana']; ?>" selected><?= $sd['nama_sumberdana']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $sd['id_sumberdana']; ?>"><?= $sd['nama_sumberdana']; ?></option>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('anggaran'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">Status</label>
-                  <div class="input-group">
-                    <div class="form-check">
-                      <?php
-                      if ($menu['is_active_menu'] == 1) { ?>
-                        <input type="checkbox" class="form-check-input" value="1" id="status" name="status" checked>
-                        <label class="form-check-label" for="status">Aktif</label>
-                      <?php } else if ($menu['is_active_menu'] == 0) { ?>
-                        <input type="checkbox" class="form-check-input" value="1" id="status" name="status">
-                        <label class="form-check-label" for="status">Aktif</label>
-                      <?php } ?>
-                    </div>
-                  </div>
+                  <label for="tahun">Tahun Anggaran</label>
+                  <select class="form-control col-md-2 select2bs4" name="tahun">
+                    <option value="0">-</option>
+                    <?php
+                    for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
+                      <?php if ($i == $dana['tahun_anggaran']) : ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                      <?php endif; ?>
+                    <?php } ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('tahun'); ?></small>
+                </div>
+                <div class="form-group">
+                  <label for="katperdin">Kategori Perdin</label>
+                  <select class="form-control col-md-4 select2bs4" name="katperdin">
+                    <option value="0">-</option>
+                    <?php foreach ($katperdin as $katp) : ?>
+                      <?php if ($dana['sumberdana'] == $katp['id_kat_perdin']) : ?>
+                        <option value="<?= $katp['id_kat_perdin']; ?>" selected><?= $katp['nama_kat_perdin']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $katp['id_kat_perdin']; ?>"><?= $katp['nama_kat_perdin']; ?></option>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('katperdin'); ?></small>
+                </div>
+                <div class="form-group">
+                  <label for="frmdana">Dana</label>
+                  <input type="text" class="form-control col-md-5" id="frmdana" name="frmdana" placeholder="Enter Dana" value="<?= $dana['dana']; ?>">
+                  <small class="form-text text-danger"><?= form_error('frmdana'); ?></small>
                 </div>
               </div>
               <!-- /.card-body -->
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="<?= base_url('menu'); ?>" class="btn btn-default">Cancel</a>
+                <a href="<?= base_url('dana'); ?>" class="btn btn-default">Cancel</a>
               </div>
             </form>
           </div>
