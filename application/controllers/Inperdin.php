@@ -12,12 +12,13 @@ class Inperdin extends CI_Controller
 		$this->load->model('Model_klasijabatan', 'm_klasijabatan');
 		$this->load->model('Model_sumberdana', 'm_sumberdana');
 		$this->load->model('Model_kategoriperdin', 'm_kategoriperdin');
+		$this->load->model('Model_maskapai', 'm_maskapai');
 	}
 
 	public function index()
 	{
-		$data['judul'] = 'Input Perdin';
-		$data['subjudul'] = 'Data Input Perdin';
+		$data['judul'] = 'Perjalanan Dinas';
+		$data['subjudul'] = 'Data Perjalanan Dinas';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -52,8 +53,8 @@ class Inperdin extends CI_Controller
 
 	public function tambah()
 	{
-		$data['judul'] = 'Input Perdin';
-		$data['subjudul'] = 'Form Tambah Input Perdin';
+		$data['judul'] = 'Perjalanan Dinas';
+		$data['subjudul'] = 'Form Tambah Perjalanan Dinas';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -80,13 +81,27 @@ class Inperdin extends CI_Controller
 		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
 		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
 		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
+		$data['maskp'] = $this->m_maskapai->getAllMaskapai();
 		$data['thnawal'] = 2015;
 		$data['thnskrg'] = date('Y');
 
-		$this->form_validation->set_rules('submenu', 'SubMenu', 'required');
-		$this->form_validation->set_rules('url', 'URL', 'required|valid_url');
-		$this->form_validation->set_rules('icon', 'Icon', 'required');
-		$this->form_validation->set_rules('urutan', 'Urutan', 'required');
+		$this->form_validation->set_rules('nospd', 'NO SP2D', 'required');
+		$this->form_validation->set_rules('namaacara', 'Nama Kegiatan', 'required');
+		$this->form_validation->set_rules('tujuan', 'Tujuan', 'required');
+		$this->form_validation->set_rules('tglbrngkat', 'Tanggal Berangkat', 'required');
+		$this->form_validation->set_rules('tglselesai', 'Tanggal Selesai', 'required');
+		$this->form_validation->set_rules('lama', 'Lama (Hari)', 'required');
+		$this->form_validation->set_rules('nosrttgs', 'No Surat Tugas', 'required');
+		$this->form_validation->set_rules('namapersonil', 'Nama Personil', 'required');
+		$this->form_validation->set_rules('rute', 'Rute', 'required');
+		$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
+		$this->form_validation->set_rules('notiket', 'No Tiket', 'required');
+		$this->form_validation->set_rules('harga', 'Harga', 'required');
+		$this->form_validation->set_rules('uangharian', 'Uang Harian', 'required');
+		$this->form_validation->set_rules('uangtransport', 'Uang Transport', 'required');
+		$this->form_validation->set_rules('penginapan', 'Penginapan', 'required');
+		$this->form_validation->set_rules('uangrepre', 'Uang Representatif', 'required');
+		$this->form_validation->set_rules('lainlain', 'Lain - Lain', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);

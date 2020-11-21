@@ -141,6 +141,15 @@
       //Date picker
       $('#datepicker').datepicker({
         autoclose: true,
+        format: 'dd-mm-yyyy'
+      })
+      $('#datepickerbrkt').datepicker({
+        autoclose: true,
+        format: 'dd-mm-yyyy'
+      })
+      $('#datepickerselesai').datepicker({
+        autoclose: true,
+        format: 'dd-mm-yyyy'
       })
 
       //Bootstrap Duallistbox

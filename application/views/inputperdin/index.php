@@ -44,23 +44,37 @@
                 <thead>
                   <tr class="btn-dark">
                     <th>No</th>
-                    <th>Opsi</th>
-                    <th>SubMenu</th>
-                    <th>Menu</th>
-                    <th>Url</th>
-                    <th>Icon</th>
-                    <th>Urutan</th>
+                    <th>No SP2D</th>
+                    <th>Nama Kegiatan</th>
+                    <th>Tujuan</th>
+                    <th>Tgl Berangkat</th>
+                    <th>Tgl Selesai</th>
+                    <th>Lama (Hari)</th>
+                    <th>No Surat Tugas</th>
+                    <th>Nama Personil</th>
+                    <th>Uang Harian</th>
+                    <th>Penginapan</th>
+                    <th>Uang Representasi</th>
+                    <th>Lain - Lain</th>
+                    <th>Jumlah</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
-                    <th>Opsi</th>
-                    <th>SubMenu</th>
-                    <th>Menu</th>
-                    <th>Url</th>
-                    <th>Icon</th>
-                    <th>Urutan</th>
+                    <th>No SP2D</th>
+                    <th>Nama Kegiatan</th>
+                    <th>Tujuan</th>
+                    <th>Tgl Berangkat</th>
+                    <th>Tgl Selesai</th>
+                    <th>Lama (Hari)</th>
+                    <th>No Surat Tugas</th>
+                    <th>Nama Personil</th>
+                    <th>Uang Harian</th>
+                    <th>Penginapan</th>
+                    <th>Uang Representasi</th>
+                    <th>Lain - Lain</th>
+                    <th>Jumlah</th>
                   </tr>
                 </tfoot>
                 <tbody>
