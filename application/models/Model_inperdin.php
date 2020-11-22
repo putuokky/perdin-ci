@@ -4,35 +4,34 @@ class Model_inperdin extends CI_Model
 {
     public function getAllInperdin()
     {
-        // $this->db->select('*');
-        // $this->db->from('user_sub_menu');
-        // $this->db->join('user_menu', 'user_menu.id = user_sub_menu.menu_id');
-        // $query = $this->db->get();
-        // return $query->result_array();
-
-        $query = $this->db->get('input_perdin');
+        $this->db->select('*');
+        $this->db->from('input_perdin');
+        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = input_perdin.klasifikasi_jabtan');
+        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = input_perdin.tahapan_anggaran');
+        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = input_perdin.kategori_perjalanan');
+        $query = $this->db->get();
         return $query->result_array();
     }
 
-    public function getSubMenuById($id)
+    public function getInperdinById($id)
     {
-        return $this->db->get_where('user_sub_menu', ['id_user_sub_menu ' => $id])->row_array();
+        return $this->db->get_where('input_perdin', ['id_perdin ' => $id])->row_array();
     }
 
-    public function tambahDataSubMenu($data)
+    public function tambahDataInperdin($data)
     {
-        $this->db->insert('user_sub_menu', $data);
+        $this->db->insert('input_perdin', $data);
     }
 
-    public function ubahDataSubMenu($data, $id)
+    public function ubahDataInperdin($data, $id)
     {
-        $this->db->where('id_user_sub_menu ', $id);
-        $this->db->update('user_sub_menu', $data);
+        $this->db->where('id_perdin ', $id);
+        $this->db->update('input_perdin', $data);
     }
 
-    public function hapusDataSubMenu($id)
+    public function hapusDataInperdin($id)
     {
-        $this->db->where('id_user_sub_menu', $id);
-        $this->db->delete('user_sub_menu');
+        $this->db->where('id_perdin', $id);
+        $this->db->delete('input_perdin');
     }
 }

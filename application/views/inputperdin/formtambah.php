@@ -42,15 +42,15 @@
                   <small class="form-text text-danger"><?= form_error('klasijbtn'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="tahun">Tahun Anggaran</label>
-                  <select class="form-control col-md-2 select2bs4" name="tahun">
+                  <label for="tahunangran">Tahun Anggaran</label>
+                  <select class="form-control col-md-2 select2bs4" name="tahunangran">
                     <option value="0">-</option>
                     <?php
                     for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
                       <option value="<?= $i; ?>"><?= $i; ?></option>
                     <?php } ?>
                   </select>
-                  <small class="form-text text-danger"><?= form_error('tahun'); ?></small>
+                  <small class="form-text text-danger"><?= form_error('tahunangran'); ?></small>
                 </div>
                 <div class="form-group">
                   <label for="anggaran">Tahapaan Anggaran</label>

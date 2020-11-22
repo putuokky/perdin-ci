@@ -93,10 +93,10 @@ class Inperdin extends CI_Controller
 		$this->form_validation->set_rules('lama', 'Lama (Hari)', 'required');
 		$this->form_validation->set_rules('nosrttgs', 'No Surat Tugas', 'required');
 		$this->form_validation->set_rules('namapersonil', 'Nama Personil', 'required');
-		$this->form_validation->set_rules('rute', 'Rute', 'required');
-		$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
-		$this->form_validation->set_rules('notiket', 'No Tiket', 'required');
-		$this->form_validation->set_rules('harga', 'Harga', 'required');
+		// $this->form_validation->set_rules('rute', 'Rute', 'required');
+		// $this->form_validation->set_rules('tgl', 'Tanggal', 'required');
+		// $this->form_validation->set_rules('notiket', 'No Tiket', 'required');
+		// $this->form_validation->set_rules('harga', 'Harga', 'required');
 		$this->form_validation->set_rules('uangharian', 'Uang Harian', 'required');
 		$this->form_validation->set_rules('uangtransport', 'Uang Transport', 'required');
 		$this->form_validation->set_rules('penginapan', 'Penginapan', 'required');
@@ -110,32 +110,64 @@ class Inperdin extends CI_Controller
 			$this->load->view('inputperdin/formtambah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$menu = $this->input->post('menu');
-			$submenu = $this->input->post('submenu');
-			$url = $this->input->post('url');
-			$icon = $this->input->post('icon');
-			$urutan = $this->input->post('urutan');
-			$status = $this->input->post('status');
+			$klasijbtn = $this->input->post('klasijbtn');
+			$tahunangran = $this->input->post('tahunangran');
+			$anggaran = $this->input->post('anggaran');
+			$katperdin = $this->input->post('katperdin');
+			$nospd = $this->input->post('nospd');
+			$namaacara = $this->input->post('namaacara');
+			$tujuan = $this->input->post('tujuan');
+			$tglbrngkat = date('Y-m-d', strtotime($this->input->post('tglbrngkat')));
+			$tglselesai = date('Y-m-d', strtotime($this->input->post('tglselesai')));
+			$lama = $this->input->post('lama');
+			$nosrttgs = $this->input->post('nosrttgs');
+			$namapersonil = $this->input->post('namapersonil');
+			$maskap = $this->input->post('maskap');
+			$rute = $this->input->post('rute');
+			$tgl = date('Y-m-d', strtotime($this->input->post('tgl')));
+			$notiket = $this->input->post('notiket');
+			$harga = $this->input->post('harga');
+			$uangharian = $this->input->post('uangharian');
+			$uangtransport = $this->input->post('uangtransport');
+			$penginapan = $this->input->post('penginapan');
+			$uangrepre = $this->input->post('uangrepre');
+			$lainlain = $this->input->post('lainlain');
 
 			$data = [
-				'menu_id' => $menu,
-				'submenu' => $submenu,
-				'url' => $url,
-				'icon' => $icon,
-				'is_active' => $status,
-				'urutan_user_sub_menu' => $urutan
+				'klasifikasi_jabtan' => $klasijbtn,
+				'tahun' => $tahunangran,
+				'tahapan_anggaran' => $anggaran,
+				'kategori_perjalanan' => $katperdin,
+				'no_sp2d' => $nospd,
+				'nama_kegiatan' => $namaacara,
+				'tujuan' => $tujuan,
+				'tgl_berangkat' => $tglbrngkat,
+				'tgl_selesai' => $tglselesai,
+				'lama' => $lama,
+				'no_surat_tgs' => $nosrttgs,
+				'nama_personil' => $namapersonil,
+				'maskapai' => $maskap,
+				'rute' => $rute,
+				'tnggal' => $tgl,
+				'no_tiket' => $notiket,
+				'harga' => $harga,
+				'uang_harian' => $uangharian,
+				'uang_transport' => $uangtransport,
+				'penginapan' => $penginapan,
+				'uang_representatif' => $uangrepre,
+				'lain_lain' => $lainlain
 			];
 
-			$this->m_submenu->tambahDataSubMenu($data);
+			$this->m_inperdin->tambahDataInperdin($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('submenu');
+			redirect('inperdin');
 		}
 	}
 
 	public function ubah($id)
 	{
-		$data['judul'] = 'SubMenu Management';
-		$data['subjudul'] = 'Form Ubah SubMenu Management';
+		$data['judul'] = 'Perjalanan Dinas';
+		$data['subjudul'] = 'Form Ubah Perjalanan Dinas';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -159,8 +191,13 @@ class Inperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['submenu'] = $this->m_submenu->getSubMenuById($id);
-		$data['menu'] = $this->m_menu->getAllMenu();
+		$data['perdin'] = $this->m_inperdin->getInperdinById($id);
+		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
+		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
+		$data['maskp'] = $this->m_maskapai->getAllMaskapai();
+		$data['thnawal'] = 2015;
+		$data['thnskrg'] = date('Y');
 
 		$this->form_validation->set_rules('submenu', 'SubMenu', 'required');
 		$this->form_validation->set_rules('url', 'URL', 'required');
@@ -171,7 +208,7 @@ class Inperdin extends CI_Controller
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('submenu/formubah', $data);
+			$this->load->view('inputperdin/formubah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
 			$id = $this->input->post('id'); // tidak perlu ini diubah
@@ -193,7 +230,7 @@ class Inperdin extends CI_Controller
 
 			$this->m_submenu->ubahDataSubMenu($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('submenu');
+			redirect('inperdin');
 		}
 	}
 

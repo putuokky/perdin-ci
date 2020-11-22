@@ -86,11 +86,18 @@
                       <td><a href="<?= base_url('inperdin/ubah/' . $itpd['id_perdin']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
                         <a href="<?= base_url('inperdin/hapus/' . $itpd['id_perdin']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
-                      <td><?= $itpd['klasifikasi_jabtan']; ?></td>
-                      <td><?= $itpd['tahun']; ?></td>
-                      <td><?= $itpd['tahapan_anggaran']; ?></td>
-                      <td><?= $itpd['kategori_perjalanan']; ?></td>
-                      <td><?= $itpd['no_sp2d']; ?></td>
+                      <td><?= $itpd['nama_kegiatan']; ?></td>
+                      <td><?= $itpd['tujuan']; ?></td>
+                      <td><?= date('d-m-Y', strtotime($itpd['tgl_berangkat'])); ?></td>
+                      <td><?= date('d-m-Y', strtotime($itpd['tgl_selesai'])); ?></td>
+                      <td><?= $itpd['lama']; ?></td>
+                      <td><?= $itpd['no_surat_tgs']; ?></td>
+                      <td><?= $itpd['nama_personil']; ?></td>
+                      <td><?= "Rp " . number_format($itpd['uang_harian'], 2, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['penginapan'], 2, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['uang_representatif'], 2, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['lain_lain'], 2, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format(($itpd['harga'] + $itpd['uang_harian'] + $itpd['uang_transport'] + $itpd['penginapan'] + $itpd['uang_representatif'] + $itpd['lain_lain']), 2, ',', '.'); ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
