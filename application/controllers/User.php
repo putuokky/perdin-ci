@@ -41,9 +41,9 @@ class User extends CI_Controller
 		if ($this->session->userdata('role_id') == 1) {
 			$data['users'] = $this->m_user->getAllUsers();
 		} else if ($this->session->userdata('role_id') == 2) {
-			$data['users'] = $this->m_user->getAllUser('1');
+			$data['users'] = $this->m_user->getAllUserr(array('1', '2'));
 		} else if ($this->session->userdata('role_id') == 3) {
-			$data['users'] = $this->m_user->getAllUsersByid($this->session->userdata('nama_bagian'));
+			$data['users'] = $this->m_user->getAllUser(array('1', '2', '3'), $this->session->userdata('nama_bagian'));
 		}
 
 		$this->load->view('templates/header', $data);
@@ -83,9 +83,9 @@ class User extends CI_Controller
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
 		} else if ($this->session->userdata('role_id') == 2) {
-			$data['role'] = $this->m_roleuser->getAllRoleuser('1');
-		} else if ($this->session->userdata('role_id') == 3) {
 			$data['role'] = $this->m_roleuser->getAllRoleuser(array('1', '2'));
+		} else if ($this->session->userdata('role_id') == 3) {
+			$data['role'] = $this->m_roleuser->getAllRoleuser(array('1', '2', '3'));
 		}
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -156,9 +156,9 @@ class User extends CI_Controller
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
 		} else if ($this->session->userdata('role_id') == 2) {
-			$data['role'] = $this->m_roleuser->getAllRoleuser('1');
-		} else if ($this->session->userdata('role_id') == 3) {
 			$data['role'] = $this->m_roleuser->getAllRoleuser(array('1', '2'));
+		} else if ($this->session->userdata('role_id') == 3) {
+			$data['role'] = $this->m_roleuser->getAllRoleuser(array('1', '2', '3'));
 		}
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
