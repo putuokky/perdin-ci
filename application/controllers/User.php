@@ -16,12 +16,6 @@ class User extends CI_Controller
 		$data['judul'] = 'User';
 		$data['subjudul'] = 'Data User';
 
-		if ($this->session->userdata('role_id') == 1) {
-			$data['users'] = $this->m_user->getAllUsers();
-		} else {
-			$data['users'] = $this->m_user->getAllUser();
-		}
-
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
 		$data['userlogin'] = $this->m_user->getUserByUser($user);
@@ -43,6 +37,14 @@ class User extends CI_Controller
 		$data_config = $this->m_config->getConfig('link_pengembang');
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
+
+		if ($this->session->userdata('role_id') == 1) {
+			$data['users'] = $this->m_user->getAllUsers();
+		} else if ($this->session->userdata('role_id') == 2) {
+			$data['users'] = $this->m_user->getAllUser('1');
+		} else if ($this->session->userdata('role_id') == 3) {
+			$data['users'] = $this->m_user->getAllUsersByid($this->session->userdata('nama_bagian'));
+		}
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
@@ -56,12 +58,6 @@ class User extends CI_Controller
 		$data['judul'] = 'User';
 		$data['subjudul'] = 'Form Tambah User';
 
-		if ($this->session->userdata('role_id') == 1) {
-			$data['role'] = $this->m_roleuser->getAllRoleusers();
-		} else {
-			$data['role'] = $this->m_roleuser->getAllRoleuser();
-		}
-
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
 		$data['userlogin'] = $this->m_user->getUserByUser($user);
@@ -84,10 +80,18 @@ class User extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
+		if ($this->session->userdata('role_id') == 1) {
+			$data['role'] = $this->m_roleuser->getAllRoleusers();
+		} else if ($this->session->userdata('role_id') == 2) {
+			$data['role'] = $this->m_roleuser->getAllRoleuser('1');
+		} else if ($this->session->userdata('role_id') == 3) {
+			$data['role'] = $this->m_roleuser->getAllRoleuser(array('1', '2'));
+		}
+
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('user', 'Username', 'required');
 		$this->form_validation->set_rules('passwrd', 'Password', 'required');
-		$this->form_validation->set_rules('namabagian', 'Bagian', 'required');
+		// $this->form_validation->set_rules('namabagian', 'Bagian', 'required');
 		$this->form_validation->set_rules('roleusr', 'Role User', 'required');
 
 		if ($this->form_validation->run() == false) {
@@ -125,13 +129,6 @@ class User extends CI_Controller
 		$data['judul'] = 'User';
 		$data['subjudul'] = 'Form Ubah User';
 
-		$data['user'] = $this->m_user->getUsersById($id);
-		if ($this->session->userdata('role_id') == 1) {
-			$data['role'] = $this->m_roleuser->getAllRoleusers();
-		} else {
-			$data['role'] = $this->m_roleuser->getAllRoleuser();
-		}
-
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
 		$data['userlogin'] = $this->m_user->getUserByUser($user);
@@ -154,9 +151,19 @@ class User extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
+		$data['user'] = $this->m_user->getUsersById($id);
+
+		if ($this->session->userdata('role_id') == 1) {
+			$data['role'] = $this->m_roleuser->getAllRoleusers();
+		} else if ($this->session->userdata('role_id') == 2) {
+			$data['role'] = $this->m_roleuser->getAllRoleuser('1');
+		} else if ($this->session->userdata('role_id') == 3) {
+			$data['role'] = $this->m_roleuser->getAllRoleuser(array('1', '2'));
+		}
+
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('roleusr', 'Role User', 'required');
-		$this->form_validation->set_rules('namabagian', 'Bagian', 'required');
+		// $this->form_validation->set_rules('namabagian', 'Bagian', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);

@@ -11,12 +11,22 @@ class Model_user extends CI_Model
         return $query->result_array();
     }
 
-    public function getAllUser()
+    public function getAllUsersByid($nama_bagian)
     {
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
-        $this->db->where_not_in('role_id', '1');
+        $this->db->where('user.nama_bagian', $nama_bagian);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getAllUser($role)
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->join('user_role', 'user_role.id_role = user.role_id');
+        $this->db->where_not_in('role_id', $role);
         $query = $this->db->get();
         return $query->result_array();
     }

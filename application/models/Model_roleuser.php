@@ -8,9 +8,9 @@ class Model_roleuser extends CI_Model
         return $query->result_array();
     }
 
-    public function getAllRoleuser()
+    public function getAllRoleuser($role)
     {
-        $this->db->where_not_in('id_role', '1');
+        $this->db->where_not_in('id_role', $role);
         $query = $this->db->get('user_role');
         return $query->result_array();
     }
