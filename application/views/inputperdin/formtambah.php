@@ -79,7 +79,7 @@
                 </div>
                 <div class="form-group">
                   <label for="namaacara">Nama Kegiatan</label>
-                  <input type="text" class="form-control col-md-6" id="namaacara" name="namaacara" placeholder="Enter Nama Kegiatan">
+                  <input type="text" class="form-control col-md-12" id="namaacara" name="namaacara" placeholder="Enter Nama Kegiatan">
                   <small class="form-text text-danger"><?= form_error('namaacara'); ?></small>
                 </div>
                 <div class="form-group">

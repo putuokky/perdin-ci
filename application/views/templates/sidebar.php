@@ -36,7 +36,7 @@
             <?php else : ?>
               <a href="<?= base_url($sbsm['url']); ?>" class="nav-link">
               <?php endif; ?>
-              <i class="<?= $sbsm['icon']; ?>"></i>
+              <i class="nav-icon <?= $sbsm['icon']; ?>"></i>
               <p><?= $sbsm['submenu']; ?></p>
               </a>
         </li>

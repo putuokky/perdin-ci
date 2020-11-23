@@ -56,7 +56,6 @@
                     <th>Penginapan</th>
                     <th>Uang Representasi</th>
                     <th>Lain - Lain</th>
-                    <th>Jumlah</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -74,7 +73,6 @@
                     <th>Penginapan</th>
                     <th>Uang Representasi</th>
                     <th>Lain - Lain</th>
-                    <th>Jumlah</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -83,7 +81,8 @@
                   foreach ($iptperdin as $itpd) : ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="<?= base_url('inperdin/ubah/' . $itpd['id_perdin']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
+                      <td><a href="<?= base_url('inperdin/detail/' . $itpd['id_perdin']); ?>" class="btn btn-sm btn-dark"><i class="fas fa-file"></i> Detail</a>
+                        <a href="<?= base_url('inperdin/ubah/' . $itpd['id_perdin']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
                         <a href="<?= base_url('inperdin/hapus/' . $itpd['id_perdin']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
                       <td><?= $itpd['nama_kegiatan']; ?></td>
@@ -93,11 +92,10 @@
                       <td><?= $itpd['lama']; ?></td>
                       <td><?= $itpd['no_surat_tgs']; ?></td>
                       <td><?= $itpd['nama_personil']; ?></td>
-                      <td><?= "Rp " . number_format($itpd['uang_harian'], 2, ',', '.'); ?></td>
-                      <td><?= "Rp " . number_format($itpd['penginapan'], 2, ',', '.'); ?></td>
-                      <td><?= "Rp " . number_format($itpd['uang_representatif'], 2, ',', '.'); ?></td>
-                      <td><?= "Rp " . number_format($itpd['lain_lain'], 2, ',', '.'); ?></td>
-                      <td><?= "Rp " . number_format(($itpd['harga'] + $itpd['uang_harian'] + $itpd['uang_transport'] + $itpd['penginapan'] + $itpd['uang_representatif'] + $itpd['lain_lain']), 2, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['uang_harian'], 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['penginapan'], 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['uang_representatif'], 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($itpd['lain_lain'], 0, ',', '.'); ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
