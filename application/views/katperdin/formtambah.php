@@ -32,30 +32,16 @@
             <form role="form" method="POST" action="">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="menu">Menu</label>
-                  <input type="text" class="form-control" id="menu" name="menu" placeholder="Enter Menu">
-                  <small class="form-text text-danger"><?= form_error('menu'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="urutan">Urutan</label>
-                  <input type="text" class="form-control col-md-2" id="urutan" name="urutan" placeholder="Enter Urutan">
-                  <small class="form-text text-danger"><?= form_error('urutan'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Status</label>
-                  <div class="input-group">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" value="1" id="status" name="status" checked>
-                      <label class="form-check-label" for="status">Aktif</label>
-                    </div>
-                  </div>
+                  <label for="namakatperdin">Nama Kategori Perdin</label>
+                  <input type="text" class="form-control col-md-8" id="namakatperdin" name="namakatperdin" placeholder="Enter Nama Kategori Perdin">
+                  <small class="form-text text-danger"><?= form_error('namakatperdin'); ?></small>
                 </div>
               </div>
               <!-- /.card-body -->
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="<?= base_url('menu'); ?>" class="btn btn-default">Cancel</a>
+                <a href="<?= base_url('katperdin'); ?>" class="btn btn-default">Cancel</a>
               </div>
             </form>
           </div>

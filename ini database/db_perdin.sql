@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Nov 2020 pada 05.47
+-- Waktu pembuatan: 24 Nov 2020 pada 05.28
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -75,6 +75,14 @@ CREATE TABLE `input_perdin` (
   `uang_representatif` int(11) NOT NULL,
   `lain_lain` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `input_perdin`
+--
+
+INSERT INTO `input_perdin` (`id_perdin`, `klasifikasi_jabtan`, `tahun`, `tahapan_anggaran`, `kategori_perjalanan`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`) VALUES
+(1, '001', '2015', '1', '3', '1111', 'qqqqq', 'vvvvv', '2020-11-12', '2020-11-27', 2, '44444', 'ttttt', 5, 'hhhh', '2020-11-25', '4444', 10000, 20000, 30000, 40000, 50000, 60000),
+(2, '00101', '2016', '1', '1', '888', 'pppppppp', 'yyyyyy', '2020-11-02', '2020-11-18', 66, '66666jjjj', 'fghgfh fghfgh', 0, '', '1970-01-01', '', 0, 1000, 0, 2000, 3000, 4000);
 
 -- --------------------------------------------------------
 
@@ -252,7 +260,9 @@ INSERT INTO `user` (`id`, `name`, `usrname`, `password`, `nama_bagian`, `role_id
 (12, 'Admin Hukum', 'adminhukum', '$2y$10$DIXx9vum1MWuFMLLdgoWL.Umx0WXsiRe.zkEzWDpyRforW5/Tnr9i', 'Bagian Hukum', 3, 1, 1605769331),
 (13, 'Admin Ekonomi', 'adminekonomi', '$2y$10$63q6lYpuOsxYwsj.1FAZp.l5NAKtLLj8aB.hq6DyURp/JtR0REwti', 'Bagian Ekonomi', 3, 1, 1605769319),
 (14, 'Admin PPBJ', 'adminppbj', '$2y$10$kh0KUMiRidZGM.a84TyExuIR4kF440NtQfX4s1Twsc/qZiXTtSdDO', 'Bagian PPBJ', 3, 1, 1605769308),
-(15, 'Admin Organisasi', 'adminorganisasi', '$2y$10$QTyj.mIvgS2eHtFedWXG5uHQRnB5D01UJkp6zDllb2FquNFU4ZjJG', 'Bagian Organisasi', 3, 1, 1605769299);
+(15, 'Admin Organisasi', 'adminorganisasi', '$2y$10$QTyj.mIvgS2eHtFedWXG5uHQRnB5D01UJkp6zDllb2FquNFU4ZjJG', 'Bagian Organisasi', 3, 1, 1605769299),
+(17, 'Operator Humas', 'ophumas', '$2y$10$rJcn1V/NeSSaQ6qCd8pxsuOy8eRW5EzfBNpKReVOx4l1.GaCfkGrm', 'Bagian Humas', 4, 1, 1606126160),
+(18, 'Denpasar Kota', 'denpasarkota', '$2y$10$tZO3TgV9N9WMUi0airmuL.Q8etFfG.CKzCCUoc1NqSrV5A9zOc6CO', '', 2, 1, 1606126067);
 
 -- --------------------------------------------------------
 
@@ -286,7 +296,13 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (15, 1, 9),
 (16, 3, 8),
 (17, 1, 10),
-(19, 3, 10);
+(19, 3, 10),
+(20, 2, 10),
+(21, 1, 12),
+(22, 2, 12),
+(23, 3, 12),
+(24, 4, 6),
+(25, 4, 10);
 
 -- --------------------------------------------------------
 
@@ -309,7 +325,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `is_active_menu`, `urutan_user_menu`) VAL
 (3, 'Master', 1, 6),
 (6, 'Home', 1, 1),
 (8, 'Settings', 1, 4),
-(10, 'Interface', 1, 2);
+(10, 'Interface', 1, 2),
+(12, 'Add On', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -329,7 +346,8 @@ CREATE TABLE `user_role` (
 INSERT INTO `user_role` (`id_role`, `role`) VALUES
 (1, 'Developer'),
 (2, 'Super Administrator'),
-(3, 'Administrator');
+(3, 'Administrator'),
+(4, 'Operator');
 
 -- --------------------------------------------------------
 
@@ -352,15 +370,19 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id_user_sub_menu`, `menu_id`, `submenu`, `url`, `icon`, `is_active`, `urutan_user_sub_menu`) VALUES
-(2, 3, 'User', 'user', 'nav-icon fas fa-user', 1, 1),
-(8, 3, 'Role User', 'roleuser', 'nav-icon fas fa-users-cog', 1, 2),
-(9, 3, 'Menu Management', 'menu', 'nav-icon fas fa-folder', 1, 3),
-(10, 3, 'SubMenu Management', 'submenu', 'nav-icon fas fa-folder-open', 1, 4),
-(11, 3, 'Configuration', 'config', 'nav-icon fas fa-cogs', 1, 5),
-(13, 6, 'Dashboard', 'dashboard', 'nav-icon fas fa-tachometer-alt', 1, 1),
-(14, 8, 'User', 'user', 'nav-icon fas fa-user', 1, 1),
-(17, 10, 'Input Perdin', 'inperdin', 'nav-icon fas fa-user', 1, 1),
-(18, 10, 'Dana', 'dana', 'nav-icon fas fa-tachometer-alt', 1, 3);
+(2, 3, 'User', 'user', 'fas fa-user', 1, 1),
+(8, 3, 'Role User', 'roleuser', 'fas fa-users-cog', 1, 2),
+(9, 3, 'Menu Management', 'menu', 'fas fa-folder', 1, 3),
+(10, 3, 'SubMenu Management', 'submenu', 'fas fa-folder-open', 1, 4),
+(11, 3, 'Configuration', 'config', 'fas fa-cogs', 1, 5),
+(13, 6, 'Dashboard', 'dashboard', 'fas fa-tachometer-alt', 1, 1),
+(14, 8, 'User', 'user', 'fas fa-user', 1, 1),
+(17, 10, 'Perjalanan Dinas', 'inperdin', 'fas fa-road', 1, 1),
+(18, 10, 'Dana', 'dana', 'fas fa-money-bill-alt', 1, 3),
+(19, 12, 'Kategori Perdin', 'katperdin', 'fas fa-car-side', 1, 3),
+(20, 12, 'Klasifikasi Jabatan', 'klasijabatan', 'fas fa-user-tie', 1, 4),
+(21, 12, 'Maskapai', 'maskapai', 'fas fa-plane', 1, 5),
+(22, 12, 'Sumberdana', 'sumberdana', 'fas fa-money-check', 1, 6);
 
 --
 -- Indexes for dumped tables
@@ -452,7 +474,7 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT untuk tabel `input_perdin`
 --
 ALTER TABLE `input_perdin`
-  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_dana`
@@ -482,31 +504,31 @@ ALTER TABLE `ms_sumberdana`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

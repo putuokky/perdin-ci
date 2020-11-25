@@ -74,8 +74,7 @@ class Katperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$this->form_validation->set_rules('menu', 'Menu', 'required');
-		$this->form_validation->set_rules('urutan', 'Urutan', 'required');
+		$this->form_validation->set_rules('namakatperdin', 'Nama Kategori Perdin', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
@@ -84,26 +83,22 @@ class Katperdin extends CI_Controller
 			$this->load->view('katperdin/formtambah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$menu = $this->input->post('menu');
-			$urutan = $this->input->post('urutan');
-			$status = $this->input->post('status');
+			$namakatperdin = $this->input->post('namakatperdin');
 
 			$data = [
-				'menu' => $menu,
-				'is_active_menu' => $status,
-				'urutan_user_menu' => $urutan
+				'nama_kat_perdin' => $namakatperdin
 			];
 
-			$this->m_menu->tambahDataMenu($data);
+			$this->m_kategoriperdin->tambahDataKatPerdin($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('menu');
+			redirect('katperdin');
 		}
 	}
 
 	public function ubah($id)
 	{
-		$data['judul'] = 'Menu Management';
-		$data['subjudul'] = 'Form Ubah Menu Management';
+		$data['judul'] = 'Kategori Perdin';
+		$data['subjudul'] = 'Form Ubah Kategori Perdin';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -127,39 +122,34 @@ class Katperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['menu'] = $this->m_menu->getMenuById($id);
+		$data['katper'] = $this->m_kategoriperdin->getKatPerdinById($id);
 
-		$this->form_validation->set_rules('menu', 'Menu', 'required');
-		$this->form_validation->set_rules('urutan', 'Urutan', 'required');
+		$this->form_validation->set_rules('namakatperdin', 'Nama Kategori Perdin', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('menu/formubah', $data);
+			$this->load->view('katperdin/formubah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
 			$id = $this->input->post('id');  // tidak perlu ini diubah
-			$menu = $this->input->post('menu');
-			$urutan = $this->input->post('urutan');
-			$status = $this->input->post('status');
+			$namakatperdin = $this->input->post('namakatperdin');
 
 			$data = [
-				'menu' => $menu,
-				'is_active_menu' => $status,
-				'urutan_user_menu' => $urutan
+				'nama_kat_perdin' => $namakatperdin
 			];
 
-			$this->m_menu->ubahDataMenu($data, $id);
+			$this->m_kategoriperdin->ubahDataKatPerdin($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('menu');
+			redirect('katperdin');
 		}
 	}
 
 	public function hapus($id)
 	{
-		$this->m_menu->hapusDataMenu($id);
+		$this->m_kategoriperdin->hapusDataKatPerdin($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('menu');
+		redirect('katperdin');
 	}
 }
