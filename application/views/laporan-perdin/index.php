@@ -36,7 +36,7 @@
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
                 </div> -->
               <?php endif; ?>
-              <a href="<?= base_url('dana/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="<?= base_url('laporperdin/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -45,38 +45,35 @@
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Klasifikasi Jabatan</th>
-                    <th>Sumberdana</th>
-                    <th>Tahun Anggaran</th>
-                    <th>Kategori Perdin</th>
+                    <th>Kelas Jabatan</th>
                     <th>Dana</th>
+                    <th>Realisasi</th>
+                    <th>Sisa</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Klasifikasi Jabatan</th>
-                    <th>Sumberdana</th>
-                    <th>Tahun Anggaran</th>
-                    <th>Kategori Perdin</th>
+                    <th>Kelas Jabatan</th>
                     <th>Dana</th>
+                    <th>Realisasi</th>
+                    <th>Sisa</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
                   $no = 1;
-                  foreach ($dana as $d) : ?>
+                  foreach ($lapdin as $lp) : ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="<?= base_url('dana/ubah/' . $d['id_dana']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
-                        <a href="<?= base_url('dana/hapus/' . $d['id_dana']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
+                      <td><a href="<?= base_url('laporperdin/ubah/' . $lp['id_laporan_perdin']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
+                        <a href="<?= base_url('laporperdin/hapus/' . $lp['id_laporan_perdin']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
-                      <td><?= $d['jabatan']; ?></td>
-                      <td><?= $d['nama_sumberdana']; ?></td>
-                      <td><?= $d['tahun_anggaran']; ?></td>
-                      <td><?= $d['nama_kat_perdin']; ?></td>
-                      <td><?= "Rp " . number_format($d['dana'], 0, ',', '.'); ?></td>
+                      <td><?= $lp['jabatan']; ?></td>
+                      <td><?= "Rp " . number_format($lp['dana'], 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($lp['jumlah'], 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format(($lp['dana'] - $lp['jumlah']), 0, ',', '.'); ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -88,7 +85,7 @@
         <!--/.col -->
       </div>
       <!-- /.row -->
-    </div><!-- /.container-fluid_dana -->
+    </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
 </div>

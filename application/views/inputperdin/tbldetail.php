@@ -130,7 +130,7 @@
                     <td><?= "Rp " . number_format($perdin['penginapan'], 0, ',', '.'); ?></td>
                     <td><?= "Rp " . number_format($perdin['uang_representatif'], 0, ',', '.'); ?></td>
                     <td><?= "Rp " . number_format($perdin['lain_lain'], 0, ',', '.'); ?></td>
-                    <td><?= "Rp " . number_format($perdin['harga'] + $perdin['uang_harian'] + $perdin['uang_transport'] + $perdin['penginapan'] + $perdin['uang_representatif'] + $perdin['lain_lain'], 0, ',', '.'); ?></td>
+                    <td><?= "Rp " . number_format($perdin['jumlah'], 0, ',', '.'); ?></td>
                   </tr>
                 </tbody>
               </table>

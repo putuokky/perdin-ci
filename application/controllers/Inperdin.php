@@ -132,6 +132,7 @@ class Inperdin extends CI_Controller
 			$penginapan = $this->input->post('penginapan');
 			$uangrepre = $this->input->post('uangrepre');
 			$lainlain = $this->input->post('lainlain');
+			$jumlah = $harga + $uangharian + $uangtransport + $penginapan + $uangrepre + $lainlain;
 
 			$data = [
 				'klasifikasi_jabtan' => $klasijbtn,
@@ -155,7 +156,8 @@ class Inperdin extends CI_Controller
 				'uang_transport' => $uangtransport,
 				'penginapan' => $penginapan,
 				'uang_representatif' => $uangrepre,
-				'lain_lain' => $lainlain
+				'lain_lain' => $lainlain,
+				'jumlah' => $jumlah
 			];
 
 			$this->m_inperdin->tambahDataInperdin($data);
@@ -247,6 +249,7 @@ class Inperdin extends CI_Controller
 			$penginapan = $this->input->post('penginapan');
 			$uangrepre = $this->input->post('uangrepre');
 			$lainlain = $this->input->post('lainlain');
+			$jumlah = $harga + $uangharian + $uangtransport + $penginapan + $uangrepre + $lainlain;
 
 			$data = [
 				'klasifikasi_jabtan' => $klasijbtn,
@@ -270,7 +273,8 @@ class Inperdin extends CI_Controller
 				'uang_transport' => $uangtransport,
 				'penginapan' => $penginapan,
 				'uang_representatif' => $uangrepre,
-				'lain_lain' => $lainlain
+				'lain_lain' => $lainlain,
+				'jumlah' => $jumlah
 			];
 
 			$this->m_inperdin->ubahDataInperdin($data, $id);
