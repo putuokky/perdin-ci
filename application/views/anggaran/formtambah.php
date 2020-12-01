@@ -32,7 +32,7 @@
             <form role="form" method="POST" action="">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="namasumberdn">Nama Sumberdana</label>
+                  <label for="namasumberdn">Nama Tahapan Anggaran</label>
                   <input type="text" class="form-control col-md-8" id="namasumberdn" name="namasumberdn" placeholder="Enter Nama Sumberdana">
                   <small class="form-text text-danger"><?= form_error('namasumberdn'); ?></small>
                 </div>
@@ -41,7 +41,7 @@
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="<?= base_url('sumberdana'); ?>" class="btn btn-default">Cancel</a>
+                <a href="<?= base_url('anggaran'); ?>" class="btn btn-default">Cancel</a>
               </div>
             </form>
           </div>

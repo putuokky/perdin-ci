@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Sumberdana extends CI_Controller
+class Anggaran extends CI_Controller
 {
 	public function __construct()
 	{
@@ -13,8 +13,8 @@ class Sumberdana extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = 'Sumberdana';
-		$data['subjudul'] = 'Data Sumberdana';
+		$data['judul'] = 'Tahapan Anggaran';
+		$data['subjudul'] = 'Data Tahapan Anggaran';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -43,14 +43,14 @@ class Sumberdana extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('templates/sidebar', $data);
-		$this->load->view('sumberdana/index', $data);
+		$this->load->view('anggaran/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
 
 	public function tambah()
 	{
-		$data['judul'] = 'Sumberdana';
-		$data['subjudul'] = 'Form Tambah Sumberdana';
+		$data['judul'] = 'Tahapan Anggaran';
+		$data['subjudul'] = 'Form Tambah Tahapan Anggaran';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -74,13 +74,13 @@ class Sumberdana extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$this->form_validation->set_rules('namasumberdn', 'Nama Sumberdana', 'required');
+		$this->form_validation->set_rules('namasumberdn', 'Nama Tahapan Anggaran', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('sumberdana/formtambah', $data);
+			$this->load->view('anggaran/formtambah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
 			$namasumberdn = $this->input->post('namasumberdn');
@@ -91,14 +91,14 @@ class Sumberdana extends CI_Controller
 
 			$this->m_sumberdana->tambahDataSumberdana($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('sumberdana');
+			redirect('anggaran');
 		}
 	}
 
 	public function ubah($id)
 	{
-		$data['judul'] = 'Sumberdana';
-		$data['subjudul'] = 'Form Ubah Sumberdana';
+		$data['judul'] = 'Tahapan Anggaran';
+		$data['subjudul'] = 'Form Ubah Tahapan Anggaran';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -130,7 +130,7 @@ class Sumberdana extends CI_Controller
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('sumberdana/formubah', $data);
+			$this->load->view('anggaran/formubah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
 			$id = $this->input->post('id');  // tidak perlu ini diubah

@@ -16,8 +16,8 @@ class Dana extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = 'Dana';
-		$data['subjudul'] = 'Data Dana';
+		$data['judul'] = 'Sumberdana';
+		$data['subjudul'] = 'Data Sumberdana';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -52,8 +52,8 @@ class Dana extends CI_Controller
 
 	public function tambah()
 	{
-		$data['judul'] = 'Dana';
-		$data['subjudul'] = 'Form Tambah Dana';
+		$data['judul'] = 'Sumberdana';
+		$data['subjudul'] = 'Form Tambah Sumberdana';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -118,8 +118,8 @@ class Dana extends CI_Controller
 
 	public function ubah($id)
 	{
-		$data['judul'] = 'Dana';
-		$data['subjudul'] = 'Form Ubah Dana';
+		$data['judul'] = 'Sumberdana';
+		$data['subjudul'] = 'Form Ubah Sumberdana';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');

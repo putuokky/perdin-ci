@@ -36,7 +36,7 @@
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
                 </div> -->
               <?php endif; ?>
-              <a href="<?= base_url('sumberdana/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="<?= base_url('anggaran/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -45,14 +45,14 @@
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Nama Sumberdana</th>
+                    <th>Nama Tahapan Anggaran</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Nama Sumberdana</th>
+                    <th>Nama Tahapan Anggaran</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -61,8 +61,8 @@
                   foreach ($sumber as $s) : ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="<?= base_url('sumberdana/ubah/' . $s['id_sumberdana']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
-                        <a href="<?= base_url('sumberdana/hapus/' . $s['id_sumberdana']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
+                      <td><a href="<?= base_url('anggaran/ubah/' . $s['id_sumberdana']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
+                        <a href="<?= base_url('anggaran/hapus/' . $s['id_sumberdana']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
                       <td><?= $s['nama_sumberdana']; ?></td>
                     </tr>
