@@ -6,9 +6,10 @@ class Model_inperdin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('input_perdin');
-        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = input_perdin.klasifikasi_jabtan');
-        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = input_perdin.tahapan_anggaran');
-        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = input_perdin.kategori_perjalanan');
+        $this->db->join('ms_dana', 'ms_dana.id_dana = input_perdin.id_dana');
+        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = ms_dana.klasifikasi_jabatan');
+        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = ms_dana.sumberdana');
+        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -17,9 +18,10 @@ class Model_inperdin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('input_perdin');
-        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = input_perdin.klasifikasi_jabtan');
-        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = input_perdin.tahapan_anggaran');
-        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = input_perdin.kategori_perjalanan');
+        $this->db->join('ms_dana', 'ms_dana.id_dana = input_perdin.id_dana');
+        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = ms_dana.klasifikasi_jabatan');
+        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = ms_dana.sumberdana');
+        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
         $this->db->join('ms_maskapai', 'ms_maskapai.id_maskapai = input_perdin.maskapai', 'left');
         $this->db->where('input_perdin.id_perdin', $id);
         $query = $this->db->get();

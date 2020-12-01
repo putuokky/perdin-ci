@@ -32,45 +32,14 @@
             <form role="form" method="POST" action="">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="klasijbtn">Klasifikasi Jabatan</label>
-                  <select class="form-control col-md-6 select2bs4" name="klasijbtn">
+                  <label for="sumberdana">Sumberdana</label>
+                  <select class="form-control col-md-12 select2bs4" name="sumberdana">
                     <option value="0">-</option>
-                    <?php foreach ($klasijbtn as $kljb) : ?>
-                      <option value="<?= $kljb['kode_kj']; ?>"><?= $kljb['jabatan']; ?></option>
+                    <?php foreach ($sumberdana as $sbdn) : ?>
+                      <option value="<?= $sbdn['id_dana']; ?>"><?= $sbdn['jabatan'] . " | " . $sbdn['nama_sumberdana'] . " | " . $sbdn['tahun_anggaran'] . " | " . $sbdn['nama_kat_perdin']; ?></option>
                     <?php endforeach ?>
                   </select>
-                  <small class="form-text text-danger"><?= form_error('klasijbtn'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="tahunangran">Tahun Anggaran</label>
-                  <select class="form-control col-md-2 select2bs4" name="tahunangran">
-                    <option value="0">-</option>
-                    <?php
-                    for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
-                      <option value="<?= $i; ?>"><?= $i; ?></option>
-                    <?php } ?>
-                  </select>
-                  <small class="form-text text-danger"><?= form_error('tahunangran'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="anggaran">Tahapaan Anggaran</label>
-                  <select class="form-control col-md-2 select2bs4" name="anggaran">
-                    <option value="0">-</option>
-                    <?php foreach ($sumberdana as $sd) : ?>
-                      <option value="<?= $sd['id_sumberdana']; ?>"><?= $sd['nama_sumberdana']; ?></option>
-                    <?php endforeach ?>
-                  </select>
-                  <small class="form-text text-danger"><?= form_error('anggaran'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="katperdin">Kategori Perdin</label>
-                  <select class="form-control col-md-4 select2bs4" name="katperdin">
-                    <option value="0">-</option>
-                    <?php foreach ($katperdin as $katp) : ?>
-                      <option value="<?= $katp['id_kat_perdin']; ?>"><?= $katp['nama_kat_perdin']; ?></option>
-                    <?php endforeach ?>
-                  </select>
-                  <small class="form-text text-danger"><?= form_error('katperdin'); ?></small>
+                  <small class="form-text text-danger"><?= form_error('sumberdana'); ?></small>
                 </div>
                 <div class="form-group">
                   <label for="nospd">No SP2D</label>

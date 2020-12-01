@@ -33,7 +33,7 @@
             </div>
             <div class="card-body">
               <h3>Klasifikasi Jabatan : <b><?= $perdin['jabatan']; ?></b></h3>
-              <h3>Tahun : <b><?= $perdin['tahun']; ?></b></h3>
+              <h3>Tahun : <b><?= $perdin['tahun_anggaran']; ?></b></h3>
               <h3>Tahapan Anggaran : <b><?= $perdin['nama_sumberdana']; ?></b></h3>
               <h3>Kategori Perjalanan : <b><?= $perdin['nama_kat_perdin']; ?></b></h3>
             </div>

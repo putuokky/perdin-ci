@@ -33,61 +33,18 @@
               <div class="card-body">
                 <input type="hidden" class="form-control" id="id" name="id" value="<?= $perdin['id_perdin']; ?>">
                 <div class="form-group">
-                  <label for="klasijbtn">Klasifikasi Jabatan</label>
-                  <select class="form-control col-md-6 select2bs4" name="klasijbtn">
+                  <label for="sumberdana">Sumberdana</label>
+                  <select class="form-control col-md-12 select2bs4" name="sumberdana">
                     <option value="0">-</option>
-                    <?php foreach ($klasijbtn as $kljb) : ?>
-                      <?php if ($perdin['klasifikasi_jabtan'] == $kljb['kode_kj']) : ?>
-                        <option value="<?= $kljb['kode_kj']; ?>" selected><?= $kljb['jabatan']; ?></option>
+                    <?php foreach ($sumberdana as $sbdn) : ?>
+                      <?php if ($perdin['id_dana'] == $sbdn['id_dana']) : ?>
+                        <option value="<?= $sbdn['id_dana']; ?>" selected><?= $sbdn['jabatan'] . " | " . $sbdn['nama_sumberdana'] . " | " . $sbdn['tahun_anggaran'] . " | " . $sbdn['nama_kat_perdin']; ?></option>
                       <?php else : ?>
-                        <option value="<?= $kljb['kode_kj']; ?>"><?= $kljb['jabatan']; ?></option>
+                        <option value="<?= $sbdn['id_dana']; ?>"><?= $sbdn['jabatan'] . " | " . $sbdn['nama_sumberdana'] . " | " . $sbdn['tahun_anggaran'] . " | " . $sbdn['nama_kat_perdin']; ?></option>
                       <?php endif ?>
                     <?php endforeach ?>
                   </select>
-                  <small class="form-text text-danger"><?= form_error('klasijbtn'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="tahunangran">Tahun Anggaran</label>
-                  <select class="form-control col-md-2 select2bs4" name="tahunangran">
-                    <option value="0">-</option>
-                    <?php
-                    for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
-                      <?php if ($i == $perdin['tahun']) : ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php else : ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php endif; ?>
-                    <?php } ?>
-                  </select>
-                  <small class="form-text text-danger"><?= form_error('tahunangran'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="anggaran">Tahapaan Anggaran</label>
-                  <select class="form-control col-md-2 select2bs4" name="anggaran">
-                    <option value="0">-</option>
-                    <?php foreach ($sumberdana as $sd) : ?>
-                      <?php if ($perdin['tahapan_anggaran'] == $sd['id_sumberdana']) : ?>
-                        <option value="<?= $sd['id_sumberdana']; ?>" selected><?= $sd['nama_sumberdana']; ?></option>
-                      <?php else : ?>
-                        <option value="<?= $sd['id_sumberdana']; ?>"><?= $sd['nama_sumberdana']; ?></option>
-                      <?php endif ?>
-                    <?php endforeach ?>
-                  </select>
-                  <small class="form-text text-danger"><?= form_error('anggaran'); ?></small>
-                </div>
-                <div class="form-group">
-                  <label for="katperdin">Kategori Perdin</label>
-                  <select class="form-control col-md-4 select2bs4" name="katperdin">
-                    <option value="0">-</option>
-                    <?php foreach ($katperdin as $katp) : ?>
-                      <?php if ($perdin['kategori_perjalanan'] == $katp['id_kat_perdin']) : ?>
-                        <option value="<?= $katp['id_kat_perdin']; ?>" selected><?= $katp['nama_kat_perdin']; ?></option>
-                      <?php else : ?>
-                        <option value="<?= $katp['id_kat_perdin']; ?>"><?= $katp['nama_kat_perdin']; ?></option>
-                      <?php endif ?>
-                    <?php endforeach ?>
-                  </select>
-                  <small class="form-text text-danger"><?= form_error('katperdin'); ?></small>
+                  <small class="form-text text-danger"><?= form_error('sumberdana'); ?></small>
                 </div>
                 <div class="form-group">
                   <label for="nospd">No SP2D</label>

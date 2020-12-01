@@ -9,9 +9,7 @@ class Inperdin extends CI_Controller
 		$this->load->model('model_user', 'm_user');
 		$this->load->model('model_config', 'm_config');
 		$this->load->model('model_inperdin', 'm_inperdin');
-		$this->load->model('Model_klasijabatan', 'm_klasijabatan');
-		$this->load->model('Model_sumberdana', 'm_sumberdana');
-		$this->load->model('Model_kategoriperdin', 'm_kategoriperdin');
+		$this->load->model('model_dana', 'm_dana');
 		$this->load->model('Model_maskapai', 'm_maskapai');
 	}
 
@@ -78,9 +76,7 @@ class Inperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
-		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
-		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
+		$data['sumberdana'] = $this->m_dana->getAllDana();
 		$data['maskp'] = $this->m_maskapai->getAllMaskapai();
 		$data['thnawal'] = 2015;
 		$data['thnskrg'] = date('Y');
@@ -110,10 +106,7 @@ class Inperdin extends CI_Controller
 			$this->load->view('inputperdin/formtambah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$klasijbtn = $this->input->post('klasijbtn');
-			$tahunangran = $this->input->post('tahunangran');
-			$anggaran = $this->input->post('anggaran');
-			$katperdin = $this->input->post('katperdin');
+			$sumberdana = $this->input->post('sumberdana');
 			$nospd = $this->input->post('nospd');
 			$namaacara = $this->input->post('namaacara');
 			$tujuan = $this->input->post('tujuan');
@@ -135,10 +128,7 @@ class Inperdin extends CI_Controller
 			$jumlah = $harga + $uangharian + $uangtransport + $penginapan + $uangrepre + $lainlain;
 
 			$data = [
-				'klasifikasi_jabtan' => $klasijbtn,
-				'tahun' => $tahunangran,
-				'tahapan_anggaran' => $anggaran,
-				'kategori_perjalanan' => $katperdin,
+				'id_dana' => $sumberdana,
 				'no_sp2d' => $nospd,
 				'nama_kegiatan' => $namaacara,
 				'tujuan' => $tujuan,
@@ -194,10 +184,8 @@ class Inperdin extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['perdin'] = $this->m_inperdin->getInperdinById($id);
-		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
-		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
-		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
 		$data['maskp'] = $this->m_maskapai->getAllMaskapai();
+		$data['sumberdana'] = $this->m_dana->getAllDana();
 		$data['thnawal'] = 2015;
 		$data['thnskrg'] = date('Y');
 
@@ -227,10 +215,6 @@ class Inperdin extends CI_Controller
 			$this->load->view('templates/footer', $data);
 		} else {
 			$id = $this->input->post('id'); // tidak perlu ini diubah
-			$klasijbtn = $this->input->post('klasijbtn');
-			$tahunangran = $this->input->post('tahunangran');
-			$anggaran = $this->input->post('anggaran');
-			$katperdin = $this->input->post('katperdin');
 			$nospd = $this->input->post('nospd');
 			$namaacara = $this->input->post('namaacara');
 			$tujuan = $this->input->post('tujuan');
@@ -252,10 +236,6 @@ class Inperdin extends CI_Controller
 			$jumlah = $harga + $uangharian + $uangtransport + $penginapan + $uangrepre + $lainlain;
 
 			$data = [
-				'klasifikasi_jabtan' => $klasijbtn,
-				'tahun' => $tahunangran,
-				'tahapan_anggaran' => $anggaran,
-				'kategori_perjalanan' => $katperdin,
 				'no_sp2d' => $nospd,
 				'nama_kegiatan' => $namaacara,
 				'tujuan' => $tujuan,
