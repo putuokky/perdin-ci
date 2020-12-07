@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Nov 2020 pada 08.52
+-- Waktu pembuatan: 07 Des 2020 pada 06.31
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -52,6 +52,7 @@ INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
 
 CREATE TABLE `input_perdin` (
   `id_perdin` int(11) NOT NULL,
+  `id_dana` int(20) NOT NULL,
   `klasifikasi_jabtan` varchar(100) NOT NULL,
   `tahun` varchar(100) NOT NULL,
   `tahapan_anggaran` varchar(100) NOT NULL,
@@ -81,9 +82,8 @@ CREATE TABLE `input_perdin` (
 -- Dumping data untuk tabel `input_perdin`
 --
 
-INSERT INTO `input_perdin` (`id_perdin`, `klasifikasi_jabtan`, `tahun`, `tahapan_anggaran`, `kategori_perjalanan`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`) VALUES
-(1, '001', '2015', '1', '3', '1111', 'qqqqq', 'vvvvv', '2020-11-12', '2020-11-27', 2, '44444', 'ttttt', 5, 'hhhh', '2020-11-25', '4444', 10000, 20000, 30000, 40000, 50000, 60000, 210000),
-(2, '00101', '2016', '1', '1', '888', 'pppppppp', 'yyyyyy', '2020-11-02', '2020-11-18', 66, '66666jjjj', 'fghgfh fghfgh', 0, '', '1970-01-01', '', 0, 1000, 0, 2000, 3000, 5000, 11000);
+INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `klasifikasi_jabtan`, `tahun`, `tahapan_anggaran`, `kategori_perjalanan`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`) VALUES
+(4, 2, '', '', '', '', '111rrrr', 'ttttt', 'hhhh', '2020-12-01', '2020-12-16', 15, '55ttttt', 'hhhh', 0, '', '1970-01-01', '', 0, 2000, 0, 2000, 2000, 2000, 8000);
 
 -- --------------------------------------------------------
 
@@ -240,25 +240,6 @@ INSERT INTO `ms_sumberdana` (`id_sumberdana`, `nama_sumberdana`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_laporan_perdin`
---
-
-CREATE TABLE `tb_laporan_perdin` (
-  `id_laporan_perdin` int(11) NOT NULL,
-  `id_perdin` int(11) NOT NULL,
-  `id_dana` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tb_laporan_perdin`
---
-
-INSERT INTO `tb_laporan_perdin` (`id_laporan_perdin`, `id_perdin`, `id_dana`) VALUES
-(1, 1, 2);
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `user`
 --
 
@@ -330,7 +311,12 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (22, 2, 12),
 (23, 3, 12),
 (24, 4, 6),
-(25, 4, 10);
+(25, 4, 10),
+(27, 1, 13),
+(28, 1, 8),
+(29, 2, 13),
+(30, 3, 13),
+(31, 4, 13);
 
 -- --------------------------------------------------------
 
@@ -350,11 +336,12 @@ CREATE TABLE `user_menu` (
 --
 
 INSERT INTO `user_menu` (`id`, `menu`, `is_active_menu`, `urutan_user_menu`) VALUES
-(3, 'Master', 1, 6),
+(3, 'Developer', 1, 6),
 (6, 'Home', 1, 1),
 (8, 'Settings', 1, 4),
-(10, 'Interface', 1, 2),
-(12, 'Add On', 1, 3);
+(10, 'Perdin', 1, 2),
+(12, 'Master', 1, 3),
+(13, 'Laporan', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -398,7 +385,6 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id_user_sub_menu`, `menu_id`, `submenu`, `url`, `icon`, `is_active`, `urutan_user_sub_menu`) VALUES
-(2, 3, 'User', 'user', 'fas fa-user', 1, 1),
 (8, 3, 'Role User', 'roleuser', 'fas fa-users-cog', 1, 2),
 (9, 3, 'Menu Management', 'menu', 'fas fa-folder', 1, 3),
 (10, 3, 'SubMenu Management', 'submenu', 'fas fa-folder-open', 1, 4),
@@ -406,12 +392,12 @@ INSERT INTO `user_sub_menu` (`id_user_sub_menu`, `menu_id`, `submenu`, `url`, `i
 (13, 6, 'Dashboard', 'dashboard', 'fas fa-tachometer-alt', 1, 1),
 (14, 8, 'User', 'user', 'fas fa-user', 1, 1),
 (17, 10, 'Perjalanan Dinas', 'inperdin', 'fas fa-road', 1, 1),
-(18, 10, 'Dana', 'dana', 'fas fa-money-bill-alt', 1, 3),
+(18, 12, 'Sumberdana', 'dana', 'fas fa-money-bill-alt', 1, 3),
 (19, 12, 'Kategori Perdin', 'katperdin', 'fas fa-car-side', 1, 3),
 (20, 12, 'Klasifikasi Jabatan', 'klasijabatan', 'fas fa-user-tie', 1, 4),
 (21, 12, 'Maskapai', 'maskapai', 'fas fa-plane', 1, 5),
-(22, 12, 'Sumberdana', 'sumberdana', 'fas fa-money-check', 1, 6),
-(23, 10, 'Laporan Perdin', 'laporperdin', 'fas fa-file-alt', 1, 5);
+(22, 12, 'Tahapan Anggaran', 'anggaran', 'fas fa-money-check', 1, 6),
+(23, 13, 'Laporan Perdin', 'laporperdin', 'fas fa-file-alt', 1, 5);
 
 --
 -- Indexes for dumped tables
@@ -460,12 +446,6 @@ ALTER TABLE `ms_sumberdana`
   ADD PRIMARY KEY (`id_sumberdana`);
 
 --
--- Indeks untuk tabel `tb_laporan_perdin`
---
-ALTER TABLE `tb_laporan_perdin`
-  ADD PRIMARY KEY (`id_laporan_perdin`);
-
---
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -509,7 +489,7 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT untuk tabel `input_perdin`
 --
 ALTER TABLE `input_perdin`
-  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_dana`
@@ -536,12 +516,6 @@ ALTER TABLE `ms_sumberdana`
   MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_laporan_perdin`
---
-ALTER TABLE `tb_laporan_perdin`
-  MODIFY `id_laporan_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -551,13 +525,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`

@@ -36,7 +36,6 @@
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
                 </div> -->
               <?php endif; ?>
-              <a href="<?= base_url('laporperdin/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -44,7 +43,6 @@
                 <thead>
                   <tr class="btn-dark">
                     <th>No</th>
-                    <th>Opsi</th>
                     <th>Kelas Jabatan</th>
                     <th>Dana</th>
                     <th>Realisasi</th>
@@ -54,7 +52,6 @@
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
-                    <th>Opsi</th>
                     <th>Kelas Jabatan</th>
                     <th>Dana</th>
                     <th>Realisasi</th>
@@ -67,9 +64,6 @@
                   foreach ($lapdin as $lp) : ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="<?= base_url('laporperdin/ubah/' . $lp['id_laporan_perdin']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
-                        <a href="<?= base_url('laporperdin/hapus/' . $lp['id_laporan_perdin']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
-                      </td>
                       <td><?= $lp['jabatan']; ?></td>
                       <td><?= "Rp " . number_format($lp['dana'], 0, ',', '.'); ?></td>
                       <td><?= "Rp " . number_format($lp['jumlah'], 0, ',', '.'); ?></td>
