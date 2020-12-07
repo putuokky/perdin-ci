@@ -43,6 +43,9 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Bootstrap4 Duallistbox -->
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+
+  <!-- The fav icon -->
+  <link rel="shortcut icon" href="<?= base_url('assets'); ?>/dist/img/Lambang_Kota_Denpasar.png">
 </head>
 
 <body class="hold-transition sidebar-mini">

@@ -10,12 +10,16 @@ class Laporperdin extends CI_Controller
 		$this->load->model('model_config', 'm_config');
 		$this->load->model('model_inperdin', 'm_inperdin');
 		$this->load->model('model_dana', 'm_dana');
+		$this->load->model('model_sumberdana', 'm_sumberdana');
+		$this->load->model('model_klasijabatan', 'm_klasijabatan');
+		$this->load->model('model_kategoriperdin', 'm_kategoriperdin');
 	}
 
 	public function index()
 	{
 		$data['judul'] = 'Laporan Perdin';
 		$data['subjudul'] = 'Data Laporan Perdin';
+		$data['filjudul'] = 'Filter Laporan Perdin';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -40,6 +44,11 @@ class Laporperdin extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['lapdin'] = $this->m_inperdin->getAllInperdin();
+		$data['thnawal'] = 2015;
+		$data['thnskrg'] = date('Y');
+		$data['sumber'] = $this->m_sumberdana->getAllSumberdana();
+		$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		$data['katper'] = $this->m_kategoriperdin->getAllKatPerdin();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);

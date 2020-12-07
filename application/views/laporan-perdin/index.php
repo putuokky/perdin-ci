@@ -25,6 +25,78 @@
           <!-- general form elements -->
           <div class="card card-dark">
             <div class="card-header">
+              <h3 class="card-title"><?= $filjudul; ?></h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive">
+              <form role="form" method="POST" action="">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="tahun" class="col-sm-2 col-form-label">Tahun</label>
+                    <select class="form-control col-md-2 select2bs4" name="tahun">
+                      <option value="0">-</option>
+                      <?php
+                      for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                      <?php } ?>
+                    </select>
+                    <small class="form-text text-danger"><?= form_error('tahun'); ?></small>
+                  </div>
+                  <div class="form-group row">
+                    <label for="thpanggaran" class="col-sm-2 col-form-label">Tahapan Anggaran</label>
+                    <select class="form-control col-md-2 select2bs4" name="thpanggaran">
+                      <option value="0">-</option>
+                      <?php foreach ($sumber as $su) : ?>
+                        <option value="<?= $su['id_sumberdana']; ?>"><?= $su['nama_sumberdana']; ?></option>
+                      <?php endforeach ?>
+                    </select>
+                    <small class="form-text text-danger"><?= form_error('thpanggaran'); ?></small>
+                  </div>
+                  <div class="form-group row">
+                    <label for="klsjabatan" class="col-sm-2 col-form-label">Kelas Jabatan</label>
+                    <select class="form-control col-md-6 select2bs4" name="klsjabatan">
+                      <option value="0">-</option>
+                      <?php foreach ($klajbt as $kljb) : ?>
+                        <option value="<?= $kljb['kode_kj']; ?>"><?= $kljb['jabatan']; ?></option>
+                      <?php endforeach ?>
+                    </select>
+                    <small class="form-text text-danger"><?= form_error('klsjabatan'); ?></small>
+                  </div>
+                  <div class="form-group row">
+                    <label for="katperdin" class="col-sm-2 col-form-label">Kategori Perdin</label>
+                    <select class="form-control col-md-4 select2bs4" name="katperdin">
+                      <option value="0">-</option>
+                      <?php foreach ($katper as $katp) : ?>
+                        <option value="<?= $katp['id_kat_perdin']; ?>"><?= $katp['nama_kat_perdin']; ?></option>
+                      <?php endforeach ?>
+                    </select>
+                    <small class="form-text text-danger"><?= form_error('katperdin'); ?></small>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-info">Cari</button>
+              </form>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--/.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+
+
+
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md">
+          <!-- general form elements -->
+          <div class="card card-dark">
+            <div class="card-header">
               <h3 class="card-title"><?= $subjudul; ?></h3>
             </div>
             <!-- /.card-header -->
