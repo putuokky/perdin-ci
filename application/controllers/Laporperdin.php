@@ -43,12 +43,24 @@ class Laporperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['lapdin'] = $this->m_inperdin->getAllInperdin();
+		// untuk select form
 		$data['thnawal'] = 2015;
 		$data['thnskrg'] = date('Y');
 		$data['sumber'] = $this->m_sumberdana->getAllSumberdana();
 		$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatan();
 		$data['katper'] = $this->m_kategoriperdin->getAllKatPerdin();
+
+		// untuk konten tabel
+		if ($this->session->userdata('role_id') == 1) {
+			$data['lapdin'] = $this->m_inperdin->getAllInperdin();
+		} else if ($this->session->userdata('role_id') == 2){
+			$data['lapdin'] = $this->m_inperdin->getAllInperdina('1','');
+		} else if ($this->session->userdata('role_id') == 3){
+			$data['lapdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('nama_bagian'));
+		} else {
+			$data['lapdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2','3'),$this->session->userdata('nama_bagian'));
+		}
+		
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);

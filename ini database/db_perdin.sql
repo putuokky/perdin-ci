@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Des 2020 pada 06.31
+-- Waktu pembuatan: 13 Des 2020 pada 08.11
 -- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.10
+-- Versi PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,10 +53,6 @@ INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
 CREATE TABLE `input_perdin` (
   `id_perdin` int(11) NOT NULL,
   `id_dana` int(20) NOT NULL,
-  `klasifikasi_jabtan` varchar(100) NOT NULL,
-  `tahun` varchar(100) NOT NULL,
-  `tahapan_anggaran` varchar(100) NOT NULL,
-  `kategori_perjalanan` varchar(100) NOT NULL,
   `no_sp2d` varchar(100) NOT NULL,
   `nama_kegiatan` varchar(100) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
@@ -75,15 +71,20 @@ CREATE TABLE `input_perdin` (
   `penginapan` int(20) NOT NULL,
   `uang_representatif` int(20) NOT NULL,
   `lain_lain` int(20) NOT NULL,
-  `jumlah` int(20) NOT NULL
+  `jumlah` int(20) NOT NULL,
+  `userid` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `input_perdin`
 --
 
-INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `klasifikasi_jabtan`, `tahun`, `tahapan_anggaran`, `kategori_perjalanan`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`) VALUES
-(4, 2, '', '', '', '', '111rrrr', 'ttttt', 'hhhh', '2020-12-01', '2020-12-16', 15, '55ttttt', 'hhhh', 0, '', '1970-01-01', '', 0, 2000, 0, 2000, 2000, 2000, 8000);
+INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`, `userid`) VALUES
+(5, 2, 'q222', 'qwe', 'www', '2020-12-01', '2020-12-05', 4, 'eeee', 'wwww', 1, 'www', '2020-12-01', '2323', 10000, 20000, 30000, 40000, 50000, 60000, 210000, 'putuokky'),
+(6, 2, '22dd', 'gggg', 'cccc', '2020-12-01', '2020-12-05', 5, '3333', 'rrr', 1, 'ffff', '2020-12-10', 'wew333', 10000, 10000, 10000, 10000, 10000, 20000, 70000, 'denpasarkota'),
+(7, 2, 'qqq', 'zzzz', 'qawww', '2020-12-01', '2020-12-16', 33, '3e3e3e', 'wwwww', 3, 'eeeee', '2020-12-09', 'rrrr', 20000, 20000, 20000, 20000, 20000, 150000, 250000, 'adminhumas'),
+(8, 2, 'www', 'jjjjj', 'rrrr', '2020-12-09', '2020-12-16', 55, '444g4g', 'ggg', 4, 'ggg4g', '2020-12-22', 'ggggg', 20000, 20000, 20000, 20000, 20000, 20000, 120000, 'adminadbang'),
+(9, 2, 'aaaa', 'sss', 'eeee', '2020-12-13', '2020-12-13', 4, '55ggg', 'rrrrr', 5, 'rrrr', '2020-11-30', 'rrrr', 10000, 10000, 10000, 10000, 10000, 10000, 60000, 'ophumas');
 
 -- --------------------------------------------------------
 
@@ -97,16 +98,16 @@ CREATE TABLE `ms_dana` (
   `sumberdana` varchar(100) NOT NULL,
   `tahun_anggaran` varchar(100) NOT NULL,
   `kategori_perdin` varchar(100) NOT NULL,
-  `dana` int(20) NOT NULL
+  `dana` int(20) NOT NULL,
+  `debit` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `ms_dana`
 --
 
-INSERT INTO `ms_dana` (`id_dana`, `klasifikasi_jabatan`, `sumberdana`, `tahun_anggaran`, `kategori_perdin`, `dana`) VALUES
-(2, '001', '1', '2015', '1', 5000000),
-(3, '00101', '1', '2015', '1', 200000);
+INSERT INTO `ms_dana` (`id_dana`, `klasifikasi_jabatan`, `sumberdana`, `tahun_anggaran`, `kategori_perdin`, `dana`, `debit`) VALUES
+(4, '001', '1', '2020', '2', 5000000, 5000000);
 
 -- --------------------------------------------------------
 
@@ -338,10 +339,10 @@ CREATE TABLE `user_menu` (
 INSERT INTO `user_menu` (`id`, `menu`, `is_active_menu`, `urutan_user_menu`) VALUES
 (3, 'Developer', 1, 6),
 (6, 'Home', 1, 1),
-(8, 'Settings', 1, 4),
+(8, 'Settings', 1, 5),
 (10, 'Perdin', 1, 2),
-(12, 'Master', 1, 3),
-(13, 'Laporan', 1, 4);
+(12, 'Master', 1, 4),
+(13, 'Laporan', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -489,13 +490,13 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT untuk tabel `input_perdin`
 --
 ALTER TABLE `input_perdin`
-  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_dana`
 --
 ALTER TABLE `ms_dana`
-  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_kategori_perdin`

@@ -40,8 +40,16 @@ class Inperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['iptperdin'] = $this->m_inperdin->getAllInperdin();
-
+		if ($this->session->userdata('role_id') == 1) {
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdin();
+		} else if ($this->session->userdata('role_id') == 2){
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdina('1','');
+		} else if ($this->session->userdata('role_id') == 3){
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('nama_bagian'));
+		} else {
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2','3'),$this->session->userdata('nama_bagian'));
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -126,6 +134,7 @@ class Inperdin extends CI_Controller
 			$uangrepre = $this->input->post('uangrepre');
 			$lainlain = $this->input->post('lainlain');
 			$jumlah = $harga + $uangharian + $uangtransport + $penginapan + $uangrepre + $lainlain;
+			$username = $user;
 
 			$data = [
 				'id_dana' => $sumberdana,
@@ -147,7 +156,8 @@ class Inperdin extends CI_Controller
 				'penginapan' => $penginapan,
 				'uang_representatif' => $uangrepre,
 				'lain_lain' => $lainlain,
-				'jumlah' => $jumlah
+				'jumlah' => $jumlah,
+				'userid' => $username
 			];
 
 			$this->m_inperdin->tambahDataInperdin($data);

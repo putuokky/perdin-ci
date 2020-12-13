@@ -10,6 +10,36 @@ class Model_inperdin extends CI_Model
         $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = ms_dana.klasifikasi_jabatan');
         $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = ms_dana.sumberdana');
         $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
+        $this->db->join('user', 'user.usrname = input_perdin.userid');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getAllInperdina($role)
+    {
+        $this->db->select('*');
+        $this->db->from('input_perdin');
+        $this->db->join('ms_dana', 'ms_dana.id_dana = input_perdin.id_dana');
+        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = ms_dana.klasifikasi_jabatan');
+        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = ms_dana.sumberdana');
+        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
+        $this->db->join('user', 'user.usrname = input_perdin.userid');
+        $this->db->where_not_in('user.role_id', $role);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getAllInperdinaa($role, $namabagian)
+    {
+        $this->db->select('*');
+        $this->db->from('input_perdin');
+        $this->db->join('ms_dana', 'ms_dana.id_dana = input_perdin.id_dana');
+        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = ms_dana.klasifikasi_jabatan');
+        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = ms_dana.sumberdana');
+        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
+        $this->db->join('user', 'user.usrname = input_perdin.userid');
+        $this->db->where_not_in('user.role_id', $role);
+        $this->db->where('user.nama_bagian',$namabagian);
         $query = $this->db->get();
         return $query->result_array();
     }

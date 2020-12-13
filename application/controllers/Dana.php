@@ -107,7 +107,8 @@ class Dana extends CI_Controller
 				'sumberdana' => $anggaran,
 				'tahun_anggaran' => $tahun,
 				'kategori_perdin' => $katperdin,
-				'dana' => $frmdana
+				'dana' => $frmdana,
+				'debit' => $frmdana
 			];
 
 			$this->m_dana->tambahDataDana($data);
