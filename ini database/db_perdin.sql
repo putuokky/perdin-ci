@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2020 pada 08.11
+-- Waktu pembuatan: 18 Des 2020 pada 03.50
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -80,11 +80,11 @@ CREATE TABLE `input_perdin` (
 --
 
 INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`, `userid`) VALUES
-(5, 2, 'q222', 'qwe', 'www', '2020-12-01', '2020-12-05', 4, 'eeee', 'wwww', 1, 'www', '2020-12-01', '2323', 10000, 20000, 30000, 40000, 50000, 60000, 210000, 'putuokky'),
-(6, 2, '22dd', 'gggg', 'cccc', '2020-12-01', '2020-12-05', 5, '3333', 'rrr', 1, 'ffff', '2020-12-10', 'wew333', 10000, 10000, 10000, 10000, 10000, 20000, 70000, 'denpasarkota'),
-(7, 2, 'qqq', 'zzzz', 'qawww', '2020-12-01', '2020-12-16', 33, '3e3e3e', 'wwwww', 3, 'eeeee', '2020-12-09', 'rrrr', 20000, 20000, 20000, 20000, 20000, 150000, 250000, 'adminhumas'),
-(8, 2, 'www', 'jjjjj', 'rrrr', '2020-12-09', '2020-12-16', 55, '444g4g', 'ggg', 4, 'ggg4g', '2020-12-22', 'ggggg', 20000, 20000, 20000, 20000, 20000, 20000, 120000, 'adminadbang'),
-(9, 2, 'aaaa', 'sss', 'eeee', '2020-12-13', '2020-12-13', 4, '55ggg', 'rrrrr', 5, 'rrrr', '2020-11-30', 'rrrr', 10000, 10000, 10000, 10000, 10000, 10000, 60000, 'ophumas');
+(5, 4, 'q222', 'qwe', 'www', '2020-12-01', '2020-12-05', 4, 'eeee', 'wwww', 1, 'www', '2020-12-01', '2323', 10000, 20000, 30000, 40000, 50000, 60000, 210000, 'putuokky'),
+(6, 4, '22dd', 'gggg', 'cccc', '2020-12-01', '2020-12-05', 5, '3333', 'rrr', 1, 'ffff', '2020-12-10', 'wew333', 10000, 10000, 10000, 10000, 10000, 20000, 70000, 'denpasarkota'),
+(7, 4, 'qqq', 'zzzz', 'qawww', '2020-12-01', '2020-12-16', 33, '3e3e3e', 'wwwww', 3, 'eeeee', '2020-12-09', 'rrrr', 20000, 20000, 20000, 20000, 20000, 150000, 250000, 'adminhumas'),
+(8, 4, 'www', 'jjjjj', 'rrrr', '2020-12-09', '2020-12-16', 55, '444g4g', 'ggg', 4, 'ggg4g', '2020-12-22', 'ggggg', 20000, 20000, 20000, 20000, 20000, 20000, 120000, 'adminadbang'),
+(9, 4, 'aaaa', 'sss', 'eeee', '2020-12-13', '2020-12-13', 4, '55ggg', 'rrrrr', 5, 'rrrr', '2020-11-30', 'rrrr', 10000, 10000, 10000, 10000, 10000, 10000, 60000, 'ophumas');
 
 -- --------------------------------------------------------
 

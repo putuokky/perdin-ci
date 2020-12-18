@@ -43,7 +43,7 @@ class Inperdin extends CI_Controller
 		if ($this->session->userdata('role_id') == 1) {
 			$data['iptperdin'] = $this->m_inperdin->getAllInperdin();
 		} else if ($this->session->userdata('role_id') == 2){
-			$data['iptperdin'] = $this->m_inperdin->getAllInperdina('1','');
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdina('1');
 		} else if ($this->session->userdata('role_id') == 3){
 			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('nama_bagian'));
 		} else {
