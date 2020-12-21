@@ -79,4 +79,21 @@ class Model_inperdin extends CI_Model
         $this->db->where('id_perdin', $id);
         $this->db->delete('input_perdin');
     }
+
+    public function cari($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('input_perdin');
+        $this->db->join('ms_dana', 'ms_dana.id_dana = input_perdin.id_dana');
+        $this->db->join('ms_klasifikasi_jabatan', 'ms_klasifikasi_jabatan.kode_kj = ms_dana.klasifikasi_jabatan');
+        $this->db->join('ms_sumberdana', 'ms_sumberdana.id_sumberdana = ms_dana.sumberdana');
+        $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
+        $this->db->join('user', 'user.usrname = input_perdin.userid');
+        $this->db->like('tahun_anggaran', $keyword['tahun']);
+        $this->db->like('nama_sumberdana', $keyword['katperdin']);
+        $this->db->like('jabatan', $keyword['klsjabatan']);
+        $this->db->like('nama_kat_perdin', $keyword['katperdin']);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

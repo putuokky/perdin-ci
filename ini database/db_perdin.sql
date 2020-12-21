@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Des 2020 pada 03.50
+-- Waktu pembuatan: 21 Des 2020 pada 08.59
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -72,6 +72,7 @@ CREATE TABLE `input_perdin` (
   `uang_representatif` int(20) NOT NULL,
   `lain_lain` int(20) NOT NULL,
   `jumlah` int(20) NOT NULL,
+  `debit_perdin` int(20) NOT NULL,
   `userid` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -79,12 +80,18 @@ CREATE TABLE `input_perdin` (
 -- Dumping data untuk tabel `input_perdin`
 --
 
-INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`, `userid`) VALUES
-(5, 4, 'q222', 'qwe', 'www', '2020-12-01', '2020-12-05', 4, 'eeee', 'wwww', 1, 'www', '2020-12-01', '2323', 10000, 20000, 30000, 40000, 50000, 60000, 210000, 'putuokky'),
-(6, 4, '22dd', 'gggg', 'cccc', '2020-12-01', '2020-12-05', 5, '3333', 'rrr', 1, 'ffff', '2020-12-10', 'wew333', 10000, 10000, 10000, 10000, 10000, 20000, 70000, 'denpasarkota'),
-(7, 4, 'qqq', 'zzzz', 'qawww', '2020-12-01', '2020-12-16', 33, '3e3e3e', 'wwwww', 3, 'eeeee', '2020-12-09', 'rrrr', 20000, 20000, 20000, 20000, 20000, 150000, 250000, 'adminhumas'),
-(8, 4, 'www', 'jjjjj', 'rrrr', '2020-12-09', '2020-12-16', 55, '444g4g', 'ggg', 4, 'ggg4g', '2020-12-22', 'ggggg', 20000, 20000, 20000, 20000, 20000, 20000, 120000, 'adminadbang'),
-(9, 4, 'aaaa', 'sss', 'eeee', '2020-12-13', '2020-12-13', 4, '55ggg', 'rrrrr', 5, 'rrrr', '2020-11-30', 'rrrr', 10000, 10000, 10000, 10000, 10000, 10000, 60000, 'ophumas');
+INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`, `debit_perdin`, `userid`) VALUES
+(5, 4, 'q222', 'qwe', 'www', '2020-12-01', '2020-12-05', 4, 'eeee', 'wwww', 1, 'www', '2020-12-01', '2323', 10000, 20000, 30000, 40000, 50000, 60000, 210000, 0, 'putuokky'),
+(6, 5, '22dd', 'gggg', 'cccc', '2020-12-01', '2020-12-05', 5, '3333', 'rrr', 1, 'ffff', '2020-12-10', 'wew333', 10000, 10000, 10000, 10000, 10000, 20000, 70000, 0, 'denpasarkota'),
+(7, 5, 'qqq', 'zzzz', 'qawww', '2020-12-01', '2020-12-16', 33, '3e3e3e', 'wwwww', 3, 'eeeee', '2020-12-09', 'rrrr', 20000, 20000, 20000, 20000, 20000, 150000, 250000, 0, 'adminhumas'),
+(8, 4, 'www', 'jjjjj', 'rrrr', '2020-12-09', '2020-12-16', 55, '444g4g', 'ggg', 4, 'ggg4g', '2020-12-22', 'ggggg', 20000, 20000, 20000, 20000, 20000, 20000, 120000, 0, 'adminadbang'),
+(9, 5, 'aaaa', 'sss', 'eeee', '2020-12-13', '2020-12-13', 4, '55ggg', 'rrrrr', 5, 'rrrr', '2020-11-30', 'rrrr', 10000, 10000, 10000, 10000, 10000, 10000, 60000, 0, 'ophumas'),
+(10, 4, '1231', 'Coba', 'Tujuan', '2020-12-21', '2020-12-16', 24000, '12313', 'Moas', 1, 'asdfasd', '2020-12-10', '129371', 340000, 245000, 2000, 45000, 65000, 50000, 747000, 5000000, 'putuokky'),
+(11, 4, '12312', 'Coba 3', 'Tes', '2020-12-09', '2020-12-17', 4, '12371', 'Testf', 4, '5', '2020-12-24', '1231', 56000, 50000, 78000, 20000, 34000, 25000, 263000, 5000000, 'putuokky'),
+(12, 4, '123681', 'Lagi Coba', 'kjhdas', '2020-12-17', '2020-12-09', 5, '20ad', 'Budi', 4, '123', '2020-12-10', '1283712', 450000, 60000, 80000, 50000, 60000, 45000, 745000, 4737000, 'putuokky'),
+(13, 4, '2hhh', 'uuuuu', 'tttttt', '2020-12-09', '2020-12-16', 5, 'uuu77777', 'oopopopo', 2, 'uuuuuu', '2020-12-08', 'ioioio', 100000, 200000, 300000, 100000, 200000, 300000, 1200000, 3992000, 'putuokky'),
+(14, 4, 'wwww11', 'wewewe', 'eeeee', '2020-12-01', '2020-12-08', 7, '333334ff', 'ggggggg', 1, 'tttttt', '2020-12-10', 'rrtrtrt', 400000, 200000, 200000, 300000, 400000, 500000, 2000000, 2792000, 'putuokky'),
+(15, 4, '2222', 'ererer', 'tjuannnn', '2020-12-08', '2020-12-15', 5, '3r3r3', 'efeefefef', 2, 'rrrrrr', '2020-12-08', '200000', 200000, 300000, 300000, 400000, 500000, 500000, 2200000, 792000, 'putuokky');
 
 -- --------------------------------------------------------
 
@@ -107,7 +114,8 @@ CREATE TABLE `ms_dana` (
 --
 
 INSERT INTO `ms_dana` (`id_dana`, `klasifikasi_jabatan`, `sumberdana`, `tahun_anggaran`, `kategori_perdin`, `dana`, `debit`) VALUES
-(4, '001', '1', '2020', '2', 5000000, 5000000);
+(4, '001', '1', '2020', '2', 5000000, 792000),
+(5, '001', '2', '2020', '2', 1000000, 1000000);
 
 -- --------------------------------------------------------
 
@@ -490,13 +498,13 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT untuk tabel `input_perdin`
 --
 ALTER TABLE `input_perdin`
-  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_dana`
 --
 ALTER TABLE `ms_dana`
-  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_kategori_perdin`

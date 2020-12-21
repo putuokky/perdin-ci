@@ -29,7 +29,8 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+              <div class="flash-data" data-status="danger" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+              <!-- <div class="flash-data" data-status="danger" data-flashdata="Test"></div> -->
               <?php if ($this->session->flashdata('message')) : ?>
                 <!-- <div class="alert alert-success alert-dismissible">
                   <h5><i class="icon fas fa-check"></i> Alert!</h5>

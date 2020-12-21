@@ -80,7 +80,7 @@ class Dana extends CI_Controller
 		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
 		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
 		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
-		$data['thnawal'] = 2015;
+		$data['thnawal'] = 2018;
 		$data['thnskrg'] = date('Y');
 
 		$this->form_validation->set_rules('klasijbtn', 'Klasifikasi Jabatan', 'required');
@@ -148,7 +148,7 @@ class Dana extends CI_Controller
 		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
 		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
 		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
-		$data['thnawal'] = 2015;
+		$data['thnawal'] = 2018;
 		$data['thnskrg'] = date('Y');
 
 		$this->form_validation->set_rules('klasijbtn', 'Klasifikasi Jabatan', 'required');

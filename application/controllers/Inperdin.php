@@ -136,6 +136,16 @@ class Inperdin extends CI_Controller
 			$jumlah = $harga + $uangharian + $uangtransport + $penginapan + $uangrepre + $lainlain;
 			$username = $user;
 
+			$dn = $this->m_dana->getDanaById($sumberdana);
+
+			if ($jumlah <= $dn['debit']) {				
+				// ubah data debit di tabel dana
+				$hasil_pengurangan = $dn['debit'] - $jumlah;
+				$d_dn = [
+					'debit' => $hasil_pengurangan
+					];
+				$u_dn = $this->m_dana->ubahDataDana($d_dn, $sumberdana);
+			
 			$data = [
 				'id_dana' => $sumberdana,
 				'no_sp2d' => $nospd,
@@ -157,12 +167,17 @@ class Inperdin extends CI_Controller
 				'uang_representatif' => $uangrepre,
 				'lain_lain' => $lainlain,
 				'jumlah' => $jumlah,
+				'debit_perdin' => $dn['debit'],
 				'userid' => $username
 			];
 
 			$this->m_inperdin->tambahDataInperdin($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('inperdin');
+			
+		} else {
+				$this->session->set_flashdata('message', 'Ditambah');
+				redirect('inperdin');
+			}
 		}
 	}
 

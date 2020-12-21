@@ -29,15 +29,19 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
-              <form role="form" method="POST" action="">
+              <form role="form" method="POST" action="<?= base_url('laporperdin'); ?>">
                 <div class="card-body">
                   <div class="form-group row">
                     <label for="tahun" class="col-sm-2 col-form-label">Tahun</label>
                     <select class="form-control col-md-2 select2bs4" name="tahun">
-                      <option value="0">-</option>
+                      <!-- <option value="0">-</option> -->
                       <?php
                       for ($i = $thnawal; $i <= $thnskrg; $i++) { ?>
+                      <?php if ($i) : ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                      <?php else : ?>
                         <option value="<?= $i; ?>"><?= $i; ?></option>
+                      <?php endif; ?>
                       <?php } ?>
                     </select>
                     <small class="form-text text-danger"><?= form_error('tahun'); ?></small>
@@ -137,9 +141,9 @@
                     <tr>
                       <td><?= $no++; ?></td>
                       <td><?= $lp['jabatan']; ?></td>
-                      <td><?= "Rp " . number_format($lp['dana'], 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format($lp['debit_perdin'], 0, ',', '.'); ?></td>
                       <td><?= "Rp " . number_format($lp['jumlah'], 0, ',', '.'); ?></td>
-                      <td><?= "Rp " . number_format(($lp['dana'] - $lp['jumlah']), 0, ',', '.'); ?></td>
+                      <td><?= "Rp " . number_format(($lp['debit_perdin'] - $lp['jumlah']), 0, ',', '.'); ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

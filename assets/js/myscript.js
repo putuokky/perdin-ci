@@ -1,11 +1,18 @@
 const flashData = $('.flash-data').data('flashdata');
 const subJudul = $('.card-title').text();
+const status = $('.flash-data').data('status');
 
-if (flashData) {
+if (flashData && status == '') {
 	Swal.fire({
 		icon: 'success',
 		title: '' + subJudul,
 		text: 'Berhasil ' + flashData
+	})
+} else if (flashData && status == 'danger') { 
+	Swal.fire({
+		icon: 'error',
+		title: '' + subJudul,
+		text: 'Gagal ' + flashData
 	})
 }
 
