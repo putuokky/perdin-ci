@@ -42,22 +42,22 @@
                   <small class="form-text text-danger"><?= form_error('sumberdana'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="nospd">No SP2D</label>
+                  <label for="nospd">No SP2D **</label>
                   <input type="text" class="form-control col-md-4" id="nospd" name="nospd" placeholder="Enter No SP2D">
                   <small class="form-text text-danger"><?= form_error('nospd'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="namaacara">Nama Kegiatan</label>
+                  <label for="namaacara">Nama Kegiatan **</label>
                   <input type="text" class="form-control col-md-12" id="namaacara" name="namaacara" placeholder="Enter Nama Kegiatan">
                   <small class="form-text text-danger"><?= form_error('namaacara'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="tujuan">Tujuan</label>
+                  <label for="tujuan">Tujuan **</label>
                   <input type="text" class="form-control col-md-4" id="tujuan" name="tujuan" placeholder="Enter Tujuan">
                   <small class="form-text text-danger"><?= form_error('tujuan'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="tglbrngkat">Tanggal Berangkat</label>
+                  <label for="tglbrngkat">Tanggal Berangkat **</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -67,7 +67,7 @@
                   <small class="form-text text-danger"><?= form_error('tglbrngkat'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="tglselesai">Tanggal Selesai</label>
+                  <label for="tglselesai">Tanggal Selesai **</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -77,17 +77,17 @@
                   <small class="form-text text-danger"><?= form_error('tglselesai'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="lama">Lama (Hari)</label>
+                  <label for="lama">Lama (Hari) **</label>
                   <input type="text" class="form-control col-md-2" id="lama" name="lama" placeholder="Enter Lama (Hari)">
                   <small class="form-text text-danger"><?= form_error('lama'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="nosrttgs">No Surat Tugas</label>
+                  <label for="nosrttgs">No Surat Tugas **</label>
                   <input type="text" class="form-control col-md-4" id="nosrttgs" name="nosrttgs" placeholder="Enter No Surat Tugas">
                   <small class="form-text text-danger"><?= form_error('nosrttgs'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="namapersonil">Nama Personil</label>
+                  <label for="namapersonil">Nama Personil **</label>
                   <input type="text" class="form-control col-md-6" id="namapersonil" name="namapersonil" placeholder="Enter Nama Personil">
                   <small class="form-text text-danger"><?= form_error('namapersonil'); ?></small>
                 </div>
@@ -127,7 +127,7 @@
                   <small class="form-text text-danger"><?= form_error('harga'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="uangharian">Uang Harian</label>
+                  <label for="uangharian">Uang Harian **</label>
                   <input type="text" class="form-control col-md-3" id="uangharian" name="uangharian" placeholder="Enter Uang Harian">
                   <small class="form-text text-danger"><?= form_error('uangharian'); ?></small>
                 </div>
@@ -137,17 +137,17 @@
                   <small class="form-text text-danger"><?= form_error('uangtransport'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="penginapan">Penginapan</label>
+                  <label for="penginapan">Penginapan **</label>
                   <input type="text" class="form-control col-md-3" id="penginapan" name="penginapan" placeholder="Enter Penginapan">
                   <small class="form-text text-danger"><?= form_error('penginapan'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="uangrepre">Uang Representatif</label>
+                  <label for="uangrepre">Uang Representatif **</label>
                   <input type="text" class="form-control col-md-3" id="uangrepre" name="uangrepre" placeholder="Enter Uang Representatif">
                   <small class="form-text text-danger"><?= form_error('uangrepre'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="lainlain">Lain - Lain</label>
+                  <label for="lainlain">Lain - Lain **</label>
                   <input type="text" class="form-control col-md-3" id="lainlain" name="lainlain" placeholder="Enter Lain - Lain">
                   <small class="form-text text-danger"><?= form_error('lainlain'); ?></small>
                 </div>
