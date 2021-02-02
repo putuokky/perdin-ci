@@ -31,18 +31,28 @@
             <!-- form start -->
             <form role="form" method="POST" action="">
               <div class="card-body">
-                <input type="hidden" class="form-control" id="id" name="id" value="<?= $mask['id_maskapai']; ?>">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?= $opd['idopd']; ?>">
+                <!-- <div class="form-group">
+                  <label for="kodeopd">Kode Instansi</label>
+                  <input type="text" class="form-control col-md-2" id="kodeopd" name="kodeopd" placeholder="Enter Kode Instansi" value="<?= $opd['idopd']; ?>">
+                  <small class="form-text text-danger"><?= form_error('kodeopd'); ?></small>
+                </div> -->
                 <div class="form-group">
-                  <label for="namamaskapai">Nama Maskapai</label>
-                  <input type="text" class="form-control col-md-8" id="namamaskapai" name="namamaskapai" placeholder="Enter Nama Maskapai" value="<?= $mask['nama_maskapai']; ?>">
-                  <small class="form-text text-danger"><?= form_error('namamaskapai'); ?></small>
+                  <label for="namaopd">Nama Instansi</label>
+                  <input type="text" class="form-control col-md-10" id="namaopd" name="namaopd" placeholder="Enter Nama Instansi" value="<?= $opd['namaopd']; ?>">
+                  <small class="form-text text-danger"><?= form_error('namaopd'); ?></small>
+                </div>
+                <div class="form-group">
+                  <label for="namapendekopd">Nama Pendek Instansi</label>
+                  <input type="text" class="form-control col-md-4" id="namapendekopd" name="namapendekopd" placeholder="Enter Nama Pendek Instansi" value="<?= $opd['nama_pendek_opd']; ?>">
+                  <small class="form-text text-danger"><?= form_error('namapendekopd'); ?></small>
                 </div>
               </div>
               <!-- /.card-body -->
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="<?= base_url('maskapai'); ?>" class="btn btn-default">Cancel</a>
+                <a href="<?= base_url('skpd'); ?>" class="btn btn-default">Cancel</a>
               </div>
             </form>
           </div>

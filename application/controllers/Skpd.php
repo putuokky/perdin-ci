@@ -49,8 +49,8 @@ class Skpd extends CI_Controller
 
 	public function tambah()
 	{
-		$data['judul'] = 'Maskapai';
-		$data['subjudul'] = 'Form Tambah Maskapai';
+		$data['judul'] = 'Instansi Pemerintahan';
+		$data['subjudul'] = 'Form Tambah Instansi Pemerintahan';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -74,7 +74,9 @@ class Skpd extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$this->form_validation->set_rules('namamaskapai', 'Nama Maskapai', 'required');
+		$this->form_validation->set_rules('kodeopd', 'Kode Instansi', 'required|numeric');
+		$this->form_validation->set_rules('namaopd', 'Nama Instansi', 'required');
+		$this->form_validation->set_rules('namapendekopd', 'Nama Pendek Instansi', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
@@ -83,22 +85,26 @@ class Skpd extends CI_Controller
 			$this->load->view('opd/formtambah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$namamaskapai = $this->input->post('namamaskapai');
+			$kodeopd = $this->input->post('kodeopd');
+			$namaopd = $this->input->post('namaopd');
+			$namapendekopd = $this->input->post('namapendekopd');
 
 			$data = [
-				'nama_maskapai' => $namamaskapai
+				'idopd' => $kodeopd,
+				'namaopd' => $namaopd,
+				'nama_pendek_opd' => $namapendekopd
 			];
 
-			$this->m_skpd->tambahDataMaskapai($data);
+			$this->m_skpd->tambahDataSkpd($data);
 			$this->session->set_flashdata('message', 'Ditambah');
-			redirect('maskapai');
+			redirect('skpd');
 		}
 	}
 
 	public function ubah($id)
 	{
-		$data['judul'] = 'Maskapai';
-		$data['subjudul'] = 'Form Ubah Maskapai';
+		$data['judul'] = 'Instansi Pemerintahan';
+		$data['subjudul'] = 'Form Ubah Instansi Pemerintahan';
 
 		// untuk session login wajib isi
 		$user = $this->session->userdata('usrname');
@@ -122,9 +128,11 @@ class Skpd extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['mask'] = $this->m_skpd->getMaskapaiById($id);
+		$data['opd'] = $this->m_skpd->getSkpdById($id);
 
-		$this->form_validation->set_rules('namamaskapai', 'Nama Maskapai', 'required');
+		// $this->form_validation->set_rules('kodeopd', 'Kode Instansi', 'required|numeric');
+		$this->form_validation->set_rules('namaopd', 'Nama Instansi', 'required');
+		$this->form_validation->set_rules('namapendekopd', 'Nama Pendek Instansi', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
@@ -134,22 +142,24 @@ class Skpd extends CI_Controller
 			$this->load->view('templates/footer', $data);
 		} else {
 			$id = $this->input->post('id');  // tidak perlu ini diubah
-			$namamaskapai = $this->input->post('namamaskapai');
+			$namaopd = $this->input->post('namaopd');
+			$namapendekopd = $this->input->post('namapendekopd');
 
 			$data = [
-				'nama_maskapai' => $namamaskapai
+				'namaopd' => $namaopd,
+				'nama_pendek_opd' => $namapendekopd
 			];
 
-			$this->m_skpd->ubahDataMaskapai($data, $id);
+			$this->m_skpd->ubahDataSkpd($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('maskapai');
+			redirect('skpd');
 		}
 	}
 
 	public function hapus($id)
 	{
-		$this->m_skpd->hapusDataMaskapai($id);
+		$this->m_skpd->hapusDataSkpd($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('maskapai');
+		redirect('skpd');
 	}
 }

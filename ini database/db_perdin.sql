@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Des 2020 pada 08.59
+-- Waktu pembuatan: 02 Feb 2021 pada 09.43
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -40,9 +40,9 @@ CREATE TABLE `config` (
 INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
 (1, 'brand', 'SIPERDIN'),
 (2, 'main_header', 'SISTEM INFORMASI PERJALANAN DINAS PEMERINTAH KOTA DENPASAR'),
-(4, 'version', '1.11.20'),
+(4, 'version', '1.02.21'),
 (5, 'nama_pengembang', 'balecreator.id'),
-(6, 'link_pengembang', '#');
+(6, 'link_pengembang', 'https://www.balecreator.id/');
 
 -- --------------------------------------------------------
 
@@ -249,6 +249,101 @@ INSERT INTO `ms_sumberdana` (`id_sumberdana`, `nama_sumberdana`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_opd`
+--
+
+CREATE TABLE `tb_opd` (
+  `idopd` varchar(20) NOT NULL,
+  `namaopd` varchar(100) NOT NULL,
+  `nama_pendek_opd` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_opd`
+--
+
+INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
+('000000', 'Seluruh Perangkat Daerah', 'Seluruh PD'),
+('000001', 'Walikota', ''),
+('000002', 'Wakil Walikota', ''),
+('010001', 'Sekretaris Daerah', 'SEKDA'),
+('011001', 'Bagian Administrasi Pemerintahan (Asisten I)', ''),
+('011101', 'Bagian Pemerintahan ', 'Bag. Pem.'),
+('011201', 'Bagian Hukum Setda Kota Denpasar', 'Bag. Hukum'),
+('011301', 'Bagian Organisasi', 'Bag. Organisasi'),
+('011401', 'Bagian Hubungan Masyarakat dan Protokol', ''),
+('012001', 'Bagian Administrasi Pembangunan (Asisten II)', ''),
+('012101', 'Bagian Perekonomian', ''),
+('012201', 'Bagian Program Pembangunan', ''),
+('012301', 'Bagian Kesejahteraan Rakyat', 'Bag. Kesra'),
+('013001', 'Bagian Administrasi Umum (Asisten III)', ''),
+('013101', 'Bagian Keuangan', ''),
+('013201', 'Bagian Umum', ''),
+('013301', 'Bagian Pengadaan Barang dan Jasa', 'Bag. Pengadaan Barang dan Jasa'),
+('013401', 'Bagian Kerjasama Setda Kota Denpasar', ''),
+('014000', 'Staf Ahli ', ''),
+('030101', 'Dinas Pendidikan, Pemuda dan Olahraga', ''),
+('030201', 'Dinas Kesehatan ', ''),
+('030301', 'Dinas Pekerjaan Umum dan Penataan Ruang', ''),
+('030401', 'Dinas Perumahan, Kawasan Permukiman Dan Pertanahan', ''),
+('030501', 'Dinas Lingkungan Hidup dan Kebersihan', 'DLHK'),
+('030601', 'Dinas Kependudukan dan Pencatatan Sipil ', 'Dinas Dukcapil'),
+('030701', 'Dinas Perhubungan', 'dishub'),
+('03070101', 'UPT. Transportasi Darat', ''),
+('030801', 'Dinas Komunikasi, Informatika dan Statistik', 'DKIS'),
+('03080106', 'UPT. Pelayanan Teknis Penyiaran Publik Lokal', ''),
+('03080107', 'UPT. Pelayanan Informasi Publik dan PPID', ''),
+('030901', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'Dinas Tenaga Kerja'),
+('031001', 'Dinas Pertanian', ''),
+('031101', 'Dinas Perikanan dan Ketahanan Pangan', ''),
+('031201', 'Dinas Kebudayaan ', 'Disbud'),
+('031301', 'Dinas Pariwisata', ''),
+('031401', 'Dinas Perindustrian dan Perdagangan ', ''),
+('031501', 'Dinas Koperasi, Usaha Kecil dan Menengah ', ''),
+('031601', 'Badan Pendapatan Daerah', ''),
+('031701', 'Dinas Ketentraman Ketertiban dan Satuan Polisi Pamong Praja ', ''),
+('040101', 'Inspektorat', ''),
+('040201', 'Badan Perencanaan Pembangunan Daerah', 'Bappeda'),
+('040301', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 'BKPSDM'),
+('040501', 'Dinas Pemberdayaan Masyarakat dan Desa Kota', ''),
+('040601', 'Badan Kesatuan Bangsa, Politik dan Perlindungan Masyarakat', ''),
+('040701', 'Dinas Perpustakaan dan Kearsipan', ''),
+('040801', 'Badan Penanggulangan Bencana Daerah (BPBD)', 'BPBD'),
+('040901', 'Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana', ''),
+('041001', 'Rumah Sakit Umum Daerah Wangaya', 'RSUD Wangaya'),
+('041101', 'Badan Penelitian Dan Pengembangan', ''),
+('100000', 'Seluruh Desa/Kelurahan', ''),
+('140018', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', 'Dinas PMPTSP'),
+('170001', 'Kecamatan Denpasar Timur', ''),
+('170002', 'Kecamatan Denpasar Barat', ''),
+('170003', 'Kecamatan Denpasar Selatan', ''),
+('170004', 'Kecamatan Denpasar Utara', ''),
+('200001', 'Kelurahan Dangin Puri', ''),
+('200002', 'Kelurahan Kesiman', ''),
+('200003', 'Kelurahan Penatih', ''),
+('200004', 'Kelurahan Sumerta', ''),
+('200005', 'Kelurahan Tonja', 'Kel. Tonja'),
+('200006', 'Kelurahan Dauh Puri', ''),
+('200007', 'Kelurahan Padangsambian', ''),
+('200008', 'Kelurahan Peguyangan', ''),
+('200009', 'Kelurahan Pemecutan', ''),
+('20001', 'Sekretariat DPRD', ''),
+('200010', 'Kelurahan Ubung', 'Kel. Ubung'),
+('200011', 'Kelurahan Panjer', ''),
+('200012', 'Kelurahan Pedungan', ''),
+('200013', 'Kelurahan Renon', ''),
+('200014', 'Kelurahan Sanur', ''),
+('200015', 'Kelurahan Serangan', ''),
+('200016', 'Kelurahan Sesetan', ''),
+('300001', 'PDAM Kota Denpasar', 'PDAM'),
+('300002', 'PD Parkir Kota Denpasar', 'PD Parkir'),
+('300003', 'PD Pasar Kota Denpasar', 'PD Pasar'),
+('300004', 'Dinas Sosial', ''),
+('300005', 'Badan Pengelola Keuangan dan Aset Daerah', 'BPKAD');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -394,19 +489,20 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id_user_sub_menu`, `menu_id`, `submenu`, `url`, `icon`, `is_active`, `urutan_user_sub_menu`) VALUES
-(8, 3, 'Role User', 'roleuser', 'fas fa-users-cog', 1, 2),
-(9, 3, 'Menu Management', 'menu', 'fas fa-folder', 1, 3),
-(10, 3, 'SubMenu Management', 'submenu', 'fas fa-folder-open', 1, 4),
-(11, 3, 'Configuration', 'config', 'fas fa-cogs', 1, 5),
+(8, 3, 'Role User', 'roleuser', 'fas fa-users-cog', 1, 1),
+(9, 3, 'Menu Management', 'menu', 'fas fa-folder', 1, 2),
+(10, 3, 'SubMenu Management', 'submenu', 'fas fa-folder-open', 1, 3),
+(11, 3, 'Configuration', 'config', 'fas fa-cogs', 1, 4),
 (13, 6, 'Dashboard', 'dashboard', 'fas fa-tachometer-alt', 1, 1),
 (14, 8, 'User', 'user', 'fas fa-user', 1, 1),
 (17, 10, 'Perjalanan Dinas', 'inperdin', 'fas fa-road', 1, 1),
-(18, 12, 'Sumberdana', 'dana', 'fas fa-money-bill-alt', 1, 3),
-(19, 12, 'Kategori Perdin', 'katperdin', 'fas fa-car-side', 1, 3),
-(20, 12, 'Klasifikasi Jabatan', 'klasijabatan', 'fas fa-user-tie', 1, 4),
-(21, 12, 'Maskapai', 'maskapai', 'fas fa-plane', 1, 5),
-(22, 12, 'Tahapan Anggaran', 'anggaran', 'fas fa-money-check', 1, 6),
-(23, 13, 'Laporan Perdin', 'laporperdin', 'fas fa-file-alt', 1, 5);
+(18, 12, 'Sumberdana', 'dana', 'fas fa-money-bill-alt', 1, 1),
+(19, 12, 'Kategori Perdin', 'katperdin', 'fas fa-car-side', 1, 2),
+(20, 12, 'Klasifikasi Jabatan', 'klasijabatan', 'fas fa-user-tie', 1, 3),
+(21, 12, 'Maskapai', 'maskapai', 'fas fa-plane', 1, 4),
+(22, 12, 'Tahapan Anggaran', 'anggaran', 'fas fa-money-check', 1, 5),
+(23, 13, 'Laporan Perdin', 'laporperdin', 'fas fa-file-alt', 1, 5),
+(24, 12, 'Instansi Pemerintahan', 'skpd', 'far fa-building', 1, 6);
 
 --
 -- Indexes for dumped tables
@@ -453,6 +549,12 @@ ALTER TABLE `ms_maskapai`
 --
 ALTER TABLE `ms_sumberdana`
   ADD PRIMARY KEY (`id_sumberdana`);
+
+--
+-- Indeks untuk tabel `tb_opd`
+--
+ALTER TABLE `tb_opd`
+  ADD PRIMARY KEY (`idopd`);
 
 --
 -- Indeks untuk tabel `user`
@@ -504,25 +606,25 @@ ALTER TABLE `input_perdin`
 -- AUTO_INCREMENT untuk tabel `ms_dana`
 --
 ALTER TABLE `ms_dana`
-  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_kategori_perdin`
 --
 ALTER TABLE `ms_kategori_perdin`
-  MODIFY `id_kat_perdin` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kat_perdin` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_maskapai`
 --
 ALTER TABLE `ms_maskapai`
-  MODIFY `id_maskapai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_maskapai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_sumberdana`
 --
 ALTER TABLE `ms_sumberdana`
-  MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -552,7 +654,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

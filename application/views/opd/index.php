@@ -29,14 +29,14 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+              <div class="flash-data" data-status="" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
               <?php if ($this->session->flashdata('message')) : ?>
                 <!-- <div class="alert alert-success alert-dismissible">
                   <h5><i class="icon fas fa-check"></i> Alert!</h5>
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
                 </div> -->
               <?php endif; ?>
-              <a href="<?= base_url('maskapai/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
+              <a href="<?= base_url('skpd/tambah'); ?>" class="btn btn-md btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -45,16 +45,18 @@
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Nama SKPD</th>
-                    <th>Nama Pendek SKPD</th>
+                    <th>Kode</th>
+                    <th>Nama Instansi</th>
+                    <th>Nama Pendek Instansi</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Nama SKPD</th>
-                    <th>Nama Pendek SKPD</th>
+                    <th>Kode</th>
+                    <th>Nama Instansi</th>
+                    <th>Nama Pendek Instansi</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -66,6 +68,7 @@
                       <td><a href="<?= base_url('skpd/ubah/' . $o['idopd']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
                         <a href="<?= base_url('skpd/hapus/' . $o['idopd']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
+                      <td><?= $o['idopd']; ?></td>
                       <td><?= $o['namaopd']; ?></td>
                       <td><?php if ($o['nama_pendek_opd']) {
                             echo $o['nama_pendek_opd'];

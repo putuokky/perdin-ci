@@ -142,7 +142,7 @@ class Anggaran extends CI_Controller
 
 			$this->m_sumberdana->ubahDataSumberdana($data, $id);
 			$this->session->set_flashdata('message', 'Diubah');
-			redirect('sumberdana');
+			redirect('anggaran');
 		}
 	}
 
@@ -150,6 +150,6 @@ class Anggaran extends CI_Controller
 	{
 		$this->m_sumberdana->hapusDataSumberdana($id);
 		$this->session->set_flashdata('message', 'Dihapus');
-		redirect('sumberdana');
+		redirect('anggaran');
 	}
 }
