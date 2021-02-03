@@ -45,7 +45,6 @@
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Kode</th>
                     <th>Nama Instansi</th>
                     <th>Nama Pendek Instansi</th>
                   </tr>
@@ -54,7 +53,6 @@
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Opsi</th>
-                    <th>Kode</th>
                     <th>Nama Instansi</th>
                     <th>Nama Pendek Instansi</th>
                   </tr>
@@ -68,7 +66,6 @@
                       <td><a href="<?= base_url('skpd/ubah/' . $o['idopd']); ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Ubah</a>
                         <a href="<?= base_url('skpd/hapus/' . $o['idopd']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
-                      <td><?= $o['idopd']; ?></td>
                       <td><?= $o['namaopd']; ?></td>
                       <td><?php if ($o['nama_pendek_opd']) {
                             echo $o['nama_pendek_opd'];

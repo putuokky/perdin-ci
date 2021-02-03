@@ -32,11 +32,6 @@
             <form role="form" method="POST" action="">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="kodeopd">Kode Instansi</label>
-                  <input type="text" class="form-control col-md-2" id="kodeopd" name="kodeopd" placeholder="Enter Kode Instansi">
-                  <small class="form-text text-danger"><?= form_error('kodeopd'); ?></small>
-                </div>
-                <div class="form-group">
                   <label for="namaopd">Nama Instansi</label>
                   <input type="text" class="form-control col-md-10" id="namaopd" name="namaopd" placeholder="Enter Nama Instansi">
                   <small class="form-text text-danger"><?= form_error('namaopd'); ?></small>

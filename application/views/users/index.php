@@ -29,7 +29,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+              <div class="flash-data" data-status="" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
               <?php if ($this->session->flashdata('message')) : ?>
                 <!-- <div class="alert alert-success alert-dismissible">
                   <h5><i class="icon fas fa-check"></i> Alert!</h5>
@@ -47,7 +47,7 @@
                     <th>Opsi</th>
                     <th>Nama</th>
                     <th>Username</th>
-                    <th>Bagian</th>
+                    <th>Instansi Pemerintah</th>
                     <th>Role User</th>
                     <th>Status</th>
                     <th>Date Created</th>
@@ -59,7 +59,7 @@
                     <th>Opsi</th>
                     <th>Nama</th>
                     <th>Username</th>
-                    <th>Bagian</th>
+                    <th>Instansi Pemerintah</th>
                     <th>Role User</th>
                     <th>Status</th>
                     <th>Date Created</th>
@@ -77,8 +77,8 @@
                       </td>
                       <td><?= $us['name']; ?></td>
                       <td><?= $us['usrname']; ?></td>
-                      <td><?php if ($us['nama_bagian']) {
-                            echo $us['nama_bagian'];
+                      <td><?php if ($us['namaopd']) {
+                            echo $us['namaopd'];
                           } else {
                             echo '-';
                           } ?></td>

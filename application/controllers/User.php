@@ -9,6 +9,7 @@ class User extends CI_Controller
 		$this->load->model('model_user', 'm_user');
 		$this->load->model('model_config', 'm_config');
 		$this->load->model('model_roleuser', 'm_roleuser');
+		$this->load->model('model_skpd', 'm_skpd');
 	}
 
 	public function index()
@@ -80,6 +81,8 @@ class User extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
+		$data['opd'] = $this->m_skpd->getAllSkpd();
+
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
 		} else if ($this->session->userdata('role_id') == 2) {
@@ -91,7 +94,7 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('user', 'Username', 'required');
 		$this->form_validation->set_rules('passwrd', 'Password', 'required');
-		// $this->form_validation->set_rules('namabagian', 'Bagian', 'required');
+		// $this->form_validation->set_rules('instansi', 'Instansi Pemerintah', 'required');
 		$this->form_validation->set_rules('roleusr', 'Role User', 'required');
 
 		if ($this->form_validation->run() == false) {
@@ -104,7 +107,7 @@ class User extends CI_Controller
 			$nama = $this->input->post('nama');
 			$user = $this->input->post('user');
 			$passwrd = password_hash($this->input->post('passwrd'), PASSWORD_DEFAULT);
-			$namabagian = $this->input->post('namabagian');
+			$instansi = $this->input->post('instansi');
 			$roleusr = $this->input->post('roleusr');
 			$status = $this->input->post('status');
 
@@ -112,7 +115,7 @@ class User extends CI_Controller
 				'name' => $nama,
 				'usrname' => $user,
 				'password' => $passwrd,
-				'nama_bagian' => $namabagian,
+				'opd' => $instansi,
 				'role_id' => $roleusr,
 				'is_active' => $status,
 				'date_user' => time()
@@ -152,6 +155,7 @@ class User extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['user'] = $this->m_user->getUsersById($id);
+		$data['opd'] = $this->m_skpd->getAllSkpd();
 
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
@@ -163,7 +167,7 @@ class User extends CI_Controller
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('roleusr', 'Role User', 'required');
-		// $this->form_validation->set_rules('namabagian', 'Bagian', 'required');
+		// $this->form_validation->set_rules('instansi', 'Instansi Pemerintah', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
@@ -174,13 +178,13 @@ class User extends CI_Controller
 		} else {
 			$id = $this->input->post('id');  // tidak perlu ini diubah
 			$nama = $this->input->post('nama');
-			$namabagian = $this->input->post('namabagian');
+			$instansi = $this->input->post('instansi');
 			$roleusr = $this->input->post('roleusr');
 			$status = $this->input->post('status');
 
 			$data = [
 				'name' => $nama,
-				'nama_bagian' => $namabagian,
+				'opd' => $instansi,
 				'role_id' => $roleusr,
 				'is_active' => $status,
 				'date_user' => time()

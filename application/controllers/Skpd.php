@@ -74,9 +74,8 @@ class Skpd extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$this->form_validation->set_rules('kodeopd', 'Kode Instansi', 'required|numeric');
 		$this->form_validation->set_rules('namaopd', 'Nama Instansi', 'required');
-		$this->form_validation->set_rules('namapendekopd', 'Nama Pendek Instansi', 'required');
+		// $this->form_validation->set_rules('namapendekopd', 'Nama Pendek Instansi', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
@@ -85,12 +84,10 @@ class Skpd extends CI_Controller
 			$this->load->view('opd/formtambah', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
-			$kodeopd = $this->input->post('kodeopd');
 			$namaopd = $this->input->post('namaopd');
 			$namapendekopd = $this->input->post('namapendekopd');
 
 			$data = [
-				'idopd' => $kodeopd,
 				'namaopd' => $namaopd,
 				'nama_pendek_opd' => $namapendekopd
 			];
@@ -130,9 +127,8 @@ class Skpd extends CI_Controller
 
 		$data['opd'] = $this->m_skpd->getSkpdById($id);
 
-		// $this->form_validation->set_rules('kodeopd', 'Kode Instansi', 'required|numeric');
 		$this->form_validation->set_rules('namaopd', 'Nama Instansi', 'required');
-		$this->form_validation->set_rules('namapendekopd', 'Nama Pendek Instansi', 'required');
+		// $this->form_validation->set_rules('namapendekopd', 'Nama Pendek Instansi', 'required');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);

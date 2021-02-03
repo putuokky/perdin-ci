@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Feb 2021 pada 09.43
+-- Waktu pembuatan: 03 Feb 2021 pada 05.26
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -253,9 +253,9 @@ INSERT INTO `ms_sumberdana` (`id_sumberdana`, `nama_sumberdana`) VALUES
 --
 
 CREATE TABLE `tb_opd` (
-  `idopd` varchar(20) NOT NULL,
+  `idopd` int(11) NOT NULL,
   `namaopd` varchar(100) NOT NULL,
-  `nama_pendek_opd` varchar(100) NOT NULL
+  `nama_pendek_opd` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -263,83 +263,15 @@ CREATE TABLE `tb_opd` (
 --
 
 INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
-('000000', 'Seluruh Perangkat Daerah', 'Seluruh PD'),
-('000001', 'Walikota', ''),
-('000002', 'Wakil Walikota', ''),
-('010001', 'Sekretaris Daerah', 'SEKDA'),
-('011001', 'Bagian Administrasi Pemerintahan (Asisten I)', ''),
-('011101', 'Bagian Pemerintahan ', 'Bag. Pem.'),
-('011201', 'Bagian Hukum Setda Kota Denpasar', 'Bag. Hukum'),
-('011301', 'Bagian Organisasi', 'Bag. Organisasi'),
-('011401', 'Bagian Hubungan Masyarakat dan Protokol', ''),
-('012001', 'Bagian Administrasi Pembangunan (Asisten II)', ''),
-('012101', 'Bagian Perekonomian', ''),
-('012201', 'Bagian Program Pembangunan', ''),
-('012301', 'Bagian Kesejahteraan Rakyat', 'Bag. Kesra'),
-('013001', 'Bagian Administrasi Umum (Asisten III)', ''),
-('013101', 'Bagian Keuangan', ''),
-('013201', 'Bagian Umum', ''),
-('013301', 'Bagian Pengadaan Barang dan Jasa', 'Bag. Pengadaan Barang dan Jasa'),
-('013401', 'Bagian Kerjasama Setda Kota Denpasar', ''),
-('014000', 'Staf Ahli ', ''),
-('030101', 'Dinas Pendidikan, Pemuda dan Olahraga', ''),
-('030201', 'Dinas Kesehatan ', ''),
-('030301', 'Dinas Pekerjaan Umum dan Penataan Ruang', ''),
-('030401', 'Dinas Perumahan, Kawasan Permukiman Dan Pertanahan', ''),
-('030501', 'Dinas Lingkungan Hidup dan Kebersihan', 'DLHK'),
-('030601', 'Dinas Kependudukan dan Pencatatan Sipil ', 'Dinas Dukcapil'),
-('030701', 'Dinas Perhubungan', 'dishub'),
-('03070101', 'UPT. Transportasi Darat', ''),
-('030801', 'Dinas Komunikasi, Informatika dan Statistik', 'DKIS'),
-('03080106', 'UPT. Pelayanan Teknis Penyiaran Publik Lokal', ''),
-('03080107', 'UPT. Pelayanan Informasi Publik dan PPID', ''),
-('030901', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'Dinas Tenaga Kerja'),
-('031001', 'Dinas Pertanian', ''),
-('031101', 'Dinas Perikanan dan Ketahanan Pangan', ''),
-('031201', 'Dinas Kebudayaan ', 'Disbud'),
-('031301', 'Dinas Pariwisata', ''),
-('031401', 'Dinas Perindustrian dan Perdagangan ', ''),
-('031501', 'Dinas Koperasi, Usaha Kecil dan Menengah ', ''),
-('031601', 'Badan Pendapatan Daerah', ''),
-('031701', 'Dinas Ketentraman Ketertiban dan Satuan Polisi Pamong Praja ', ''),
-('040101', 'Inspektorat', ''),
-('040201', 'Badan Perencanaan Pembangunan Daerah', 'Bappeda'),
-('040301', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 'BKPSDM'),
-('040501', 'Dinas Pemberdayaan Masyarakat dan Desa Kota', ''),
-('040601', 'Badan Kesatuan Bangsa, Politik dan Perlindungan Masyarakat', ''),
-('040701', 'Dinas Perpustakaan dan Kearsipan', ''),
-('040801', 'Badan Penanggulangan Bencana Daerah (BPBD)', 'BPBD'),
-('040901', 'Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana', ''),
-('041001', 'Rumah Sakit Umum Daerah Wangaya', 'RSUD Wangaya'),
-('041101', 'Badan Penelitian Dan Pengembangan', ''),
-('100000', 'Seluruh Desa/Kelurahan', ''),
-('140018', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', 'Dinas PMPTSP'),
-('170001', 'Kecamatan Denpasar Timur', ''),
-('170002', 'Kecamatan Denpasar Barat', ''),
-('170003', 'Kecamatan Denpasar Selatan', ''),
-('170004', 'Kecamatan Denpasar Utara', ''),
-('200001', 'Kelurahan Dangin Puri', ''),
-('200002', 'Kelurahan Kesiman', ''),
-('200003', 'Kelurahan Penatih', ''),
-('200004', 'Kelurahan Sumerta', ''),
-('200005', 'Kelurahan Tonja', 'Kel. Tonja'),
-('200006', 'Kelurahan Dauh Puri', ''),
-('200007', 'Kelurahan Padangsambian', ''),
-('200008', 'Kelurahan Peguyangan', ''),
-('200009', 'Kelurahan Pemecutan', ''),
-('20001', 'Sekretariat DPRD', ''),
-('200010', 'Kelurahan Ubung', 'Kel. Ubung'),
-('200011', 'Kelurahan Panjer', ''),
-('200012', 'Kelurahan Pedungan', ''),
-('200013', 'Kelurahan Renon', ''),
-('200014', 'Kelurahan Sanur', ''),
-('200015', 'Kelurahan Serangan', ''),
-('200016', 'Kelurahan Sesetan', ''),
-('300001', 'PDAM Kota Denpasar', 'PDAM'),
-('300002', 'PD Parkir Kota Denpasar', 'PD Parkir'),
-('300003', 'PD Pasar Kota Denpasar', 'PD Pasar'),
-('300004', 'Dinas Sosial', ''),
-('300005', 'Badan Pengelola Keuangan dan Aset Daerah', 'BPKAD');
+(1, 'Badan Pendapatan Daerah', ''),
+(2, 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', ''),
+(3, 'Badan Kesatuan Bangsa dan Politik', ''),
+(4, 'Badan Pengelolaan Keuangan Aset Daerah', ''),
+(5, 'Badan Penanggulangan Bencana Daerah', ''),
+(6, 'Badan Penelitian dan Pengembangan', ''),
+(7, 'Satuan Polisi Pamong Praja', ''),
+(8, 'Dinas Kesehatan', ''),
+(9, 'Dinas Pendidikan, Kepemudaan dan Olahraga', '');
 
 -- --------------------------------------------------------
 
@@ -352,7 +284,7 @@ CREATE TABLE `user` (
   `name` varchar(128) NOT NULL,
   `usrname` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
-  `nama_bagian` varchar(100) DEFAULT NULL,
+  `opd` int(11) DEFAULT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `date_user` int(11) NOT NULL
@@ -362,20 +294,21 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `usrname`, `password`, `nama_bagian`, `role_id`, `is_active`, `date_user`) VALUES
+INSERT INTO `user` (`id`, `name`, `usrname`, `password`, `opd`, `role_id`, `is_active`, `date_user`) VALUES
 (1, 'Okky Maheswara', 'putuokky', '$2y$10$p7MPGe3IGqcWU5TIyEFCEuH/BqcPqlYnArP5YvFaAVJ6MMdptaz/a', NULL, 1, 1, 1585405006),
-(6, 'Admin Humas', 'adminhumas', '$2y$10$xFimgkXMknyeW8VZuZ4//.so.cQE8W2I9dTqL49MVj7V.RGF9UZEK', 'Bagian Humas', 3, 1, 1605768861),
-(7, 'Admin Adbang', 'adminadbang', '$2y$10$VOx64oOPROl1DKMdnJsMdeAkJok3z47Hn27j/hNCIkCVihurVWF0O', 'Bagian Adbang', 3, 1, 1605769287),
-(8, 'Admin Umum', 'adminumum', '$2y$10$s0u2G3zB6hfsIFCyms7P6OWJPprjOAK22q9cO/vQ0tJu.TXAgejXy', 'Bagian Umum', 3, 1, 1605769341),
-(9, 'Admin Kerjasama', 'adminkerjasama', '$2y$10$VN1iA.a9W8xZtNsXAa01ru/JdgS6PqawT.x4uzN0JX2J0pJmBTHM.', 'Bagian Kerjasama', 3, 1, 1605769350),
-(10, 'Admin Pem Otda', 'adminpemotda', '$2y$10$9.OIPk4zeXEu.mP9WGpMEOE6Ybluky4uYIpHnux7SRTWVcByH7Sbu', 'Bagian Pem Otda', 3, 1, 1605769361),
-(11, 'Admin Kesra', 'adminkesra', '$2y$10$n.xLRVpSe6d4Pst.1mi24uj9DLGg68ZvRBL5E0l6bt/IHmeMZFCSm', 'Bagian Kesra', 3, 1, 1605769376),
-(12, 'Admin Hukum', 'adminhukum', '$2y$10$DIXx9vum1MWuFMLLdgoWL.Umx0WXsiRe.zkEzWDpyRforW5/Tnr9i', 'Bagian Hukum', 3, 1, 1605769331),
-(13, 'Admin Ekonomi', 'adminekonomi', '$2y$10$63q6lYpuOsxYwsj.1FAZp.l5NAKtLLj8aB.hq6DyURp/JtR0REwti', 'Bagian Ekonomi', 3, 1, 1605769319),
-(14, 'Admin PPBJ', 'adminppbj', '$2y$10$kh0KUMiRidZGM.a84TyExuIR4kF440NtQfX4s1Twsc/qZiXTtSdDO', 'Bagian PPBJ', 3, 1, 1605769308),
-(15, 'Admin Organisasi', 'adminorganisasi', '$2y$10$QTyj.mIvgS2eHtFedWXG5uHQRnB5D01UJkp6zDllb2FquNFU4ZjJG', 'Bagian Organisasi', 3, 1, 1605769299),
-(17, 'Operator Humas', 'ophumas', '$2y$10$rJcn1V/NeSSaQ6qCd8pxsuOy8eRW5EzfBNpKReVOx4l1.GaCfkGrm', 'Bagian Humas', 4, 1, 1606126160),
-(18, 'Denpasar Kota', 'denpasarkota', '$2y$10$tZO3TgV9N9WMUi0airmuL.Q8etFfG.CKzCCUoc1NqSrV5A9zOc6CO', '', 2, 1, 1606126067);
+(6, 'Admin Humas', 'adminhumas', '$2y$10$xFimgkXMknyeW8VZuZ4//.so.cQE8W2I9dTqL49MVj7V.RGF9UZEK', 0, 3, 1, 1605768861),
+(7, 'Admin Adbang', 'adminadbang', '$2y$10$VOx64oOPROl1DKMdnJsMdeAkJok3z47Hn27j/hNCIkCVihurVWF0O', 0, 3, 1, 1605769287),
+(8, 'Admin Umum', 'adminumum', '$2y$10$s0u2G3zB6hfsIFCyms7P6OWJPprjOAK22q9cO/vQ0tJu.TXAgejXy', 0, 3, 1, 1605769341),
+(9, 'Admin Kerjasama', 'adminkerjasama', '$2y$10$VN1iA.a9W8xZtNsXAa01ru/JdgS6PqawT.x4uzN0JX2J0pJmBTHM.', 0, 3, 1, 1605769350),
+(10, 'Admin Pem Otda', 'adminpemotda', '$2y$10$9.OIPk4zeXEu.mP9WGpMEOE6Ybluky4uYIpHnux7SRTWVcByH7Sbu', 0, 3, 1, 1605769361),
+(11, 'Admin Kesra', 'adminkesra', '$2y$10$n.xLRVpSe6d4Pst.1mi24uj9DLGg68ZvRBL5E0l6bt/IHmeMZFCSm', 0, 3, 1, 1605769376),
+(12, 'Admin Hukum', 'adminhukum', '$2y$10$DIXx9vum1MWuFMLLdgoWL.Umx0WXsiRe.zkEzWDpyRforW5/Tnr9i', 0, 3, 1, 1605769331),
+(13, 'Admin Ekonomi', 'adminekonomi', '$2y$10$63q6lYpuOsxYwsj.1FAZp.l5NAKtLLj8aB.hq6DyURp/JtR0REwti', 0, 3, 1, 1605769319),
+(14, 'Admin PPBJ', 'adminppbj', '$2y$10$kh0KUMiRidZGM.a84TyExuIR4kF440NtQfX4s1Twsc/qZiXTtSdDO', 0, 3, 1, 1605769308),
+(15, 'Admin Organisasi', 'adminorganisasi', '$2y$10$QTyj.mIvgS2eHtFedWXG5uHQRnB5D01UJkp6zDllb2FquNFU4ZjJG', 0, 3, 1, 1605769299),
+(17, 'Operator Humas', 'ophumas', '$2y$10$rJcn1V/NeSSaQ6qCd8pxsuOy8eRW5EzfBNpKReVOx4l1.GaCfkGrm', 0, 4, 1, 1606126160),
+(18, 'Denpasar Kota', 'denpasarkota', '$2y$10$tZO3TgV9N9WMUi0airmuL.Q8etFfG.CKzCCUoc1NqSrV5A9zOc6CO', 0, 2, 1, 1606126067),
+(20, 'tes', 'tes', '$2y$10$923z5j1Vnc1BruaCC25pB.LEcr6ClKyk.xBYQVfmx5VN7OzNX2Wdm', 1, 1, 1, 1612324155);
 
 -- --------------------------------------------------------
 
@@ -627,10 +560,16 @@ ALTER TABLE `ms_sumberdana`
   MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_opd`
+--
+ALTER TABLE `tb_opd`
+  MODIFY `idopd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`

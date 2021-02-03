@@ -48,7 +48,7 @@ class Login extends CI_Controller
 					$data = [
 						'usrname' => $userlogin['usrname'],
 						'role_id' => $userlogin['role_id'],
-						'nama_bagian' => $userlogin['nama_bagian']
+						'opd' => $userlogin['opd']
 					];
 
 					$this->session->set_userdata($data);

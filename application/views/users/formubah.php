@@ -43,9 +43,18 @@
                   <small class="form-text text-danger"><?= form_error('user'); ?></small>
                 </div>
                 <div class="form-group">
-                  <label for="namabagian">Bagian</label>
-                  <input type="text" class="form-control col-md-6" id="namabagian" name="namabagian" placeholder="Enter Bagian" value="<?= $user['nama_bagian']; ?>">
-                  <small class="form-text text-danger"><?= form_error('namabagian'); ?></small>
+                  <label for="instansi">Instansi Pemerintah</label>
+                  <select class="form-control col-md-4 select2bs4" name="instansi">
+                    <option value="0">-</option>
+                    <<?php foreach ($opd as $pd) : ?>
+                      <?php if ($user['opd'] == $pd['idopd']) : ?>
+                        <option value="<?= $pd['idopd']; ?>" selected><?= $pd['namaopd']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $pd['idopd']; ?>"><?= $pd['namaopd']; ?></option>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('instansi'); ?></small>
                 </div>
                 <div class="form-group">
                   <label for="roleusr">Role User</label>
