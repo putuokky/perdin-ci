@@ -12,6 +12,7 @@ class Dana extends CI_Controller
 		$this->load->model('Model_klasijabatan', 'm_klasijabatan');
 		$this->load->model('Model_sumberdana', 'm_sumberdana');
 		$this->load->model('Model_kategoriperdin', 'm_kategoriperdin');
+		$this->load->model('model_skpd', 'm_skpd');
 	}
 
 	public function index()
@@ -41,7 +42,11 @@ class Dana extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['dana'] = $this->m_dana->getAllDana();
+		if ($this->session->userdata('opd')) {
+			$data['dana'] = $this->m_dana->getAllDanas($this->session->userdata('opd'));
+		} else {
+			$data['dana'] = $this->m_dana->getAllDana();
+		}
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
@@ -77,10 +82,14 @@ class Dana extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		if ($this->session->userdata('opd')) {
+			$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatans($this->session->userdata('opd'));
+		} else {
+			$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		}
 		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
 		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
-		$data['thnawal'] = 2018;
+		$data['thnawal'] = 2020;
 		$data['thnskrg'] = date('Y');
 
 		$this->form_validation->set_rules('klasijbtn', 'Klasifikasi Jabatan', 'required');
@@ -145,10 +154,14 @@ class Dana extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['dana'] = $this->m_dana->getDanaById($id);
-		$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		if ($this->session->userdata('opd')) {
+			$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatans($this->session->userdata('opd'));
+		} else {
+			$data['klasijbtn'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		}
 		$data['sumberdana'] = $this->m_sumberdana->getAllSumberdana();
 		$data['katperdin'] = $this->m_kategoriperdin->getAllKatPerdin();
-		$data['thnawal'] = 2018;
+		$data['thnawal'] = 2020;
 		$data['thnskrg'] = date('Y');
 
 		$this->form_validation->set_rules('klasijbtn', 'Klasifikasi Jabatan', 'required');

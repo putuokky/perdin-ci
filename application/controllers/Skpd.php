@@ -38,7 +38,12 @@ class Skpd extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['opd'] = $this->m_skpd->getAllSkpd();
+		if ($this->session->userdata('opd')) {
+			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
+		} else {
+			$data['opd'] = $this->m_skpd->getAllSkpd(); 
+		}
+		
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);

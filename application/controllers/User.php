@@ -44,7 +44,7 @@ class User extends CI_Controller
 		} else if ($this->session->userdata('role_id') == 2) {
 			$data['users'] = $this->m_user->getAllUserr(array('1', '2'));
 		} else if ($this->session->userdata('role_id') == 3) {
-			$data['users'] = $this->m_user->getAllUser(array('1', '2', '3'), $this->session->userdata('nama_bagian'));
+			$data['users'] = $this->m_user->getAllUser(array('1', '2', '3'), $this->session->userdata('opd'));
 		}
 
 		$this->load->view('templates/header', $data);
@@ -81,7 +81,11 @@ class User extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['opd'] = $this->m_skpd->getAllSkpd();
+		if ($this->session->userdata('opd')) {
+			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
+		} else {
+			$data['opd'] = $this->m_skpd->getAllSkpd();
+		}
 
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
@@ -155,8 +159,12 @@ class User extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['user'] = $this->m_user->getUsersById($id);
-		$data['opd'] = $this->m_skpd->getAllSkpd();
-
+		if ($this->session->userdata('opd')) {
+			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
+		} else {
+			$data['opd'] = $this->m_skpd->getAllSkpd();
+		}
+		
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
 		} else if ($this->session->userdata('role_id') == 2) {

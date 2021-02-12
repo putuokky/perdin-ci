@@ -29,7 +29,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+              <div class="flash-data" data-status="" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
               <?php if ($this->session->flashdata('message')) : ?>
                 <!-- <div class="alert alert-success alert-dismissible">
                   <h5><i class="icon fas fa-check"></i> Alert!</h5>
@@ -46,6 +46,7 @@
                     <th>No</th>
                     <th>Opsi</th>
                     <th>Jabatan</th>
+                    <th>Instansi Pemerintah</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -53,6 +54,7 @@
                     <th>No</th>
                     <th>Opsi</th>
                     <th>Jabatan</th>
+                    <th>Instansi Pemerintah</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -65,6 +67,11 @@
                         <a href="<?= base_url('klasijabatan/hapus/' . $kl['kode_kj']); ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
                       <td><?= $kl['jabatan']; ?></td>
+                      <td><?php if ($kl['namaopd']) {
+                            echo $kl['namaopd'];
+                          } else {
+                            echo '-';
+                          } ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

@@ -29,7 +29,7 @@ class Model_inperdin extends CI_Model
         return $query->result_array();
     }
 
-    public function getAllInperdinaa($role, $namabagian)
+    public function getAllInperdinaa($role, $opd)
     {
         $this->db->select('*');
         $this->db->from('input_perdin');
@@ -39,7 +39,7 @@ class Model_inperdin extends CI_Model
         $this->db->join('ms_kategori_perdin', 'ms_kategori_perdin.id_kat_perdin = ms_dana.kategori_perdin');
         $this->db->join('user', 'user.usrname = input_perdin.userid');
         $this->db->where_not_in('user.role_id', $role);
-        $this->db->where('user.nama_bagian',$namabagian);
+        $this->db->where('user.opd',$opd);
         $query = $this->db->get();
         return $query->result_array();
     }

@@ -4,7 +4,20 @@ class Model_klasijabatan extends CI_Model
 {
     public function getAllKlasiJabatan()
     {
-        $query = $this->db->get('ms_klasifikasi_jabatan');
+        $this->db->select('*');
+        $this->db->from('ms_klasifikasi_jabatan');
+        $this->db->join('tb_opd', 'tb_opd.idopd = ms_klasifikasi_jabatan.opd_klasijabat','left');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getAllKlasiJabatans($where)
+    {
+        $this->db->select('*');
+        $this->db->from('ms_klasifikasi_jabatan');
+        $this->db->join('tb_opd', 'tb_opd.idopd = ms_klasifikasi_jabatan.opd_klasijabat');
+        $this->db->where('ms_klasifikasi_jabatan.opd_klasijabat',$where);
+        $query = $this->db->get();
         return $query->result_array();
     }
 

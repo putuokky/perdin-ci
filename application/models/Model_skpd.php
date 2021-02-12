@@ -8,6 +8,15 @@ class Model_skpd extends CI_Model
         return $query->result_array();
     }
 
+    public function getAllSkpdByid($opd)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_opd');
+        $this->db->where('tb_opd.idopd', $opd);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function getSkpdById($id)
     {
         return $this->db->get_where('tb_opd', ['idopd' => $id])->row_array();

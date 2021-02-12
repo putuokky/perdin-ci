@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                   <label for="instansi">Instansi Pemerintah</label>
-                  <select class="form-control col-md-4 select2bs4" name="instansi">
+                  <select class="form-control col-md-10 select2bs4" name="instansi">
                     <option value="0">-</option>
                     <<?php foreach ($opd as $pd) : ?>
                       <?php if ($user['opd'] == $pd['idopd']) : ?>

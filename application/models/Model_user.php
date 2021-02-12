@@ -12,12 +12,13 @@ class Model_user extends CI_Model
         return $query->result_array();
     }
 
-    public function getAllUsersByid($nama_bagian)
+    public function getAllUsersByid($opd)
     {
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
-        $this->db->where('user.nama_bagian', $nama_bagian);
+        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd','left');
+        $this->db->where('user.opd', $opd);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -32,12 +33,13 @@ class Model_user extends CI_Model
         return $query->result_array();
     }
 
-    public function getAllUser($role, $nama_bagian = '')
+    public function getAllUser($role, $opd = '')
     {
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
-        $this->db->where('user.nama_bagian', $nama_bagian);
+        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd','left');
+        $this->db->where('user.opd', $opd);
         $this->db->where_not_in('user.role_id', $role);
         $query = $this->db->get();
         return $query->result_array();

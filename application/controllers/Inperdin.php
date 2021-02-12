@@ -45,9 +45,9 @@ class Inperdin extends CI_Controller
 		} else if ($this->session->userdata('role_id') == 2){
 			$data['iptperdin'] = $this->m_inperdin->getAllInperdina('1');
 		} else if ($this->session->userdata('role_id') == 3){
-			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('nama_bagian'));
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('opd'));
 		} else {
-			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2','3'),$this->session->userdata('nama_bagian'));
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2','3'),$this->session->userdata('opd'));
 		}
 		
 		$this->load->view('templates/header', $data);
@@ -84,7 +84,11 @@ class Inperdin extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['sumberdana'] = $this->m_dana->getAllDana();
+		if ($this->session->userdata('opd')) {
+			$data['sumberdana'] = $this->m_dana->getAllDanas($this->session->userdata('opd'));
+		} else {
+			$data['sumberdana'] = $this->m_dana->getAllDana();
+		}
 		$data['maskp'] = $this->m_maskapai->getAllMaskapai();
 		$data['thnawal'] = 2015;
 		$data['thnskrg'] = date('Y');

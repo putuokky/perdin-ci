@@ -9,6 +9,7 @@ class Klasijabatan extends CI_Controller
 		$this->load->model('model_user', 'm_user');
 		$this->load->model('model_config', 'm_config');
 		$this->load->model('model_klasijabatan', 'm_klasijabatan');
+		$this->load->model('model_skpd', 'm_skpd');
 	}
 
 	public function index()
@@ -38,8 +39,12 @@ class Klasijabatan extends CI_Controller
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
 
-		$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatan();
-
+		if ($this->session->userdata('opd')) {
+			$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatans($this->session->userdata('opd'));
+		} else {
+			$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatan();
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -73,6 +78,12 @@ class Klasijabatan extends CI_Controller
 		$data_config = $this->m_config->getConfig('link_pengembang');
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
+		
+		if ($this->session->userdata('opd')) {
+			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
+		} else {
+			$data['opd'] = $this->m_skpd->getAllSkpd();
+		}
 
 		$this->form_validation->set_rules('klajbatan', 'Klasifikasi Jabatan', 'required');
 		$this->form_validation->set_rules('kdjabtan', 'Kode Jabatan', 'required');
@@ -86,10 +97,12 @@ class Klasijabatan extends CI_Controller
 		} else {
 			$kdjabtan = $this->input->post('kdjabtan');
 			$klajbatan = $this->input->post('klajbatan');
+			$instansi = $this->input->post('instansi');
 
 			$data = [
 				'kode_kj' => $kdjabtan,
-				'jabatan' => $klajbatan
+				'jabatan' => $klajbatan,
+				'opd_klasijabat' => $instansi
 			];
 
 			$this->m_klasijabatan->tambahDataKlasiJabatan($data);
@@ -126,6 +139,11 @@ class Klasijabatan extends CI_Controller
 		// end konten default pada template wajib isi
 
 		$data['kljbt'] = $this->m_klasijabatan->getKlasiJabatanById($id);
+		if ($this->session->userdata('opd')) {
+			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
+		} else {
+			$data['opd'] = $this->m_skpd->getAllSkpd();
+		}
 
 		$this->form_validation->set_rules('klajbatan', 'Klasifikasi Jabatan', 'required');
 
@@ -138,9 +156,11 @@ class Klasijabatan extends CI_Controller
 		} else {
 			$id = $this->input->post('id');  // tidak perlu ini diubah
 			$klajbatan = $this->input->post('klajbatan');
+			$instansi = $this->input->post('instansi');
 
 			$data = [
-				'jabatan' => $klajbatan
+				'jabatan' => $klajbatan,
+				'opd_klasijabat' => $instansi
 			];
 
 			$this->m_klasijabatan->ubahDataKlasiJabatan($data, $id);

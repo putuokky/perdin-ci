@@ -41,6 +41,16 @@
                   <input type="text" class="form-control col-md-6" id="klajbatan" name="klajbatan" placeholder="Enter Jabatan">
                   <small class="form-text text-danger"><?= form_error('klajbatan'); ?></small>
                 </div>
+                <div class="form-group">
+                  <label for="instansi">Instansi Pemerintah</label>
+                  <select class="form-control col-md-10 select2bs4" name="instansi">
+                    <option value="0">-</option>
+                    <?php foreach ($opd as $pd) : ?>
+                      <option value="<?= $pd['idopd']; ?>"><?= $pd['namaopd']; ?></option>
+                    <?php endforeach ?>
+                  </select>
+                  <small class="form-text text-danger"><?= form_error('instansi'); ?></small>
+                </div>
               </div>
               <!-- /.card-body -->
 
