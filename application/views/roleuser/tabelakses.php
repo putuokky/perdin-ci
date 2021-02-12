@@ -29,11 +29,12 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+              <div class="flash-data" data-status="" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
               <?php if ($this->session->flashdata('message')) : ?>
-                <div class="alert alert-success alert-dismissible">
+                <!-- <div class="alert alert-success alert-dismissible">
                   <h5><i class="icon fas fa-check"></i> Alert!</h5>
                   <?= $subjudul; ?> Sukses <?= $this->session->flashdata('message'); ?>.
-                </div>
+                </div> -->
               <?php endif; ?>
               <h3><?= $judul; ?> : <?= $role['role']; ?></h3>
               <a href="<?= base_url('roleuser'); ?>" class="btn btn-md btn-info">Kembali</a>

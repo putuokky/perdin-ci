@@ -209,6 +209,6 @@ class Roleuser extends CI_Controller
 			$this->db->delete('user_access_menu', $data);
 		}
 
-		$this->session->set_flashdata('message', 'diganti Akses');
+		$this->session->set_flashdata('message', 'Ganti Akses');
 	}
 }
