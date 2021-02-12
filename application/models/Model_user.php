@@ -7,7 +7,7 @@ class Model_user extends CI_Model
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
-        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd','left');
+        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd', 'left');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -17,7 +17,7 @@ class Model_user extends CI_Model
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
-        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd','left');
+        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd', 'left');
         $this->db->where('user.opd', $opd);
         $query = $this->db->get();
         return $query->result_array();
@@ -38,7 +38,7 @@ class Model_user extends CI_Model
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
-        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd','left');
+        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd', 'left');
         $this->db->where('user.opd', $opd);
         $this->db->where_not_in('user.role_id', $role);
         $query = $this->db->get();

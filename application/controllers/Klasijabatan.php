@@ -44,7 +44,7 @@ class Klasijabatan extends CI_Controller
 		} else {
 			$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatan();
 		}
-		
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -78,7 +78,7 @@ class Klasijabatan extends CI_Controller
 		$data_config = $this->m_config->getConfig('link_pengembang');
 		$data['link_pengembang'] = $data_config->config_value;
 		// end konten default pada template wajib isi
-		
+
 		if ($this->session->userdata('opd')) {
 			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
 		} else {

@@ -50,7 +50,7 @@ class Laporperdin extends CI_Controller
 		$data['klajbt'] = $this->m_klasijabatan->getAllKlasiJabatan();
 		$data['katper'] = $this->m_kategoriperdin->getAllKatPerdin();
 
-		
+
 		$tahun = $this->input->post('tahun');
 		$thpanggaran = $this->input->post('thpanggaran');
 		$klsjabatan = $this->input->post('klsjabatan');
@@ -64,23 +64,22 @@ class Laporperdin extends CI_Controller
 		];
 
 		if ($keywords) {
-		$data['lapdin'] = $this->m_inperdin->cari($keywords);
+			$data['lapdin'] = $this->m_inperdin->cari($keywords);
 		} else {
-		
+
 			// untuk konten tabel
 			if ($this->session->userdata('role_id') == 1) {
 				$data['lapdin'] = $this->m_inperdin->getAllInperdin();
-			} else if ($this->session->userdata('role_id') == 2){
-				$data['lapdin'] = $this->m_inperdin->getAllInperdina('1','');
-			} else if ($this->session->userdata('role_id') == 3){
-				$data['lapdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('nama_bagian'));
+			} else if ($this->session->userdata('role_id') == 2) {
+				$data['lapdin'] = $this->m_inperdin->getAllInperdina('1', '');
+			} else if ($this->session->userdata('role_id') == 3) {
+				$data['lapdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'), $this->session->userdata('nama_bagian'));
 			} else {
-				$data['lapdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2','3'),$this->session->userdata('nama_bagian'));
+				$data['lapdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2', '3'), $this->session->userdata('nama_bagian'));
 			}
-		
 		}
 
-		
+
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
@@ -89,7 +88,8 @@ class Laporperdin extends CI_Controller
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function search(){
+	public function search()
+	{
 		$data['judul'] = 'Laporan Perdin';
 		$data['subjudul'] = 'Data Laporan Perdin';
 		$data['filjudul'] = 'Filter Laporan Perdin';

@@ -41,9 +41,9 @@ class Skpd extends CI_Controller
 		if ($this->session->userdata('opd')) {
 			$data['opd'] = $this->m_skpd->getAllSkpdByid($this->session->userdata('opd'));
 		} else {
-			$data['opd'] = $this->m_skpd->getAllSkpd(); 
+			$data['opd'] = $this->m_skpd->getAllSkpd();
 		}
-		
+
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);

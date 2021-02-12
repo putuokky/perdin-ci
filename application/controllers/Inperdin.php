@@ -42,14 +42,14 @@ class Inperdin extends CI_Controller
 
 		if ($this->session->userdata('role_id') == 1) {
 			$data['iptperdin'] = $this->m_inperdin->getAllInperdin();
-		} else if ($this->session->userdata('role_id') == 2){
+		} else if ($this->session->userdata('role_id') == 2) {
 			$data['iptperdin'] = $this->m_inperdin->getAllInperdina('1');
-		} else if ($this->session->userdata('role_id') == 3){
-			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'),$this->session->userdata('opd'));
+		} else if ($this->session->userdata('role_id') == 3) {
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2'), $this->session->userdata('opd'));
 		} else {
-			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2','3'),$this->session->userdata('opd'));
+			$data['iptperdin'] = $this->m_inperdin->getAllInperdinaa(array('1', '2', '3'), $this->session->userdata('opd'));
 		}
-		
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -66,7 +66,6 @@ class Inperdin extends CI_Controller
 		$user = $this->session->userdata('usrname');
 		$data['userlogin'] = $this->m_user->getUserByUser($user);
 		// end untuk session login wajib isi
-
 		// konten default pada template wajib isi
 		$data_config = $this->m_config->getConfig('brand');
 		$data['brand'] = $data_config->config_value;
@@ -142,43 +141,42 @@ class Inperdin extends CI_Controller
 
 			$dn = $this->m_dana->getDanaById($sumberdana);
 
-			if ($jumlah <= $dn['debit']) {				
+			if ($jumlah <= $dn['debit']) {
 				// ubah data debit di tabel dana
 				$hasil_pengurangan = $dn['debit'] - $jumlah;
 				$d_dn = [
 					'debit' => $hasil_pengurangan
-					];
+				];
 				$u_dn = $this->m_dana->ubahDataDana($d_dn, $sumberdana);
-			
-			$data = [
-				'id_dana' => $sumberdana,
-				'no_sp2d' => $nospd,
-				'nama_kegiatan' => $namaacara,
-				'tujuan' => $tujuan,
-				'tgl_berangkat' => $tglbrngkat,
-				'tgl_selesai' => $tglselesai,
-				'lama' => $lama,
-				'no_surat_tgs' => $nosrttgs,
-				'nama_personil' => $namapersonil,
-				'maskapai' => $maskap,
-				'rute' => $rute,
-				'tnggal' => $tgl,
-				'no_tiket' => $notiket,
-				'harga' => $harga,
-				'uang_harian' => $uangharian,
-				'uang_transport' => $uangtransport,
-				'penginapan' => $penginapan,
-				'uang_representatif' => $uangrepre,
-				'lain_lain' => $lainlain,
-				'jumlah' => $jumlah,
-				'debit_perdin' => $dn['debit'],
-				'userid' => $username
-			];
 
-			$this->m_inperdin->tambahDataInperdin($data);
-			$this->session->set_flashdata('message', 'Ditambah');
-			
-		} else {
+				$data = [
+					'id_dana' => $sumberdana,
+					'no_sp2d' => $nospd,
+					'nama_kegiatan' => $namaacara,
+					'tujuan' => $tujuan,
+					'tgl_berangkat' => $tglbrngkat,
+					'tgl_selesai' => $tglselesai,
+					'lama' => $lama,
+					'no_surat_tgs' => $nosrttgs,
+					'nama_personil' => $namapersonil,
+					'maskapai' => $maskap,
+					'rute' => $rute,
+					'tnggal' => $tgl,
+					'no_tiket' => $notiket,
+					'harga' => $harga,
+					'uang_harian' => $uangharian,
+					'uang_transport' => $uangtransport,
+					'penginapan' => $penginapan,
+					'uang_representatif' => $uangrepre,
+					'lain_lain' => $lainlain,
+					'jumlah' => $jumlah,
+					'debit_perdin' => $dn['debit'],
+					'userid' => $username
+				];
+
+				$this->m_inperdin->tambahDataInperdin($data);
+				$this->session->set_flashdata('message', 'Ditambah');
+			} else {
 				$this->session->set_flashdata('message', 'Ditambah');
 				redirect('inperdin');
 			}

@@ -6,7 +6,7 @@ class Model_klasijabatan extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('ms_klasifikasi_jabatan');
-        $this->db->join('tb_opd', 'tb_opd.idopd = ms_klasifikasi_jabatan.opd_klasijabat','left');
+        $this->db->join('tb_opd', 'tb_opd.idopd = ms_klasifikasi_jabatan.opd_klasijabat', 'left');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -16,7 +16,7 @@ class Model_klasijabatan extends CI_Model
         $this->db->select('*');
         $this->db->from('ms_klasifikasi_jabatan');
         $this->db->join('tb_opd', 'tb_opd.idopd = ms_klasifikasi_jabatan.opd_klasijabat');
-        $this->db->where('ms_klasifikasi_jabatan.opd_klasijabat',$where);
+        $this->db->where('ms_klasifikasi_jabatan.opd_klasijabat', $where);
         $query = $this->db->get();
         return $query->result_array();
     }

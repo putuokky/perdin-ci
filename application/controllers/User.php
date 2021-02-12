@@ -164,7 +164,7 @@ class User extends CI_Controller
 		} else {
 			$data['opd'] = $this->m_skpd->getAllSkpd();
 		}
-		
+
 		if ($this->session->userdata('role_id') == 1) {
 			$data['role'] = $this->m_roleuser->getAllRoleusers();
 		} else if ($this->session->userdata('role_id') == 2) {
