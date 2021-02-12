@@ -33,11 +33,10 @@
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">
-          <?php if ($this->session->flashdata('message')) : ?>
-            <?= $this->session->flashdata('message'); ?>
-          <?php else : ?>
-            Sign in to start your session
-          <?php endif; ?>
+          <?php if ($this->session->flashdata('message')) {
+            echo $this->session->flashdata('message');
+          }
+          ?>
         </p>
         <form action="" method="post">
           <div class="input-group mb-3">
@@ -66,6 +65,16 @@
             <!-- /.col -->
           </div>
         </form>
+
+        <div class="social-auth-links text-center mb-3">
+          <hr>
+          <p class="mb-1">
+            Copyright &copy; <?= date('Y'); ?> - <span class="text-bold"><?= $brand; ?></span>
+          </p>
+          <p class="mb-0">
+            Development by <a href="<?= $link_pengembang; ?>" target="_blank" class="text-center"><?= $nama_pengembang; ?></a>
+          </p>
+        </div>
         <!-- /.social-auth-links -->
       </div>
       <!-- /.login-card-body -->
