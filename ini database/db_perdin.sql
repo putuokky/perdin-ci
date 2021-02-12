@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Feb 2021 pada 05.26
+-- Waktu pembuatan: 12 Feb 2021 pada 10.00
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -40,7 +40,7 @@ CREATE TABLE `config` (
 INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
 (1, 'brand', 'SIPERDIN'),
 (2, 'main_header', 'SISTEM INFORMASI PERJALANAN DINAS PEMERINTAH KOTA DENPASAR'),
-(4, 'version', '1.02.21'),
+(4, 'version', '1.12.02.21'),
 (5, 'nama_pengembang', 'balecreator.id'),
 (6, 'link_pengembang', 'https://www.balecreator.id/');
 
@@ -76,23 +76,6 @@ CREATE TABLE `input_perdin` (
   `userid` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `input_perdin`
---
-
-INSERT INTO `input_perdin` (`id_perdin`, `id_dana`, `no_sp2d`, `nama_kegiatan`, `tujuan`, `tgl_berangkat`, `tgl_selesai`, `lama`, `no_surat_tgs`, `nama_personil`, `maskapai`, `rute`, `tnggal`, `no_tiket`, `harga`, `uang_harian`, `uang_transport`, `penginapan`, `uang_representatif`, `lain_lain`, `jumlah`, `debit_perdin`, `userid`) VALUES
-(5, 4, 'q222', 'qwe', 'www', '2020-12-01', '2020-12-05', 4, 'eeee', 'wwww', 1, 'www', '2020-12-01', '2323', 10000, 20000, 30000, 40000, 50000, 60000, 210000, 0, 'putuokky'),
-(6, 5, '22dd', 'gggg', 'cccc', '2020-12-01', '2020-12-05', 5, '3333', 'rrr', 1, 'ffff', '2020-12-10', 'wew333', 10000, 10000, 10000, 10000, 10000, 20000, 70000, 0, 'denpasarkota'),
-(7, 5, 'qqq', 'zzzz', 'qawww', '2020-12-01', '2020-12-16', 33, '3e3e3e', 'wwwww', 3, 'eeeee', '2020-12-09', 'rrrr', 20000, 20000, 20000, 20000, 20000, 150000, 250000, 0, 'adminhumas'),
-(8, 4, 'www', 'jjjjj', 'rrrr', '2020-12-09', '2020-12-16', 55, '444g4g', 'ggg', 4, 'ggg4g', '2020-12-22', 'ggggg', 20000, 20000, 20000, 20000, 20000, 20000, 120000, 0, 'adminadbang'),
-(9, 5, 'aaaa', 'sss', 'eeee', '2020-12-13', '2020-12-13', 4, '55ggg', 'rrrrr', 5, 'rrrr', '2020-11-30', 'rrrr', 10000, 10000, 10000, 10000, 10000, 10000, 60000, 0, 'ophumas'),
-(10, 4, '1231', 'Coba', 'Tujuan', '2020-12-21', '2020-12-16', 24000, '12313', 'Moas', 1, 'asdfasd', '2020-12-10', '129371', 340000, 245000, 2000, 45000, 65000, 50000, 747000, 5000000, 'putuokky'),
-(11, 4, '12312', 'Coba 3', 'Tes', '2020-12-09', '2020-12-17', 4, '12371', 'Testf', 4, '5', '2020-12-24', '1231', 56000, 50000, 78000, 20000, 34000, 25000, 263000, 5000000, 'putuokky'),
-(12, 4, '123681', 'Lagi Coba', 'kjhdas', '2020-12-17', '2020-12-09', 5, '20ad', 'Budi', 4, '123', '2020-12-10', '1283712', 450000, 60000, 80000, 50000, 60000, 45000, 745000, 4737000, 'putuokky'),
-(13, 4, '2hhh', 'uuuuu', 'tttttt', '2020-12-09', '2020-12-16', 5, 'uuu77777', 'oopopopo', 2, 'uuuuuu', '2020-12-08', 'ioioio', 100000, 200000, 300000, 100000, 200000, 300000, 1200000, 3992000, 'putuokky'),
-(14, 4, 'wwww11', 'wewewe', 'eeeee', '2020-12-01', '2020-12-08', 7, '333334ff', 'ggggggg', 1, 'tttttt', '2020-12-10', 'rrtrtrt', 400000, 200000, 200000, 300000, 400000, 500000, 2000000, 2792000, 'putuokky'),
-(15, 4, '2222', 'ererer', 'tjuannnn', '2020-12-08', '2020-12-15', 5, '3r3r3', 'efeefefef', 2, 'rrrrrr', '2020-12-08', '200000', 200000, 300000, 300000, 400000, 500000, 500000, 2200000, 792000, 'putuokky');
-
 -- --------------------------------------------------------
 
 --
@@ -115,7 +98,9 @@ CREATE TABLE `ms_dana` (
 
 INSERT INTO `ms_dana` (`id_dana`, `klasifikasi_jabatan`, `sumberdana`, `tahun_anggaran`, `kategori_perdin`, `dana`, `debit`) VALUES
 (4, '001', '1', '2020', '2', 5000000, 792000),
-(5, '001', '2', '2020', '2', 1000000, 1000000);
+(5, '001', '2', '2020', '2', 1000000, 1000000),
+(8, '001010101', '1', '2021', '1', 10000000, 10000000),
+(9, '00101010101', '1', '2021', '1', 50000000, 50000000);
 
 -- --------------------------------------------------------
 
@@ -145,57 +130,58 @@ INSERT INTO `ms_kategori_perdin` (`id_kat_perdin`, `nama_kat_perdin`) VALUES
 
 CREATE TABLE `ms_klasifikasi_jabatan` (
   `kode_kj` varchar(11) NOT NULL,
-  `jabatan` varchar(100) NOT NULL
+  `jabatan` varchar(100) NOT NULL,
+  `opd_klasijabat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `ms_klasifikasi_jabatan`
 --
 
-INSERT INTO `ms_klasifikasi_jabatan` (`kode_kj`, `jabatan`) VALUES
-('001', 'Walikota & Wakil Walikota & Pendamping'),
-('00101', 'Sekretaris Daerah'),
-('0010101', 'Assisten, Staf Ahli'),
-('001010101', 'Kepala Bagian Humas'),
-('00101010101', 'Eselon III/ Eselon IV Bagian Humas'),
-('00101010102', 'Golongan IV/ Golongan III Bagian Humas'),
-('00101010103', 'Golongan II / Golongan I Bagian Humas'),
-('001010102', 'Kepala Bagian Adbang'),
-('00101010201', 'Eselon III/ Eselon IV Bagian Adbang'),
-('00101010202', 'Golongan IV/ Golongan III Bagian Adbang'),
-('00101010203', 'Golongan II / Golongan I Bagian Adbang'),
-('001010103', 'Kepala Bagian Umum'),
-('00101010301', 'Eselon III/ Eselon IV Bagian Umum'),
-('00101010302', 'Golongan IV/ Golongan III Bagian Umum'),
-('00101010303', 'Golongan II / Golongan I Bagian Umum'),
-('001010104', 'Kepala Bagian Kerjasama'),
-('00101010401', 'Eselon III/ Eselon IV Bagian Kerjasama'),
-('00101010402', 'Golongan IV/ Golongan III Bagian Kerjasama'),
-('00101010403', 'Golongan II / Golongan I Bagian Kerjasama'),
-('001010105', 'Kepala Bagian Pem Otda'),
-('00101010501', 'Eselon III/ Eselon IV  Bagian Pem Otda'),
-('00101010502', 'Golongan IV/ Golongan III Bagian Pem Otda'),
-('00101010503', 'Golongan II / Golongan I Bagian Pem Otda'),
-('001010106', 'Kepala Bagian Kesra'),
-('00101010601', 'Eselon III/ Eselon IV Bagian Kesra'),
-('00101010602', 'Golongan IV/ Golongan III Bagian Kesra'),
-('00101010603', 'Golongan II / Golongan I Bagian Kesra'),
-('001010107', 'Kepala Bagian Hukum'),
-('00101010701', 'Eselon III/ Eselon IV Bagian Hukum'),
-('00101010702', 'Golongan IV/ Golongan III Bagian Hukum'),
-('00101010703', 'Golongan II / Golongan I Bagian Hukum'),
-('001010108', 'Kepala Bagian Ekonomi'),
-('00101010801', 'Eselon III/ Eselon IV Bagian Ekonomi'),
-('00101010802', 'Golongan IV/ Golongan III Bagian Ekonomi'),
-('00101010803', 'Golongan II / Golongan I Bagian Ekonomi'),
-('001010109', 'Kepala Bagian PPBJ'),
-('00101010901', 'Eselon III/ Eselon IV Bagian PPBJ'),
-('00101010902', 'Golongan IV/ Golongan III Bagian PPBJ'),
-('00101010903', 'Golongan II / Golongan I Bagian PPBJ'),
-('001010110', 'Kepala Bagian Organisasi'),
-('00101011001', 'Eselon III/ Eselon IV Bagian Organisasi'),
-('00101011002', 'Golongan IV/ Golongan III Bagian Organisasi'),
-('00101011003', 'Golongan II / Golongan I Bagian Organisasi');
+INSERT INTO `ms_klasifikasi_jabatan` (`kode_kj`, `jabatan`, `opd_klasijabat`) VALUES
+('001', 'Walikota & Wakil Walikota & Pendamping', 0),
+('00101', 'Sekretaris Daerah', 0),
+('0010101', 'Assisten, Staf Ahli', 0),
+('001010101', 'Kepala Bagian Humas', 30),
+('00101010101', 'Eselon III/ Eselon IV Bagian Humas', 30),
+('00101010102', 'Golongan IV/ Golongan III Bagian Humas', 30),
+('00101010103', 'Golongan II / Golongan I Bagian Humas', 30),
+('001010102', 'Kepala Bagian Adbang', 32),
+('00101010201', 'Eselon III/ Eselon IV Bagian Adbang', 32),
+('00101010202', 'Golongan IV/ Golongan III Bagian Adbang', 32),
+('00101010203', 'Golongan II / Golongan I Bagian Adbang', 32),
+('001010103', 'Kepala Bagian Umum', 35),
+('00101010301', 'Eselon III/ Eselon IV Bagian Umum', 35),
+('00101010302', 'Golongan IV/ Golongan III Bagian Umum', 35),
+('00101010303', 'Golongan II / Golongan I Bagian Umum', 35),
+('001010104', 'Kepala Bagian Kerjasama', 37),
+('00101010401', 'Eselon III/ Eselon IV Bagian Kerjasama', 37),
+('00101010402', 'Golongan IV/ Golongan III Bagian Kerjasama', 37),
+('00101010403', 'Golongan II / Golongan I Bagian Kerjasama', 37),
+('001010105', 'Kepala Bagian Pem Otda', 36),
+('00101010501', 'Eselon III/ Eselon IV  Bagian Pem Otda', 36),
+('00101010502', 'Golongan IV/ Golongan III Bagian Pem Otda', 36),
+('00101010503', 'Golongan II / Golongan I Bagian Pem Otda', 36),
+('001010106', 'Kepala Bagian Kesra', 33),
+('00101010601', 'Eselon III/ Eselon IV Bagian Kesra', 33),
+('00101010602', 'Golongan IV/ Golongan III Bagian Kesra', 33),
+('00101010603', 'Golongan II / Golongan I Bagian Kesra', 33),
+('001010107', 'Kepala Bagian Hukum', 28),
+('00101010701', 'Eselon III/ Eselon IV Bagian Hukum', 28),
+('00101010702', 'Golongan IV/ Golongan III Bagian Hukum', 28),
+('00101010703', 'Golongan II / Golongan I Bagian Hukum', 28),
+('001010108', 'Kepala Bagian Ekonomi', 31),
+('00101010801', 'Eselon III/ Eselon IV Bagian Ekonomi', 31),
+('00101010802', 'Golongan IV/ Golongan III Bagian Ekonomi', 31),
+('00101010803', 'Golongan II / Golongan I Bagian Ekonomi', 31),
+('001010109', 'Kepala Bagian PPBJ', 34),
+('00101010901', 'Eselon III/ Eselon IV Bagian PPBJ', 34),
+('00101010902', 'Golongan IV/ Golongan III Bagian PPBJ', 34),
+('00101010903', 'Golongan II / Golongan I Bagian PPBJ', 34),
+('001010110', 'Kepala Bagian Organisasi', 29),
+('00101011001', 'Eselon III/ Eselon IV Bagian Organisasi', 29),
+('00101011002', 'Golongan IV/ Golongan III Bagian Organisasi', 29),
+('00101011003', 'Golongan II / Golongan I Bagian Organisasi', 29);
 
 -- --------------------------------------------------------
 
@@ -271,7 +257,39 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 (6, 'Badan Penelitian dan Pengembangan', ''),
 (7, 'Satuan Polisi Pamong Praja', ''),
 (8, 'Dinas Kesehatan', ''),
-(9, 'Dinas Pendidikan, Kepemudaan dan Olahraga', '');
+(9, 'Dinas Pendidikan, Kepemudaan dan Olahraga', ''),
+(10, 'Dinas Pekerjaan Umum dan Penataan Ruang', ''),
+(11, 'Dinas Perumahan, Kawasan Permukiman dan Pertanahan', ''),
+(12, 'Dinas Perhubungan', ''),
+(13, 'Dinas Lingkungan Hidup dan Kebersihan', ''),
+(14, 'Dinas Kependudukan dan Pencatatan Sipil', ''),
+(15, 'Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana', ''),
+(16, 'Dinas Sosial', ''),
+(17, 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', ''),
+(18, 'Dinas Koperasi Usaha Mikro Kecil dan Menengah', ''),
+(19, 'Dinas Kebudayaan', ''),
+(20, 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', ''),
+(21, 'Dinas Pemberdayaan Masyarakat dan Desa', ''),
+(22, 'Dinas Perpustakaan dan Kearsipan', ''),
+(23, 'Dinas Komunikasi, Informatika dan Statistik', ''),
+(24, 'Dinas Pertanian', ''),
+(25, 'Dinas Perikanan dan Ketahanan Pangan', ''),
+(26, 'Dinas Pariwisata', ''),
+(27, 'Dinas Perindustrian dan Perdagangan', ''),
+(28, 'Bagian Hukum dan Hak Asasi Manusia Sekretariat Daerah', ''),
+(29, 'Bagian Organisasi Sekretariat Daerah', ''),
+(30, 'Bagian Humas dan Protokol', ''),
+(31, 'Bagian Perekonomian dan Sumber Daya Alam', ''),
+(32, 'Bagian Administrasi Pembangunan', ''),
+(33, 'Bagian Kesejahteraan Rakyat', ''),
+(34, 'Bagian Pengadaan Barang dan Jasa', ''),
+(35, 'Bagian Umum', ''),
+(36, 'Bagian Pemerintahan dan Otonomi Daerah', ''),
+(37, 'Bagian Kerjasama', ''),
+(38, 'Rumah Sakit Umum Daerah Wangaya', ''),
+(39, 'Perumda Air Minum Tirta Sewakadarma', ''),
+(40, 'PD Pasar', ''),
+(41, 'Perumda Bhukti Praja Sewakadarma', '');
 
 -- --------------------------------------------------------
 
@@ -296,19 +314,18 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `usrname`, `password`, `opd`, `role_id`, `is_active`, `date_user`) VALUES
 (1, 'Okky Maheswara', 'putuokky', '$2y$10$p7MPGe3IGqcWU5TIyEFCEuH/BqcPqlYnArP5YvFaAVJ6MMdptaz/a', NULL, 1, 1, 1585405006),
-(6, 'Admin Humas', 'adminhumas', '$2y$10$xFimgkXMknyeW8VZuZ4//.so.cQE8W2I9dTqL49MVj7V.RGF9UZEK', 0, 3, 1, 1605768861),
-(7, 'Admin Adbang', 'adminadbang', '$2y$10$VOx64oOPROl1DKMdnJsMdeAkJok3z47Hn27j/hNCIkCVihurVWF0O', 0, 3, 1, 1605769287),
-(8, 'Admin Umum', 'adminumum', '$2y$10$s0u2G3zB6hfsIFCyms7P6OWJPprjOAK22q9cO/vQ0tJu.TXAgejXy', 0, 3, 1, 1605769341),
-(9, 'Admin Kerjasama', 'adminkerjasama', '$2y$10$VN1iA.a9W8xZtNsXAa01ru/JdgS6PqawT.x4uzN0JX2J0pJmBTHM.', 0, 3, 1, 1605769350),
-(10, 'Admin Pem Otda', 'adminpemotda', '$2y$10$9.OIPk4zeXEu.mP9WGpMEOE6Ybluky4uYIpHnux7SRTWVcByH7Sbu', 0, 3, 1, 1605769361),
-(11, 'Admin Kesra', 'adminkesra', '$2y$10$n.xLRVpSe6d4Pst.1mi24uj9DLGg68ZvRBL5E0l6bt/IHmeMZFCSm', 0, 3, 1, 1605769376),
-(12, 'Admin Hukum', 'adminhukum', '$2y$10$DIXx9vum1MWuFMLLdgoWL.Umx0WXsiRe.zkEzWDpyRforW5/Tnr9i', 0, 3, 1, 1605769331),
-(13, 'Admin Ekonomi', 'adminekonomi', '$2y$10$63q6lYpuOsxYwsj.1FAZp.l5NAKtLLj8aB.hq6DyURp/JtR0REwti', 0, 3, 1, 1605769319),
-(14, 'Admin PPBJ', 'adminppbj', '$2y$10$kh0KUMiRidZGM.a84TyExuIR4kF440NtQfX4s1Twsc/qZiXTtSdDO', 0, 3, 1, 1605769308),
-(15, 'Admin Organisasi', 'adminorganisasi', '$2y$10$QTyj.mIvgS2eHtFedWXG5uHQRnB5D01UJkp6zDllb2FquNFU4ZjJG', 0, 3, 1, 1605769299),
-(17, 'Operator Humas', 'ophumas', '$2y$10$rJcn1V/NeSSaQ6qCd8pxsuOy8eRW5EzfBNpKReVOx4l1.GaCfkGrm', 0, 4, 1, 1606126160),
-(18, 'Denpasar Kota', 'denpasarkota', '$2y$10$tZO3TgV9N9WMUi0airmuL.Q8etFfG.CKzCCUoc1NqSrV5A9zOc6CO', 0, 2, 1, 1606126067),
-(20, 'tes', 'tes', '$2y$10$923z5j1Vnc1BruaCC25pB.LEcr6ClKyk.xBYQVfmx5VN7OzNX2Wdm', 1, 1, 1, 1612324155);
+(6, 'Admin Humas', 'adminhumas', '$2y$10$xFimgkXMknyeW8VZuZ4//.so.cQE8W2I9dTqL49MVj7V.RGF9UZEK', 30, 3, 1, 1613095240),
+(7, 'Admin Adbang', 'adminadbang', '$2y$10$VOx64oOPROl1DKMdnJsMdeAkJok3z47Hn27j/hNCIkCVihurVWF0O', 32, 3, 1, 1613095229),
+(8, 'Admin Umum', 'adminumum', '$2y$10$s0u2G3zB6hfsIFCyms7P6OWJPprjOAK22q9cO/vQ0tJu.TXAgejXy', 35, 3, 1, 1613095220),
+(9, 'Admin Kerjasama', 'adminkerjasama', '$2y$10$VN1iA.a9W8xZtNsXAa01ru/JdgS6PqawT.x4uzN0JX2J0pJmBTHM.', 37, 3, 1, 1613095210),
+(10, 'Admin Pem Otda', 'adminpemotda', '$2y$10$9.OIPk4zeXEu.mP9WGpMEOE6Ybluky4uYIpHnux7SRTWVcByH7Sbu', 36, 3, 1, 1613095201),
+(11, 'Admin Kesra', 'adminkesra', '$2y$10$n.xLRVpSe6d4Pst.1mi24uj9DLGg68ZvRBL5E0l6bt/IHmeMZFCSm', 33, 3, 1, 1613095188),
+(12, 'Admin Hukum', 'adminhukum', '$2y$10$DIXx9vum1MWuFMLLdgoWL.Umx0WXsiRe.zkEzWDpyRforW5/Tnr9i', 28, 3, 1, 1613095171),
+(13, 'Admin Ekonomi', 'adminekonomi', '$2y$10$63q6lYpuOsxYwsj.1FAZp.l5NAKtLLj8aB.hq6DyURp/JtR0REwti', 31, 3, 1, 1613095161),
+(14, 'Admin PPBJ', 'adminppbj', '$2y$10$kh0KUMiRidZGM.a84TyExuIR4kF440NtQfX4s1Twsc/qZiXTtSdDO', 34, 3, 1, 1613095146),
+(15, 'Admin Organisasi', 'adminorganisasi', '$2y$10$QTyj.mIvgS2eHtFedWXG5uHQRnB5D01UJkp6zDllb2FquNFU4ZjJG', 29, 3, 1, 1613095132),
+(17, 'Operator Humas', 'ophumas', '$2y$10$rJcn1V/NeSSaQ6qCd8pxsuOy8eRW5EzfBNpKReVOx4l1.GaCfkGrm', 30, 4, 1, 1613095118),
+(18, 'Denpasar Kota', 'denpasarkota', '$2y$10$tZO3TgV9N9WMUi0airmuL.Q8etFfG.CKzCCUoc1NqSrV5A9zOc6CO', 0, 2, 1, 1606126067);
 
 -- --------------------------------------------------------
 
@@ -533,37 +550,37 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT untuk tabel `input_perdin`
 --
 ALTER TABLE `input_perdin`
-  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_perdin` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_dana`
 --
 ALTER TABLE `ms_dana`
-  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_dana` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_kategori_perdin`
 --
 ALTER TABLE `ms_kategori_perdin`
-  MODIFY `id_kat_perdin` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kat_perdin` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_maskapai`
 --
 ALTER TABLE `ms_maskapai`
-  MODIFY `id_maskapai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_maskapai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `ms_sumberdana`
 --
 ALTER TABLE `ms_sumberdana`
-  MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_sumberdana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_opd`
 --
 ALTER TABLE `tb_opd`
-  MODIFY `idopd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idopd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
