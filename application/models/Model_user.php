@@ -23,11 +23,12 @@ class Model_user extends CI_Model
         return $query->result_array();
     }
 
-    public function getAllUserr($role)
+    public function getAllUserrs($role)
     {
         $this->db->select('*');
         $this->db->from('user');
         $this->db->join('user_role', 'user_role.id_role = user.role_id');
+        $this->db->join('tb_opd', 'tb_opd.idopd = user.opd', 'left');
         $this->db->where_not_in('user.role_id', $role);
         $query = $this->db->get();
         return $query->result_array();

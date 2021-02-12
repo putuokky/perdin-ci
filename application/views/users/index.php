@@ -88,7 +88,8 @@
                           <button type="button" class="btn btn-sm btn-success">Aktif</button>
                         <?php } else { ?>
                           <button type="button" class="btn btn-sm btn-danger">Non Aktif</button>
-                        <?php } ?></td>
+                        <?php } ?>
+                      </td>
                       <td><?= date('d F Y', $us['date_user']); ?></td>
                     </tr>
                   <?php endforeach; ?>

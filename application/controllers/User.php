@@ -42,9 +42,9 @@ class User extends CI_Controller
 		if ($this->session->userdata('role_id') == 1) {
 			$data['users'] = $this->m_user->getAllUsers();
 		} else if ($this->session->userdata('role_id') == 2) {
-			$data['users'] = $this->m_user->getAllUserr(array('1', '2'));
+			$data['users'] = $this->m_user->getAllUserrs(array('1'));
 		} else if ($this->session->userdata('role_id') == 3) {
-			$data['users'] = $this->m_user->getAllUser(array('1', '2', '3'), $this->session->userdata('opd'));
+			$data['users'] = $this->m_user->getAllUser(array('1', '2'), $this->session->userdata('opd'));
 		}
 
 		$this->load->view('templates/header', $data);
