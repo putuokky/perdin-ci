@@ -46,6 +46,12 @@
 
   <!-- The fav icon -->
   <link rel="shortcut icon" href="<?= base_url('assets'); ?>/dist/img/Lambang_Kota_Denpasar.png">
+
+  <!-- Hightchart -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
