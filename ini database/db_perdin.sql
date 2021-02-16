@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2021 pada 10.00
+-- Waktu pembuatan: 16 Feb 2021 pada 02.44
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -40,7 +40,7 @@ CREATE TABLE `config` (
 INSERT INTO `config` (`id_config`, `nama_config`, `config_value`) VALUES
 (1, 'brand', 'SIPERDIN'),
 (2, 'main_header', 'SISTEM INFORMASI PERJALANAN DINAS PEMERINTAH KOTA DENPASAR'),
-(4, 'version', '1.12.02.21'),
+(4, 'version', '1.02.21'),
 (5, 'nama_pengembang', 'balecreator.id'),
 (6, 'link_pengembang', 'https://www.balecreator.id/');
 
@@ -276,16 +276,16 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 (25, 'Dinas Perikanan dan Ketahanan Pangan', ''),
 (26, 'Dinas Pariwisata', ''),
 (27, 'Dinas Perindustrian dan Perdagangan', ''),
-(28, 'Bagian Hukum dan Hak Asasi Manusia Sekretariat Daerah', ''),
-(29, 'Bagian Organisasi Sekretariat Daerah', ''),
-(30, 'Bagian Humas dan Protokol', ''),
-(31, 'Bagian Perekonomian dan Sumber Daya Alam', ''),
-(32, 'Bagian Administrasi Pembangunan', ''),
-(33, 'Bagian Kesejahteraan Rakyat', ''),
-(34, 'Bagian Pengadaan Barang dan Jasa', ''),
-(35, 'Bagian Umum', ''),
-(36, 'Bagian Pemerintahan dan Otonomi Daerah', ''),
-(37, 'Bagian Kerjasama', ''),
+(28, 'Bagian Hukum dan Hak Asasi Manusia Sekretariat Daerah', 'Bag. Hukum Ham'),
+(29, 'Bagian Organisasi Sekretariat Daerah', 'Bag. Organisasi'),
+(30, 'Bagian Humas dan Protokol', 'Bag. Humas'),
+(31, 'Bagian Perekonomian dan Sumber Daya Alam', 'Bag. Perekonomian dan SDA'),
+(32, 'Bagian Administrasi Pembangunan', 'Bag. Adbang'),
+(33, 'Bagian Kesejahteraan Rakyat', 'Bag. Kesra'),
+(34, 'Bagian Pengadaan Barang dan Jasa', 'Bag. PBJ'),
+(35, 'Bagian Umum', 'Bag. Umum'),
+(36, 'Bagian Pemerintahan dan Otonomi Daerah', 'Bag. Pem Otda'),
+(37, 'Bagian Kerjasama', 'Bag. Kerjasama'),
 (38, 'Rumah Sakit Umum Daerah Wangaya', ''),
 (39, 'Perumda Air Minum Tirta Sewakadarma', ''),
 (40, 'PD Pasar', ''),
@@ -313,7 +313,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `usrname`, `password`, `opd`, `role_id`, `is_active`, `date_user`) VALUES
-(1, 'Okky Maheswara', 'putuokky', '$2y$10$p7MPGe3IGqcWU5TIyEFCEuH/BqcPqlYnArP5YvFaAVJ6MMdptaz/a', NULL, 1, 1, 1585405006),
+(1, 'Okky Maheswara', 'putuokky', '$2y$10$E3BW0lENMZBGkIQ9ayuAP.jLmMxe/h7XjcYyslMcyzvBySCgQadh6', NULL, 1, 1, 1585405006),
 (6, 'Admin Humas', 'adminhumas', '$2y$10$xFimgkXMknyeW8VZuZ4//.so.cQE8W2I9dTqL49MVj7V.RGF9UZEK', 30, 3, 1, 1613095240),
 (7, 'Admin Adbang', 'adminadbang', '$2y$10$VOx64oOPROl1DKMdnJsMdeAkJok3z47Hn27j/hNCIkCVihurVWF0O', 32, 3, 1, 1613095229),
 (8, 'Admin Umum', 'adminumum', '$2y$10$s0u2G3zB6hfsIFCyms7P6OWJPprjOAK22q9cO/vQ0tJu.TXAgejXy', 35, 3, 1, 1613095220),
@@ -367,10 +367,10 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (24, 4, 6),
 (25, 4, 10),
 (27, 1, 13),
-(28, 1, 8),
 (29, 2, 13),
 (30, 3, 13),
-(31, 4, 13);
+(31, 4, 13),
+(34, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -544,7 +544,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT untuk tabel `config`
 --
 ALTER TABLE `config`
-  MODIFY `id_config` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_config` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `input_perdin`
@@ -592,25 +592,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_user_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
